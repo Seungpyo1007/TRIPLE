@@ -13,11 +13,11 @@ class MainViewController: UIViewController {
     //사이드바 그림자 영역
     private var sideMenuShadowView: UIView!
     //사이드바 가로 넓이 + 회전시 폭
-    private var sideMenuRevealWidth: CGFloat = 260
+    private var sideMenuRevealWidth: CGFloat = 320
     private let paddingForRotation: CGFloat = 150
     //열려있는가
     private var isExpanded: Bool = false
-    // 사이드메뉴 열기/닫기 설정용 LC
+    // 사이드메뉴 열기/닫기 설정용 TC
     private var sideMenuTrailingConstraint: NSLayoutConstraint!
    
     override public func viewDidLoad() {
@@ -45,7 +45,7 @@ class MainViewController: UIViewController {
         // 그림자 영역 추가
         view.addSubview(self.sideMenuShadowView)
 
-        // Side Menu - 스토리보드 없이 XIB 또는 코드로 인스턴스화
+        // Side Menu
         if Bundle.main.path(forResource: "SideMenuViewController", ofType: "nib") != nil ||
             Bundle.main.path(forResource: "SideMenuViewController", ofType: "xib") != nil {
             self.sideMenuViewController = SideMenuViewController(nibName: "SideMenuViewController", bundle: .main)
@@ -60,7 +60,7 @@ class MainViewController: UIViewController {
 
         // 사이드 메뉴 레이아웃 잡기
         self.sideMenuViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        self.sideMenuTrailingConstraint = self.sideMenuViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -self.sideMenuRevealWidth - self.paddingForRotation)
+        self.sideMenuTrailingConstraint = self.sideMenuViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: self.sideMenuRevealWidth + self.paddingForRotation)
         self.sideMenuTrailingConstraint.isActive = true
     
         NSLayoutConstraint.activate([
@@ -84,7 +84,7 @@ class MainViewController: UIViewController {
             UIView.animate(withDuration: 0.5) { self.sideMenuShadowView.alpha = 0.6 }
         }
         else {
-            self.animateSideMenu(targetPosition: (-self.sideMenuRevealWidth - self.paddingForRotation)) { _ in
+            self.animateSideMenu(targetPosition: (self.sideMenuRevealWidth + self.paddingForRotation)) { _ in
                 self.isExpanded = false
             }
             // Animate Shadow (Fade Out)

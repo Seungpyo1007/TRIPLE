@@ -8,22 +8,26 @@
 import UIKit
 
 class SideMenuViewController: UIViewController {
+    @IBOutlet weak var containerView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        embedSideMenuDetail()
     }
 
+    private func embedSideMenuDetail() {
+        let detailView = SideMenuDetailView()
+        detailView.translatesAutoresizingMaskIntoConstraints = false
+        let targetContainer = containerView ?? view
+        targetContainer?.addSubview(detailView)
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let target = targetContainer {
+            NSLayoutConstraint.activate([
+                detailView.topAnchor.constraint(equalTo: target.topAnchor),
+                detailView.bottomAnchor.constraint(equalTo: target.bottomAnchor),
+                detailView.leadingAnchor.constraint(equalTo: target.leadingAnchor),
+                detailView.trailingAnchor.constraint(equalTo: target.trailingAnchor)
+            ])
+        }
     }
-    */
-
 }

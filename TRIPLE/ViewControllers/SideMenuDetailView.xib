@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24128" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SideMenuDetailView" customModule="TRIPLE" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FmN-m3-WY9">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auv-gx-ZDe">
+                    <rect key="frame" x="0.0" y="550" width="393" height="200"/>
+                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FzS-EW-Efm">
+                    <rect key="frame" x="0.0" y="200" width="393" height="350"/>
+                    <color key="backgroundColor" systemColor="systemYellowColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cvz-e9-clt">
+                    <rect key="frame" x="0.0" y="750" width="393" height="102"/>
+                    <color key="backgroundColor" systemColor="systemYellowColor"/>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="FzS-EW-Efm" secondAttribute="bottom" constant="302" id="1wt-GJ-vwm"/>
+                <constraint firstAttribute="trailing" secondItem="auv-gx-ZDe" secondAttribute="trailing" id="4HT-NO-3SA"/>
+                <constraint firstItem="cvz-e9-clt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="750" id="Bxi-bk-MiW"/>
+                <constraint firstAttribute="trailing" secondItem="FzS-EW-Efm" secondAttribute="trailing" id="JQY-g9-VkA"/>
+                <constraint firstItem="auv-gx-ZDe" firstAttribute="top" secondItem="FzS-EW-Efm" secondAttribute="bottom" id="KQe-Fc-fq6"/>
+                <constraint firstItem="FzS-EW-Efm" firstAttribute="top" secondItem="FmN-m3-WY9" secondAttribute="bottom" id="PVb-jk-0kp"/>
+                <constraint firstItem="FzS-EW-Efm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="200" id="QHG-Hs-rx9"/>
+                <constraint firstAttribute="trailing" secondItem="cvz-e9-clt" secondAttribute="trailing" id="SKw-Uz-N6n"/>
+                <constraint firstItem="auv-gx-ZDe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UdK-Lk-S6G"/>
+                <constraint firstItem="FmN-m3-WY9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XCn-s1-55i"/>
+                <constraint firstAttribute="top" secondItem="FmN-m3-WY9" secondAttribute="top" id="Yfb-UH-lYa"/>
+                <constraint firstItem="cvz-e9-clt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cTO-a3-cGK"/>
+                <constraint firstItem="cvz-e9-clt" firstAttribute="top" secondItem="auv-gx-ZDe" secondAttribute="bottom" id="e3j-he-3IB"/>
+                <constraint firstItem="FzS-EW-Efm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="f8r-e1-V9o"/>
+                <constraint firstAttribute="trailing" secondItem="FmN-m3-WY9" secondAttribute="trailing" id="qvK-vE-L9H"/>
+                <constraint firstItem="cvz-e9-clt" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="xWW-U0-Vmn"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="15" y="108"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
