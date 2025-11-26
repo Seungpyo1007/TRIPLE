@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     private var sideMenuShadowView: UIView!
     //사이드바 가로 넓이 + 회전시 폭
     private var sideMenuRevealWidth: CGFloat = 320
-    private let paddingForRotation: CGFloat = 150
+    private let paddingForRotation: CGFloat = 200
     //열려있는가
     private var isExpanded: Bool = false
     // 사이드메뉴 열기/닫기 설정용 TC
