@@ -12,6 +12,11 @@ class SideMenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Remove any default layout margins to avoid side gaps
+        view.preservesSuperviewLayoutMargins = false
+        view.directionalLayoutMargins = .zero
+        containerView?.preservesSuperviewLayoutMargins = false
+        containerView?.directionalLayoutMargins = .zero
         embedSideMenuDetail()
     }
 
@@ -31,3 +36,4 @@ class SideMenuViewController: UIViewController {
         }
     }
 }
+
