@@ -22,6 +22,17 @@
             <subviews>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSQ-Zs-ASI">
                     <rect key="frame" x="0.0" y="121" width="260" height="54"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <textAttributes key="titleTextAttributes">
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </textAttributes>
+                    <textAttributes key="largeTitleTextAttributes">
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </textAttributes>
                     <items>
                         <navigationItem id="c6D-nx-WjY">
                             <barButtonItem key="leftBarButtonItem" title="Item" image="xmark" catalog="system" landscapeImage="xmark" largeContentSizeImage="xmark" id="mlu-R6-9oS">
@@ -60,7 +71,6 @@
     </objects>
     <resources>
         <image name="bell" catalog="system" width="125" height="128"/>
-        <image name="bell" width="128" height="128"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
