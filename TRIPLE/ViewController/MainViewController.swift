@@ -7,24 +7,82 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+protocol MainViewScrollDelegate: AnyObject {
+    // Called with vertical content offset (positive when scrolling up)
+    func mainViewDidScroll(to offsetY: CGFloat)
+}
+
+class MainViewController: UIViewController, MainViewScrollDelegate {
     // 사이드바 컨트롤러
     private var sideMenuViewController: SideMenuViewController!
     //사이드바 그림자 영역
     private var sideMenuShadowView: UIView!
     //사이드바 가로 넓이 + 회전시 폭
     private var sideMenuRevealWidth: CGFloat = 320
-    private let paddingForRotation: CGFloat = 200
+    private let paddingForRotation: CGFloat = 320
     //열려있는가
     private var isExpanded: Bool = false
     // 사이드메뉴 열기/닫기 설정용 TC
     private var sideMenuTrailingConstraint: NSLayoutConstraint!
+    
+    // Sticky header configuration
+    private let stickyRange: CGFloat = 120 // how much header can collapse/expand
+    private var initialMainTopConstant: CGFloat = 0
+    
+    // mainView를 위로 올리기 위한 상단 제약
+    @IBOutlet weak var mainViewTopConstraint: NSLayoutConstraint!
    
     override public func viewDidLoad() {
         super.viewDidLoad()
+        // Save initial top constraint for sticky behavior
+        self.initialMainTopConstant = self.mainViewTopConstraint?.constant ?? 0
+        // Ensure goneView starts visible
+        self.goneView?.alpha = 1.0
         // 사이드바 추가
         self.setBasicSideMenu()
+        embedMainView()
+        embedGoneView()
     }
+    
+    //MARK: - @IBOutlets
+    
+    @IBOutlet weak var goneView: UIView!
+    @IBOutlet weak var mainView: UIView!
+    
+    private func embedMainView() {
+        let detailView = MainView()
+        // Connect scroll delegate for sticky header
+        detailView.scrollDelegate = self
+        detailView.translatesAutoresizingMaskIntoConstraints = false
+        let targetContainer = mainView ?? view
+        targetContainer?.addSubview(detailView)
+
+        if let target = targetContainer {
+            NSLayoutConstraint.activate([
+                detailView.topAnchor.constraint(equalTo: target.topAnchor),
+                detailView.bottomAnchor.constraint(equalTo: target.bottomAnchor),
+                detailView.leadingAnchor.constraint(equalTo: target.leadingAnchor),
+                detailView.trailingAnchor.constraint(equalTo: target.trailingAnchor)
+            ])
+        }
+    }
+    
+    private func embedGoneView() {
+        let detailView = GoneView()
+        detailView.translatesAutoresizingMaskIntoConstraints = false
+        let targetContainer = goneView ?? view
+        targetContainer?.addSubview(detailView)
+
+        if let target = targetContainer {
+            NSLayoutConstraint.activate([
+                detailView.topAnchor.constraint(equalTo: target.topAnchor),
+                detailView.bottomAnchor.constraint(equalTo: target.bottomAnchor),
+                detailView.leadingAnchor.constraint(equalTo: target.leadingAnchor),
+                detailView.trailingAnchor.constraint(equalTo: target.trailingAnchor)
+            ])
+        }
+    }
+    
 
     // 수동으로 버튼 누르면 만든 뷰 열기
     @IBAction func openSlideMenuPro(_ sender: Any) {
@@ -98,5 +156,27 @@ class MainViewController: UIViewController {
             self.view.layoutIfNeeded()
         }, completion: completion)
     }
+    
+    // MARK: - MainViewScrollDelegate
+    func mainViewDidScroll(to offsetY: CGFloat) {
+        // Positive offsetY means user scrolled up (collapse header). Negative means expand.
+        // Compute desired delta within [0, stickyRange]
+        let collapse = max(0, min(stickyRange, offsetY))
+        let newTop = initialMainTopConstant - collapse
+        self.mainViewTopConstraint?.constant = newTop
+        // goneView fades out as it collapses
+        let progress = min(max(collapse / stickyRange, 0), 1)
+        self.goneView?.alpha = 1 - progress
+        // When scrolling down (offsetY < 0), expand back up to initial state
+        if offsetY < 0 {
+            let expandAmount = min(stickyRange, abs(offsetY))
+            let adjustedTop = min(initialMainTopConstant, (self.mainViewTopConstraint?.constant ?? initialMainTopConstant) + expandAmount)
+            self.mainViewTopConstraint?.constant = adjustedTop
+            let remaining = initialMainTopConstant - adjustedTop
+            let expandedProgress = min(max(1 - (remaining / stickyRange), 0), 1)
+            self.goneView?.alpha = expandedProgress
+        }
+        // Apply layout updates without animation for responsiveness
+        self.view.layoutIfNeeded()
+    }
 }
-
