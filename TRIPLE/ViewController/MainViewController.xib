@@ -13,8 +13,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="TRIPLE" customModuleProvider="target">
             <connections>
                 <outlet property="goneView" destination="cnA-iG-sEH" id="LER-fs-pJd"/>
+                <outlet property="goneViewTopConstraint" destination="6sy-Uh-1uO" id="X4N-Ds-LNM"/>
                 <outlet property="mainView" destination="5YT-bC-Fya" id="3gs-LR-JPC"/>
                 <outlet property="mainViewTopConstraint" destination="Pp2-4A-Pda" id="0GG-yY-CPe"/>
+                <outlet property="navigationBar" destination="jt9-pn-jKf" id="1id-Li-LQD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jt9-pn-jKf">
-                    <rect key="frame" x="0.0" y="121" width="393" height="54"/>
+                    <rect key="frame" x="0.0" y="118" width="393" height="54"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -41,12 +43,15 @@
                                     <imageReference key="image" image="line.3.horizontal" catalog="system" symbolScale="large"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <connections>
-                                        <action selector="openSlideMenuPro:" destination="-1" id="sok-WT-bxd"/>
+                                        <action selector="openSlideMenu:" destination="-1" id="B83-ax-FeU"/>
                                     </connections>
                                 </barButtonItem>
                                 <barButtonItem title="Item" landscapeImage="magnifyingglass" catalog="system" largeContentSizeImage="magnifyingglass" id="f8t-7T-Ban">
                                     <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large" variableValue="5.5511151231257827e-17"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <connections>
+                                        <action selector="openSearchMenu:" destination="-1" id="LDr-hf-8tC"/>
+                                    </connections>
                                 </barButtonItem>
                                 <barButtonItem title="item" landscapeImage="calendar" catalog="system" largeContentSizeImage="calendar" id="LbD-Bw-Zx0">
                                     <imageReference key="image" image="calendar" catalog="system" symbolScale="large"/>
@@ -57,7 +62,7 @@
                     </items>
                 </navigationBar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnA-iG-sEH">
-                    <rect key="frame" x="0.0" y="175" width="393" height="113"/>
+                    <rect key="frame" x="0.0" y="172" width="393" height="116"/>
                     <color key="backgroundColor" systemColor="systemBlueColor"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5YT-bC-Fya">
@@ -72,7 +77,7 @@
                 <constraint firstItem="cnA-iG-sEH" firstAttribute="top" secondItem="jt9-pn-jKf" secondAttribute="bottom" id="6sy-Uh-1uO"/>
                 <constraint firstItem="cnA-iG-sEH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FUF-9g-ggk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5YT-bC-Fya" secondAttribute="trailing" id="FZb-Bh-paA"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="jt9-pn-jKf" secondAttribute="top" constant="-3" id="KhW-sh-yTi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="jt9-pn-jKf" secondAttribute="top" id="KhW-sh-yTi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5YT-bC-Fya" secondAttribute="bottom" id="LIk-2d-lfK"/>
                 <constraint firstItem="5YT-bC-Fya" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="170" id="Pp2-4A-Pda"/>
                 <constraint firstItem="jt9-pn-jKf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dNK-Ly-FHL"/>
