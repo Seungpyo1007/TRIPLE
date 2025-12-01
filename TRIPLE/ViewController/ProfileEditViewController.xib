@@ -20,38 +20,76 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKE-Nu-85T">
-                    <rect key="frame" x="0.0" y="118" width="393" height="246"/>
+                    <rect key="frame" x="0.0" y="172" width="393" height="216"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dcJ-Z8-O6h">
+                            <rect key="frame" x="151.66666666666666" y="63.666666666666657" width="90" height="88.666666666666657"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="90" id="AAC-Lm-Dv1"/>
+                                <constraint firstAttribute="height" constant="90" id="qtt-hx-BlM"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
                     <color key="backgroundColor" systemColor="systemGreenColor"/>
+                    <constraints>
+                        <constraint firstItem="dcJ-Z8-O6h" firstAttribute="centerY" secondItem="vKE-Nu-85T" secondAttribute="centerY" id="fDP-pQ-Hta"/>
+                        <constraint firstItem="dcJ-Z8-O6h" firstAttribute="centerX" secondItem="vKE-Nu-85T" secondAttribute="centerX" id="meI-vP-SuL"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k9C-dy-UfJ">
-                    <rect key="frame" x="0.0" y="364" width="393" height="150"/>
+                    <rect key="frame" x="0.0" y="388" width="393" height="130"/>
                     <color key="backgroundColor" systemColor="systemGrayColor"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHR-uv-P0H">
-                    <rect key="frame" x="0.0" y="514" width="393" height="270"/>
+                    <rect key="frame" x="0.0" y="518" width="393" height="266"/>
                     <color key="backgroundColor" systemColor="systemOrangeColor"/>
                 </view>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdB-cN-jxn">
+                    <rect key="frame" x="0.0" y="118" width="393" height="54"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <textAttributes key="titleTextAttributes">
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </textAttributes>
+                    <textAttributes key="largeTitleTextAttributes">
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </textAttributes>
+                    <items>
+                        <navigationItem id="4xT-is-FwM">
+                            <barButtonItem key="leftBarButtonItem" title="Item" image="arrowshape.backward" catalog="system" id="gdq-fO-zSG">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="k9C-dy-UfJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="AKb-BR-QXL"/>
+                <constraint firstItem="vKE-Nu-85T" firstAttribute="top" secondItem="rdB-cN-jxn" secondAttribute="bottom" id="AqT-RB-hJe"/>
                 <constraint firstItem="vKE-Nu-85T" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LJw-It-F6h"/>
-                <constraint firstItem="GHR-uv-P0H" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="396" id="LzD-3u-ddF"/>
-                <constraint firstItem="k9C-dy-UfJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="246" id="PEQ-2l-TiG"/>
+                <constraint firstItem="GHR-uv-P0H" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="400" id="LzD-3u-ddF"/>
+                <constraint firstItem="rdB-cN-jxn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NaI-wR-RgV"/>
+                <constraint firstItem="k9C-dy-UfJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="270" id="PEQ-2l-TiG"/>
                 <constraint firstItem="GHR-uv-P0H" firstAttribute="top" secondItem="k9C-dy-UfJ" secondAttribute="bottom" id="a3c-kf-VoN"/>
+                <constraint firstItem="rdB-cN-jxn" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="h6a-Lg-u8D"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rdB-cN-jxn" secondAttribute="trailing" id="hJe-Ef-8VW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GHR-uv-P0H" secondAttribute="trailing" id="hWo-Aq-3Yc"/>
-                <constraint firstItem="vKE-Nu-85T" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="haH-Tm-S8G"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vKE-Nu-85T" secondAttribute="trailing" id="nWa-i2-JeQ"/>
                 <constraint firstItem="k9C-dy-UfJ" firstAttribute="top" secondItem="vKE-Nu-85T" secondAttribute="bottom" id="nyg-VQ-zyn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="GHR-uv-P0H" secondAttribute="bottom" id="qcA-Mf-2Yj"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="k9C-dy-UfJ" secondAttribute="trailing" id="vIP-WA-wYi"/>
                 <constraint firstItem="GHR-uv-P0H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xpS-42-FqJ"/>
             </constraints>
-            <point key="canvasLocation" x="-19.083969465648853" y="97.887323943661983"/>
+            <point key="canvasLocation" x="-16" y="97"/>
         </view>
     </objects>
     <resources>
+        <image name="arrowshape.backward" catalog="system" width="128" height="104"/>
+        <image name="circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

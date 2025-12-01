@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSQ-Zs-ASI">
-                    <rect key="frame" x="0.0" y="121" width="260" height="54"/>
+                    <rect key="frame" x="0.0" y="118" width="260" height="54"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,7 +50,7 @@
                     </items>
                 </navigationBar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YeQ-NU-eOi">
-                    <rect key="frame" x="0.0" y="175" width="260" height="425"/>
+                    <rect key="frame" x="0.0" y="172" width="260" height="428"/>
                     <color key="backgroundColor" systemColor="systemPurpleColor"/>
                 </view>
             </subviews>
@@ -59,7 +59,7 @@
             <constraints>
                 <constraint firstItem="YeQ-NU-eOi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aXK-b1-sBO"/>
                 <constraint firstAttribute="bottom" secondItem="YeQ-NU-eOi" secondAttribute="bottom" id="iJj-xU-59f"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="bSQ-Zs-ASI" secondAttribute="top" constant="-3" id="mgI-Qg-5Ti"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="bSQ-Zs-ASI" secondAttribute="top" id="mgI-Qg-5Ti"/>
                 <constraint firstItem="bSQ-Zs-ASI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="o92-0p-Gzc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bSQ-Zs-ASI" secondAttribute="trailing" id="rgR-Rg-oCl"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YeQ-NU-eOi" secondAttribute="trailing" id="vUl-fS-hmy"/>
