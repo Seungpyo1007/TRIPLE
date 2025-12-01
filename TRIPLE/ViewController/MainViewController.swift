@@ -13,14 +13,11 @@ protocol MainViewScrollDelegate: AnyObject {
 }
 
 class MainViewController: UIViewController, MainViewScrollDelegate {
-    // 사이드바 컨트롤러
     private var sideMenuViewController: SideMenuViewController!
-    //사이드바 그림자 영역
     private var sideMenuShadowView: UIView!
     //사이드바 가로 넓이 + 회전시 폭
     private var sideMenuRevealWidth: CGFloat = 320
     private let paddingForRotation: CGFloat = 320
-    //열려있는가
     private var isExpanded: Bool = false
     // 사이드메뉴 열기/닫기 설정용 TC
     private var sideMenuTrailingConstraint: NSLayoutConstraint!
@@ -29,6 +26,7 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     private let stickyRange: CGFloat = 120 // how much header can collapse/expand
     private var initialMainTopConstant: CGFloat = 0
     
+    @IBOutlet weak var goneViewTopConstraint: NSLayoutConstraint!
     // mainView를 위로 올리기 위한 상단 제약
     @IBOutlet weak var mainViewTopConstraint: NSLayoutConstraint!
    
@@ -36,22 +34,21 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
         super.viewDidLoad()
         // Save initial top constraint for sticky behavior
         self.initialMainTopConstant = self.mainViewTopConstraint?.constant ?? 0
-        // Ensure goneView starts visible
-        self.goneView?.alpha = 1.0
         // 사이드바 추가
         self.setBasicSideMenu()
         embedMainView()
         embedGoneView()
     }
+
     
     //MARK: - @IBOutlets
     
+    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var goneView: UIView!
     @IBOutlet weak var mainView: UIView!
     
     private func embedMainView() {
         let detailView = MainView()
-        // Connect scroll delegate for sticky header
         detailView.scrollDelegate = self
         detailView.translatesAutoresizingMaskIntoConstraints = false
         let targetContainer = mainView ?? view
@@ -83,9 +80,26 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
         }
     }
     
+    // 누르면 push 방식으로 ProfileEditViewController로 이동
+    @IBAction func openSearchMenu(_ sender: Any) {
+        let vc: UIViewController
+        if Bundle.main.path(forResource: "ProfileEditViewController", ofType: "nib") != nil ||
+            Bundle.main.path(forResource: "ProfileEditViewController", ofType: "xib") != nil {
+            vc = ProfileEditViewController(nibName: "ProfileEditViewController", bundle: .main)
+        } else {
+            vc = ProfileEditViewController()
+        }
+        vc.modalPresentationStyle = .fullScreen
+        if let nav = self.navigationController {
+            nav.pushViewController(vc, animated: true)
+        } else {
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
 
     // 수동으로 버튼 누르면 만든 뷰 열기
-    @IBAction func openSlideMenuPro(_ sender: Any) {
+    @IBAction func openSlideMenu(_ sender: Any) {
         self.sideMenuState(expanded: self.isExpanded ? false : true)
     }
     
@@ -138,14 +152,12 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
             self.animateSideMenu(targetPosition:  0 ) { _ in
                 self.isExpanded = true
             }
-            // Animate Shadow (Fade In)
             UIView.animate(withDuration: 0.5) { self.sideMenuShadowView.alpha = 0.6 }
         }
         else {
             self.animateSideMenu(targetPosition: (self.sideMenuRevealWidth + self.paddingForRotation)) { _ in
                 self.isExpanded = false
             }
-            // Animate Shadow (Fade Out)
             UIView.animate(withDuration: 0.5) { self.sideMenuShadowView.alpha = 0.0 }
         }
     }
@@ -159,24 +171,16 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     
     // MARK: - MainViewScrollDelegate
     func mainViewDidScroll(to offsetY: CGFloat) {
-        // Positive offsetY means user scrolled up (collapse header). Negative means expand.
-        // Compute desired delta within [0, stickyRange]
         let collapse = max(0, min(stickyRange, offsetY))
         let newTop = initialMainTopConstant - collapse
         self.mainViewTopConstraint?.constant = newTop
-        // goneView fades out as it collapses
-        let progress = min(max(collapse / stickyRange, 0), 1)
-        self.goneView?.alpha = 1 - progress
-        // When scrolling down (offsetY < 0), expand back up to initial state
+        
         if offsetY < 0 {
             let expandAmount = min(stickyRange, abs(offsetY))
             let adjustedTop = min(initialMainTopConstant, (self.mainViewTopConstraint?.constant ?? initialMainTopConstant) + expandAmount)
             self.mainViewTopConstraint?.constant = adjustedTop
-            let remaining = initialMainTopConstant - adjustedTop
-            let expandedProgress = min(max(1 - (remaining / stickyRange), 0), 1)
-            self.goneView?.alpha = expandedProgress
         }
-        // Apply layout updates without animation for responsiveness
         self.view.layoutIfNeeded()
     }
 }
+
