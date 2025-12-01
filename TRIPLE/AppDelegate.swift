@@ -13,16 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        // A를 rootViewController로 설정
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        let navController = UINavigationController()
+        navController.setNavigationBarHidden(true, animated: false) // Default NavigationBar 숨기기
         let aVC = MainViewController(nibName: "MainViewController", bundle: nil)
-        // 윈도우 생성
-        window = UIWindow(frame: UIScreen.main.bounds)
-        // 윈도우 rootViewController 설정
-        window?.rootViewController = aVC
-        // 윈도우 표시
-        window?.makeKeyAndVisible()
+        navController.viewControllers = [aVC]
+        window.rootViewController = navController
+        self.window = window
+        window.makeKeyAndVisible()
         return true
     }
     
