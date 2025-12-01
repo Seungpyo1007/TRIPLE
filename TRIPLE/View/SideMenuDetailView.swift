@@ -1,28 +1,10 @@
 import Foundation
 import UIKit
 
+
 @IBDesignable
 class SideMenuDetailView: UIView {
     @IBOutlet weak var profileEditLabel: UILabel!
-    
-    @IBAction func profileEditTapped(_ sender: Any) {
-        let vc = ProfileEditViewController(nibName: "ProfileEditViewController", bundle: Bundle.main)
-        parentViewController()?.present(vc, animated: true, completion: nil)
-    }
-    
-    private func setupProfileEditTap() {
-        // UILabel doesn't receive touches by default
-        profileEditLabel.isUserInteractionEnabled = true
-        // Remove existing recognizers if any to avoid duplicates
-        profileEditLabel.gestureRecognizers?.forEach { profileEditLabel.removeGestureRecognizer($0) }
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleProfileEditLabelTap))
-        profileEditLabel.addGestureRecognizer(tap)
-    }
-
-    @objc private func handleProfileEditLabelTap() {
-        profileEditTapped(self)
-    }
-    
     
     private var contentView: UIView?
     private let scrollView = UIScrollView()
@@ -84,8 +66,21 @@ class SideMenuDetailView: UIView {
 
         scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0)
         
-        // Enable tapping on the profile edit label to present the edit screen
-        setupProfileEditTap()
+        // Enable tap on profileEditLabel to navigate to Profile Edit
+        profileEditLabel?.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleProfileEditTap))
+        profileEditLabel?.addGestureRecognizer(tap)
+    }
+    
+    @objc private func handleProfileEditTap() {
+        if let vc = self.parentViewController() {
+            let profileVC = ProfileEditViewController()
+            if let nav = vc.navigationController {
+                nav.pushViewController(profileVC, animated: true)
+            } else {
+                vc.present(profileVC, animated: true)
+            }
+        }
     }
 }
 
@@ -98,4 +93,6 @@ extension UIView {
         }
         return nil
     }
+    
 }
+
