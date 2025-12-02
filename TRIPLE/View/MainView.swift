@@ -66,7 +66,7 @@ class MainView: UIView, UIScrollViewDelegate {
             actualContent.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 0),
             actualContent.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: 0),
             actualContent.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: 0),
-            actualContent.heightAnchor.constraint(equalToConstant: 3750)
+            actualContent.heightAnchor.constraint(equalToConstant: 7000)
         ])
         
         actualContent.setContentHuggingPriority(.required, for: .vertical)
