@@ -230,7 +230,7 @@
                             </constraints>
                         </view>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="XEk-YA-Sap">
-                            <rect key="frame" x="20" y="68" width="373" height="102"/>
+                            <rect key="frame" x="0.0" y="68" width="393" height="102"/>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O10-aU-QKR">
                                 <size key="itemSize" width="128" height="128"/>
@@ -251,7 +251,7 @@
                         <constraint firstItem="jDN-Of-Viy" firstAttribute="top" secondItem="auv-gx-ZDe" secondAttribute="top" constant="40" id="XT5-2D-2yd"/>
                         <constraint firstAttribute="trailing" secondItem="FQ1-EQ-EzX" secondAttribute="trailing" id="XwO-P6-ewG"/>
                         <constraint firstAttribute="trailing" secondItem="XEk-YA-Sap" secondAttribute="trailing" id="bdA-Jr-AP8"/>
-                        <constraint firstItem="XEk-YA-Sap" firstAttribute="leading" secondItem="auv-gx-ZDe" secondAttribute="leading" constant="20" id="crz-uW-MJL"/>
+                        <constraint firstItem="XEk-YA-Sap" firstAttribute="leading" secondItem="auv-gx-ZDe" secondAttribute="leading" id="crz-uW-MJL"/>
                         <constraint firstItem="VSb-78-Hd1" firstAttribute="leading" secondItem="auv-gx-ZDe" secondAttribute="leading" id="rad-24-8Ve"/>
                         <constraint firstItem="jDN-Of-Viy" firstAttribute="leading" secondItem="auv-gx-ZDe" secondAttribute="leading" constant="20" symbolic="YES" id="ySk-4e-7om"/>
                     </constraints>
