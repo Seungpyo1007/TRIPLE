@@ -80,14 +80,14 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
         }
     }
     
-    // 누르면 push 방식으로 ProfileEditViewController로 이동
+    // 누르면 push 방식으로 SearchViewController로 이동
     @IBAction func openSearchMenu(_ sender: Any) {
         let vc: UIViewController
-        if Bundle.main.path(forResource: "ProfileEditViewController", ofType: "nib") != nil ||
-            Bundle.main.path(forResource: "ProfileEditViewController", ofType: "xib") != nil {
-            vc = ProfileEditViewController(nibName: "ProfileEditViewController", bundle: .main)
+        if Bundle.main.path(forResource: "SearchViewController", ofType: "nib") != nil ||
+            Bundle.main.path(forResource: "SearchViewController", ofType: "xib") != nil {
+            vc = SearchViewController(nibName: "SearchViewController", bundle: .main)
         } else {
-            vc = ProfileEditViewController()
+            vc = SearchViewController()
         }
         vc.modalPresentationStyle = .fullScreen
         if let nav = self.navigationController {
