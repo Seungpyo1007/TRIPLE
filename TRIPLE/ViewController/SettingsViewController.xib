@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="TRIPLE" customModuleProvider="target">
             <connections>
+                <outlet property="containerView" destination="JJM-40-OLG" id="prO-y5-SeV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,28 +22,46 @@
             <subviews>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fqa-FN-zUq">
                     <rect key="frame" x="0.0" y="118" width="393" height="54"/>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <items>
                         <navigationItem id="HQB-on-w1a">
-                            <barButtonItem key="leftBarButtonItem" image="arrow.backward" catalog="system" id="EVu-E6-WXd"/>
+                            <leftBarButtonItems>
+                                <barButtonItem image="arrow.backward" catalog="system" id="EVu-E6-WXd">
+                                    <connections>
+                                        <action selector="backButton:" destination="-1" id="Lqf-uW-Kre"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem title="설정" id="bT7-lQ-XJ2"/>
+                            </leftBarButtonItems>
                         </navigationItem>
                     </items>
                 </navigationBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJM-40-OLG">
+                    <rect key="frame" x="0.0" y="172" width="393" height="680"/>
+                    <color key="backgroundColor" systemColor="systemBlueColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Fqa-FN-zUq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8M4-hi-FS0"/>
+                <constraint firstItem="JJM-40-OLG" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="Ikv-rD-691"/>
+                <constraint firstItem="JJM-40-OLG" firstAttribute="top" secondItem="Fqa-FN-zUq" secondAttribute="bottom" id="WW1-Ry-FWP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JJM-40-OLG" secondAttribute="trailing" id="WYS-Fe-XrI"/>
+                <constraint firstItem="JJM-40-OLG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aSj-rq-4AO"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Fqa-FN-zUq" secondAttribute="trailing" id="nch-TQ-BvV"/>
                 <constraint firstItem="Fqa-FN-zUq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="tHY-Pd-gDx"/>
             </constraints>
-            <point key="canvasLocation" x="11" y="81"/>
+            <point key="canvasLocation" x="9.9236641221374047" y="80.985915492957744"/>
         </view>
     </objects>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="95"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
