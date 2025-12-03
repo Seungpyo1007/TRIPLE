@@ -67,7 +67,7 @@ class GoneView: UIView {
             actualContent.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: 0),
             actualContent.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor, constant: 0),
             actualContent.heightAnchor.constraint(equalTo: scrollView.frameLayoutGuide.heightAnchor, constant: 0),
-            actualContent.widthAnchor.constraint(equalToConstant: 670)
+            actualContent.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, multiplier: 1.9)
         ])
         
         actualContent.setContentHuggingPriority(.required, for: .vertical)
@@ -76,4 +76,3 @@ class GoneView: UIView {
         scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0)
     }
 }
-
