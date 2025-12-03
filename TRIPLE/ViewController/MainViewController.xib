@@ -66,7 +66,7 @@
                     <color key="backgroundColor" systemColor="systemBlueColor"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5YT-bC-Fya">
-                    <rect key="frame" x="0.0" y="288" width="393" height="496"/>
+                    <rect key="frame" x="0.0" y="288" width="393" height="564"/>
                     <color key="backgroundColor" systemColor="systemGreenColor"/>
                 </view>
             </subviews>
@@ -78,7 +78,7 @@
                 <constraint firstItem="cnA-iG-sEH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FUF-9g-ggk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5YT-bC-Fya" secondAttribute="trailing" id="FZb-Bh-paA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="jt9-pn-jKf" secondAttribute="top" id="KhW-sh-yTi"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5YT-bC-Fya" secondAttribute="bottom" id="LIk-2d-lfK"/>
+                <constraint firstAttribute="bottom" secondItem="5YT-bC-Fya" secondAttribute="bottom" id="LIk-2d-lfK"/>
                 <constraint firstItem="5YT-bC-Fya" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="170" id="Pp2-4A-Pda"/>
                 <constraint firstItem="jt9-pn-jKf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dNK-Ly-FHL"/>
                 <constraint firstItem="5YT-bC-Fya" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nr7-7W-WA8"/>

@@ -23,7 +23,7 @@
                     <rect key="frame" x="0.0" y="172" width="393" height="216"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dcJ-Z8-O6h">
-                            <rect key="frame" x="151.66666666666666" y="63.666666666666664" width="90" height="88.666666666666657"/>
+                            <rect key="frame" x="151.66666666666666" y="63.666666666666657" width="90" height="88.666666666666657"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="90" id="AAC-Lm-Dv1"/>
                                 <constraint firstAttribute="height" constant="90" id="qtt-hx-BlM"/>
@@ -75,14 +75,16 @@
                 </view>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdB-cN-jxn">
                     <rect key="frame" x="0.0" y="118" width="393" height="54"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="barTintColor" systemColor="systemBackgroundColor"/>
                     <textAttributes key="titleTextAttributes">
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" systemColor="systemBackgroundColor"/>
+                        <color key="textShadowColor" systemColor="systemBackgroundColor"/>
                     </textAttributes>
                     <textAttributes key="largeTitleTextAttributes">
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" systemColor="systemBackgroundColor"/>
+                        <color key="textShadowColor" systemColor="systemBackgroundColor"/>
                     </textAttributes>
                     <items>
                         <navigationItem id="4xT-is-FwM">
