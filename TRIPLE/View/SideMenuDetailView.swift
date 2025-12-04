@@ -20,8 +20,6 @@ class SideMenuDetailView: UIView {
     }
 
     private func commonInit() {
-        backgroundColor = .systemBackground
-        scrollView.backgroundColor = .systemBackground
 
         scrollView.alwaysBounceVertical = true
         scrollView.showsVerticalScrollIndicator = true
@@ -66,7 +64,6 @@ class SideMenuDetailView: UIView {
 
         scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0)
         
-        // Enable tap on profileEditLabel to navigate to Profile Edit
         profileEditLabel?.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleProfileEditTap))
         profileEditLabel?.addGestureRecognizer(tap)
