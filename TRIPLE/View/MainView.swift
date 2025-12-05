@@ -5,16 +5,22 @@
 //  Created by 홍승표 on 11/28/25.
 //
 
-import Foundation
 import UIKit
+
+protocol MainViewScrollDelegate: AnyObject {
+    func mainViewDidScroll(to offsetY: CGFloat)
+}
 
 @IBDesignable
 class MainView: UIView, UIScrollViewDelegate {
+    
+    // MARK: - 변수 & 상수
     weak var scrollDelegate: MainViewScrollDelegate?
 
     private var contentView: UIView?
     private let scrollView = UIScrollView()
 
+    // MARK: - 생명주기
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -25,18 +31,16 @@ class MainView: UIView, UIScrollViewDelegate {
         commonInit()
     }
 
+    // MARK: - UIView 초기 설정
     private func commonInit() {
 
-
-        scrollView.alwaysBounceVertical = true
-        scrollView.showsVerticalScrollIndicator = true
-        scrollView.keyboardDismissMode = .interactive
-        scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.contentInsetAdjustmentBehavior = .never // scrollView 자동으로 Safe Area 방지
 
         scrollView.delegate = self
-
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false // AutoLayout과의 충돌 방지용
         addSubview(scrollView)
+        
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
@@ -58,7 +62,7 @@ class MainView: UIView, UIScrollViewDelegate {
         }
 
         contentView = actualContent
-        actualContent.translatesAutoresizingMaskIntoConstraints = false
+        actualContent.translatesAutoresizingMaskIntoConstraints = false // AutoLayout과의 충돌 방지용
         scrollView.addSubview(actualContent)
 
         NSLayoutConstraint.activate([
@@ -67,9 +71,6 @@ class MainView: UIView, UIScrollViewDelegate {
             actualContent.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: 0),
             actualContent.heightAnchor.constraint(equalToConstant: 7000)
         ])
-        
-
-        scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0)
     }
 
     // MARK: - UIScrollViewDelegate
