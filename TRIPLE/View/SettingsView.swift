@@ -9,9 +9,12 @@ import UIKit
 
 @IBDesignable
 class SettingsView: UIView {
+    
+    // MARK: - 변수 & 상수
     private var contentView: UIView?
     private let scrollView = UIScrollView()
 
+    // MARK: - 생명주기
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -22,14 +25,10 @@ class SettingsView: UIView {
         commonInit()
     }
 
+    // MARK: - UIView 초기 설정
     private func commonInit() {
-
-//        scrollView.alwaysBounceVertical = true
-//        scrollView.showsVerticalScrollIndicator = true
-//        scrollView.keyboardDismissMode = .interactive
-//        scrollView.contentInsetAdjustmentBehavior = .never 내일 볼거임 ㅇㅇ
-
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false // AutoLayout과의 충돌 방지용
+        
         addSubview(scrollView)
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: topAnchor),
@@ -52,7 +51,7 @@ class SettingsView: UIView {
         }
 
         contentView = actualContent
-        actualContent.translatesAutoresizingMaskIntoConstraints = false
+        actualContent.translatesAutoresizingMaskIntoConstraints = false // AutoLayout과의 충돌 방지용
         scrollView.addSubview(actualContent)
 
         NSLayoutConstraint.activate([
@@ -61,8 +60,6 @@ class SettingsView: UIView {
             actualContent.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: 0),
             actualContent.heightAnchor.constraint(equalToConstant: 1860)
         ])
-
-        scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0)
     }
 }
 
