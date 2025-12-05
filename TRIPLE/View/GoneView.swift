@@ -5,14 +5,16 @@
 //  Created by 홍승표 on 11/28/25.
 //
 
-import Foundation
 import UIKit
 
 @IBDesignable
 class GoneView: UIView {
+    
+    // MARK: - 변수 & 상수
     private var contentView: UIView?
     private let scrollView = UIScrollView()
 
+    // MARK: - 생명주기
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -23,16 +25,12 @@ class GoneView: UIView {
         commonInit()
     }
 
+    // MARK: - UIView 초기 설정
     private func commonInit() {
-        scrollView.alwaysBounceVertical = false
-        scrollView.alwaysBounceHorizontal = true
-        scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
-        scrollView.isDirectionalLockEnabled = true
-        scrollView.keyboardDismissMode = .interactive
-        scrollView.contentInsetAdjustmentBehavior = .never
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false // AutoLayout과의 충돌 방지용
         addSubview(scrollView)
+        
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
@@ -54,7 +52,7 @@ class GoneView: UIView {
         }
 
         contentView = actualContent
-        actualContent.translatesAutoresizingMaskIntoConstraints = false
+        actualContent.translatesAutoresizingMaskIntoConstraints = false // AutoLayout과의 충돌 방지용
         scrollView.addSubview(actualContent)
 
         NSLayoutConstraint.activate([
@@ -65,7 +63,5 @@ class GoneView: UIView {
             actualContent.heightAnchor.constraint(equalTo: scrollView.frameLayoutGuide.heightAnchor, constant: 0),
             actualContent.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, multiplier: 1.9)
         ])
-
-        scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0)
     }
 }
