@@ -1,14 +1,29 @@
-import Foundation
+//
+//  SideMenuDetailView.swift
+//  TRIPLE
+//
+//  Created by 홍승표 on 11/25/25.
+//
+
 import UIKit
 
+protocol SideMenuDetailViewDelegate: AnyObject {
+    func sideMenuDetailViewDidTapProfileEditLabel(_ view: SideMenuDetailView)
+}
 
 @IBDesignable
 class SideMenuDetailView: UIView {
-    @IBOutlet weak var profileEditLabel: UILabel!
+    
+    // MARK: - 변수 & 상수
+    weak var delegate: SideMenuDetailViewDelegate?
     
     private var contentView: UIView?
     private let scrollView = UIScrollView()
+    
+    // MARK: - @IBOutlet
+    @IBOutlet weak var profileEditLabel: UILabel!
 
+    // MARK: - 생명주기
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -19,15 +34,15 @@ class SideMenuDetailView: UIView {
         commonInit()
     }
 
+    // MARK: - UIView 초기 설정
     private func commonInit() {
 
-        scrollView.alwaysBounceVertical = true
-        scrollView.showsVerticalScrollIndicator = true
-        scrollView.keyboardDismissMode = .interactive
-        scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.contentInsetAdjustmentBehavior = .never // scrollView 자동으로 Safe Area 방지
 
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false // AutoLayout과의 충돌 방지용
         addSubview(scrollView)
+        
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
@@ -59,37 +74,13 @@ class SideMenuDetailView: UIView {
             actualContent.heightAnchor.constraint(equalToConstant: 852)
         ])
         
-        actualContent.setContentHuggingPriority(.required, for: .vertical)
-        actualContent.setContentCompressionResistancePriority(.required, for: .vertical)
-
-        scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0)
-        
         profileEditLabel?.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleProfileEditTap))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(profileEditTap))
         profileEditLabel?.addGestureRecognizer(tap)
     }
     
-    @objc private func handleProfileEditTap() {
-        if let vc = self.parentViewController() {
-            let profileVC = ProfileEditViewController()
-            if let nav = vc.navigationController {
-                nav.pushViewController(profileVC, animated: true)
-            } else {
-                vc.present(profileVC, animated: true)
-            }
-        }
+    // MARK: - SideMenuDetailViewDelegate
+    @objc private func profileEditTap() {
+        delegate?.sideMenuDetailViewDidTapProfileEditLabel(self)
     }
 }
-
-extension UIView {
-    func parentViewController() -> UIViewController? {
-        var responder: UIResponder? = self
-        while let current = responder {
-            if let vc = current as? UIViewController { return vc }
-            responder = current.next
-        }
-        return nil
-    }
-    
-}
-
