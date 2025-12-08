@@ -16,16 +16,16 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     // 사이드바 가로 넓이 + 회전시 폭
     private var sideMenuRevealWidth: CGFloat = 320
     private let paddingForRotation: CGFloat = 100
+    
+    // isExpanded로 사이드메뉴의 펼쳐짐 상태 관리, 그 상태에 따라 바뀔 Constraint
     private var isExpanded: Bool = false
-    // 사이드메뉴 열기/닫기 설정용
     private var sideMenuTrailingConstraint: NSLayoutConstraint!
     // Sticky Range
-    private let stickyRange: CGFloat = 120
+    private let stickyRange: CGFloat = 120 // mainView가 NavigationBar에 어디서 붙을지
     private var initialMainTopConstant: CGFloat = 0
     
     // MARK: - @IBOutlets
-    // mainView & goneView를 위로 올리기 위한 상단 제약
-    @IBOutlet weak var goneViewTopConstraint: NSLayoutConstraint! 
+    // mainView를 위로 올리기 위한 상단 제약
     @IBOutlet weak var mainViewTopConstraint: NSLayoutConstraint!
     // View & NavigationBar
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -45,7 +45,7 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     private func embedMainView() {
         let detailView = MainView()
         detailView.scrollDelegate = self
-        detailView.translatesAutoresizingMaskIntoConstraints = false // AutoLayout과의 충돌 방지용
+        detailView.translatesAutoresizingMaskIntoConstraints = false // Auto Layout을 사용하기 위해 기본 설정을 비활성화
         let targetContainer = mainView ?? view
         targetContainer?.addSubview(detailView)
 
@@ -61,7 +61,7 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     
     private func embedGoneView() {
         let detailView = GoneView()
-        detailView.translatesAutoresizingMaskIntoConstraints = false // AutoLayout과의 충돌 방지용
+        detailView.translatesAutoresizingMaskIntoConstraints = false // Auto Layout을 사용하기 위해 기본 설정을 비활성화
         let targetContainer = goneView ?? view
         targetContainer?.addSubview(detailView)
 
@@ -93,7 +93,7 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
         self.sideMenuState(expanded: self.isExpanded ? false : true)
     }
     
-    //MARK: - SideMenuViewController 설정
+    // MARK: - SideMenuViewController 설정
     func setSideMenu(){
         self.sideMenuShadowView = UIView(frame: self.view.bounds)
         self.sideMenuShadowView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // 크기가 변경될때 자동으로 맞춰주는 코드
@@ -117,7 +117,7 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
         self.sideMenuViewController!.didMove(toParent: self)
 
         // 사이드 메뉴 레이아웃 잡기
-        self.sideMenuViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        self.sideMenuViewController.view.translatesAutoresizingMaskIntoConstraints = false // Auto Layout을 사용하기 위해 기본 설정을 비활성화
         self.sideMenuTrailingConstraint = self.sideMenuViewController.view.trailingAnchor.constraint(
             equalTo: view.safeAreaLayoutGuide.trailingAnchor,
             constant: self.sideMenuRevealWidth + self.paddingForRotation

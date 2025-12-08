@@ -11,7 +11,6 @@ protocol MainViewScrollDelegate: AnyObject {
     func mainViewDidScroll(to offsetY: CGFloat)
 }
 
-@IBDesignable
 class MainView: UIView, UIScrollViewDelegate {
     
     // MARK: - 변수 & 상수
@@ -20,12 +19,12 @@ class MainView: UIView, UIScrollViewDelegate {
     private var contentView: UIView?
     private let scrollView = UIScrollView()
 
-    // MARK: - 생명주기
+    // MARK: - 생명주기 (초기화)
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
@@ -38,7 +37,7 @@ class MainView: UIView, UIScrollViewDelegate {
         scrollView.contentInsetAdjustmentBehavior = .never // scrollView 자동으로 Safe Area 방지
 
         scrollView.delegate = self
-        scrollView.translatesAutoresizingMaskIntoConstraints = false // AutoLayout과의 충돌 방지용
+        scrollView.translatesAutoresizingMaskIntoConstraints = false // Auto Layout을 사용하기 위해 기본 설정을 비활성화
         addSubview(scrollView)
         
         NSLayoutConstraint.activate([
@@ -54,6 +53,7 @@ class MainView: UIView, UIScrollViewDelegate {
             return
         }
 
+        // 로드된 뷰에서 실제 콘텐츠 뷰(actualContent)를 추출하여 contentView 변수에 저장합니다. (뷰 중첩 방지 코드)
         let actualContent: UIView
         if let nested = loaded as? MainView, let first = nested.subviews.first {
             actualContent = first
@@ -62,8 +62,8 @@ class MainView: UIView, UIScrollViewDelegate {
         }
 
         contentView = actualContent
-        actualContent.translatesAutoresizingMaskIntoConstraints = false // AutoLayout과의 충돌 방지용
-        scrollView.addSubview(actualContent)
+        actualContent.translatesAutoresizingMaskIntoConstraints = false // Auto Layout을 사용하기 위해 기본 설정을 비활성화
+        scrollView.addSubview(actualContent) // 스크롤뷰에 actualContent뷰 추가
 
         NSLayoutConstraint.activate([
             actualContent.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 0),

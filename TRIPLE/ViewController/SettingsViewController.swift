@@ -39,7 +39,7 @@ class SettingsViewController: UIViewController {
     // MARK: - UIView 초기세팅
     private func embedSettingsView() {
         let detailView = SettingsView() // SettingView 가져오기
-        detailView.translatesAutoresizingMaskIntoConstraints = false // AutoLayout과의 충돌 방지용
+        detailView.translatesAutoresizingMaskIntoConstraints = false // Auto Layout을 사용하기 위해 기본 설정을 비활성화
         let targetContainer = containerView ?? view // containerView에 넣기
         targetContainer?.addSubview(detailView)
 

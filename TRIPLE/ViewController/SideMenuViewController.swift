@@ -37,7 +37,7 @@ class SideMenuViewController: UIViewController, SideMenuDetailViewDelegate {
     private func embedSideMenuDetail() {
         let detailView = SideMenuDetailView() // SideMenuDetailView 가져오기
         detailView.delegate = self
-        detailView.translatesAutoresizingMaskIntoConstraints = false // AutoLayout과의 충돌 방지용
+        detailView.translatesAutoresizingMaskIntoConstraints = false // Auto Layout을 사용하기 위해 기본 설정을 비활성화
         let targetContainer = containerView ?? view // containerView에 넣기
         targetContainer?.addSubview(detailView)
 
@@ -56,8 +56,6 @@ class SideMenuViewController: UIViewController, SideMenuDetailViewDelegate {
         let profileVC = ProfileEditViewController()
         if let nav = self.navigationController {
             nav.pushViewController(profileVC, animated: true)
-        } else {
-            self.present(profileVC, animated: true)
         }
     }
 }

@@ -13,7 +13,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="TRIPLE" customModuleProvider="target">
             <connections>
                 <outlet property="goneView" destination="cnA-iG-sEH" id="LER-fs-pJd"/>
-                <outlet property="goneViewTopConstraint" destination="6sy-Uh-1uO" id="X4N-Ds-LNM"/>
                 <outlet property="mainView" destination="5YT-bC-Fya" id="3gs-LR-JPC"/>
                 <outlet property="mainViewTopConstraint" destination="Pp2-4A-Pda" id="0GG-yY-CPe"/>
                 <outlet property="navigationBar" destination="jt9-pn-jKf" id="1id-Li-LQD"/>
