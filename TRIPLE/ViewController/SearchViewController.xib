@@ -21,38 +21,34 @@
             <subviews>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTR-tn-fN8">
                     <rect key="frame" x="0.0" y="118" width="393" height="54"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <color key="tintColor" systemColor="labelColor"/>
-                    <color key="barTintColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <textAttributes key="titleTextAttributes">
-                        <color key="textColor" systemColor="systemBackgroundColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </textAttributes>
                     <textAttributes key="largeTitleTextAttributes">
-                        <color key="textColor" systemColor="systemBackgroundColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </textAttributes>
                     <items>
                         <navigationItem id="i06-Kd-cDI">
                             <nil key="title"/>
                             <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.backward" catalog="system" id="Yhd-be-Q8S">
-                                <color key="tintColor" systemColor="labelColor"/>
                                 <connections>
                                     <action selector="backButton:" destination="-1" id="H1r-rR-8qs"/>
                                 </connections>
                             </barButtonItem>
-                            <textField key="titleView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="fFx-ml-Tu3">
+                            <textField key="titleView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="fFx-ml-Tu3">
                                 <rect key="frame" x="72" y="5" width="249" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="textColor"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <barButtonItem key="rightBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="ftN-MC-t9S">
-                                <color key="tintColor" systemColor="labelColor"/>
-                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="ftN-MC-t9S"/>
                         </navigationItem>
                     </items>
-                    <navigationBarAppearance key="standardAppearance"/>
                 </navigationBar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qX0-r6-E4U">
                     <rect key="frame" x="0.0" y="172" width="393" height="212"/>
@@ -73,8 +69,8 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="오사카">
                                 <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                <color key="baseForegroundColor" systemColor="labelColor"/>
-                                <color key="baseBackgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="baseBackgroundColor" systemColor="systemGray6Color"/>
                             </buttonConfiguration>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceN-d1-bWA">
@@ -87,8 +83,8 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="제주">
                                 <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                <color key="baseForegroundColor" systemColor="labelColor"/>
-                                <color key="baseBackgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="baseBackgroundColor" systemColor="systemGray6Color"/>
                             </buttonConfiguration>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8FZ-4h-qrP">
@@ -101,8 +97,8 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="도쿄">
                                 <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                <color key="baseForegroundColor" systemColor="labelColor"/>
-                                <color key="baseBackgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="baseBackgroundColor" systemColor="systemGray6Color"/>
                             </buttonConfiguration>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86r-a6-WCA">
@@ -115,8 +111,8 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="파리">
                                 <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                <color key="baseForegroundColor" systemColor="labelColor"/>
-                                <color key="baseBackgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="baseBackgroundColor" systemColor="systemGray6Color"/>
                             </buttonConfiguration>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y29-2E-61s">
@@ -129,8 +125,8 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="부산">
                                 <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                <color key="baseForegroundColor" systemColor="labelColor"/>
-                                <color key="baseBackgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="baseBackgroundColor" systemColor="systemGray6Color"/>
                             </buttonConfiguration>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oT-qr-hVX">
@@ -143,8 +139,8 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="괌">
                                 <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                <color key="baseForegroundColor" systemColor="labelColor"/>
-                                <color key="baseBackgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="baseBackgroundColor" systemColor="systemGray6Color"/>
                             </buttonConfiguration>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="an2-ZJ-lrA">
@@ -157,8 +153,8 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="방콕">
                                 <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                <color key="baseForegroundColor" systemColor="labelColor"/>
-                                <color key="baseBackgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="baseBackgroundColor" systemColor="systemGray6Color"/>
                             </buttonConfiguration>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9G-cF-7aZ">
@@ -171,8 +167,8 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="다낭">
                                 <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                <color key="baseForegroundColor" systemColor="labelColor"/>
-                                <color key="baseBackgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="baseBackgroundColor" systemColor="systemGray6Color"/>
                             </buttonConfiguration>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNi-1j-TVw">
@@ -185,12 +181,12 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="삿포로">
                                 <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                <color key="baseForegroundColor" systemColor="labelColor"/>
-                                <color key="baseBackgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="baseBackgroundColor" systemColor="systemGray6Color"/>
                             </buttonConfiguration>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="nNi-1j-TVw" firstAttribute="leading" secondItem="3oT-qr-hVX" secondAttribute="trailing" constant="5" id="65s-6y-717"/>
                         <constraint firstItem="an2-ZJ-lrA" firstAttribute="top" secondItem="Q7E-0b-Yul" secondAttribute="bottom" constant="5" id="89v-o9-fWS"/>
@@ -241,16 +237,10 @@
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="95"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
