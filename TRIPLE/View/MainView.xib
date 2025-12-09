@@ -18,13 +18,13 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x0F-Ub-L71" userLabel="HeaderView">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="청계천꿈나라님, 랜덤값트리플123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGQ-b0-Npd" userLabel="Lorem Lorem Lorem Lorem Lorem">
-                            <rect key="frame" x="20" y="20" width="228" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="청계천꿈나라님, 트리플과의 첫 여행!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGQ-b0-Npd" userLabel="Lorem Lorem Lorem Lorem Lorem">
+                            <rect key="frame" x="20" y="20" width="253" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="랜덤값트리플123랜덤값트리플123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzP-Xo-3Q3" userLabel="Lorem Lorem Lorem Lorem Lorem">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어디로 갈지 정해볼까요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzP-Xo-3Q3" userLabel="Lorem Lorem Lorem Lorem Lorem">
                             <rect key="frame" x="20" y="45" width="272" height="24"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <nil key="textColor"/>
@@ -38,7 +38,7 @@
                         <constraint firstItem="wGQ-b0-Npd" firstAttribute="leading" secondItem="x0F-Ub-L71" secondAttribute="leading" constant="20" symbolic="YES" id="A0I-XP-C2K"/>
                         <constraint firstItem="wGQ-b0-Npd" firstAttribute="top" secondItem="x0F-Ub-L71" secondAttribute="top" constant="20" symbolic="YES" id="Num-VJ-LEJ"/>
                         <constraint firstItem="LzP-Xo-3Q3" firstAttribute="leading" secondItem="x0F-Ub-L71" secondAttribute="leading" constant="20" symbolic="YES" id="NxN-1J-Hng"/>
-                        <constraint firstAttribute="trailing" secondItem="wGQ-b0-Npd" secondAttribute="trailing" constant="145" id="qWj-1X-Jjb"/>
+                        <constraint firstAttribute="trailing" secondItem="wGQ-b0-Npd" secondAttribute="trailing" constant="120" id="qWj-1X-Jjb"/>
                         <constraint firstItem="LzP-Xo-3Q3" firstAttribute="top" secondItem="wGQ-b0-Npd" secondAttribute="bottom" constant="4" id="s8A-Wo-Joz"/>
                     </constraints>
                 </view>
@@ -47,7 +47,7 @@
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="jqN-0q-2mK">
                             <rect key="frame" x="0.0" y="514" width="393" height="126"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vuf-IG-Gow">
                                 <size key="itemSize" width="128" height="128"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -57,7 +57,7 @@
                         </collectionView>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="KM3-mb-tzf">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cad-NT-bb2">
                                 <size key="itemSize" width="128" height="128"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -67,7 +67,6 @@
                         </collectionView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nCx-TV-1Qe">
                             <rect key="frame" x="20" y="320" width="353" height="100"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 취향에 맞는 추천 도시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvN-CP-9HE" userLabel="Lorem Lorem Lorem Lorem Lorem">
                             <rect key="frame" x="20" y="470" width="202" height="24"/>
@@ -106,7 +105,7 @@
                         </label>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="4bU-XF-1KT">
                             <rect key="frame" x="0.0" y="104" width="393" height="206"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="b9q-7v-s4y">
                                 <size key="itemSize" width="128" height="128"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -137,7 +136,7 @@
                         </label>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="pBg-QA-ez2">
                             <rect key="frame" x="0.0" y="94" width="393" height="456"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1jH-cg-JEa">
                                 <size key="itemSize" width="128" height="128"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -162,7 +161,6 @@
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xhS-dJ-DQS">
                             <rect key="frame" x="0.0" y="144" width="393" height="306"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금 주목할 만한 도시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwZ-n1-bgG" userLabel="Lorem Lorem Lorem Lorem Lorem">
                             <rect key="frame" x="20" y="100" width="202" height="24"/>
@@ -187,7 +185,7 @@
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3Vb-eA-Q5H">
                             <rect key="frame" x="0.0" y="94" width="393" height="306"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="451-Bp-P2V">
                                 <size key="itemSize" width="128" height="128"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -216,7 +214,7 @@
                                 <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="14"/>
                             </buttonConfiguration>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XX.XX(X) ~ XX.XX(X) 성인 2명 (1박, 세금 포함가격)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNp-Ss-wBt" userLabel="Lorem Lorem Lorem Lorem Lorem">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XX.XX(X) ~ XX.XX(X) 성인 2명 (1박, 세금 포함가격)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNp-Ss-wBt" userLabel="Lorem Lorem Lorem Lorem Lorem">
                             <rect key="frame" x="71" y="470" width="250" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <nil key="textColor"/>
@@ -260,7 +258,7 @@
                         </button>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="RB3-jb-1YK">
                             <rect key="frame" x="0.0" y="124" width="393" height="306"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="05Y-Ul-Amc">
                                 <size key="itemSize" width="128" height="128"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -341,43 +339,33 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CY8-Pb-qsy">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
-                                    <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jkJ-Qb-NaR">
                                     <rect key="frame" x="0.0" y="300" width="393" height="300"/>
-                                    <color key="backgroundColor" systemColor="systemBrownColor"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H1E-nM-RXb">
                                     <rect key="frame" x="0.0" y="600" width="393" height="300"/>
-                                    <color key="backgroundColor" systemColor="systemCyanColor"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7C-w8-c3x">
                                     <rect key="frame" x="0.0" y="900" width="393" height="300"/>
-                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VP7-gV-pqY">
                                     <rect key="frame" x="0.0" y="2400.333333333333" width="393" height="300"/>
-                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6t-ys-1si">
                                     <rect key="frame" x="0.0" y="1200" width="393" height="300.33333333333326"/>
-                                    <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewS-g7-cxF">
                                     <rect key="frame" x="0.0" y="2700.333333333333" width="393" height="300"/>
-                                    <color key="backgroundColor" red="0.59383026539999995" green="0.0" blue="0.53545055649999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g1a-Jd-m2I">
                                     <rect key="frame" x="0.0" y="1500.333333333333" width="393" height="300"/>
-                                    <color key="backgroundColor" red="0.61700021400000005" green="0.46725171230000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jct-pk-cu4">
                                     <rect key="frame" x="0.0" y="1800.333333333333" width="393" height="300"/>
-                                    <color key="backgroundColor" red="0.41663099320000002" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6dh-e7-w14">
                                     <rect key="frame" x="0.0" y="2100.333333333333" width="393" height="300"/>
-                                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -455,49 +443,49 @@
                             <rect key="frame" x="0.0" y="330" width="393" height="370"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(주)놀유니버스 | 대표이사 배보찬" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmZ-xu-yQy">
-                                    <rect key="frame" x="30" y="40" width="170" height="16"/>
+                                    <rect key="frame" x="30" y="40" width="263" height="16"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사업자 등록번호 824-81-02515" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYa-Ei-Rhi">
-                                    <rect key="frame" x="30" y="61" width="175" height="16"/>
+                                    <rect key="frame" x="30" y="61" width="263" height="16"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="통신판매업 신고번호 2024-성남수정-0912" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSK-wt-2zh">
-                                    <rect key="frame" x="30" y="82" width="228" height="16"/>
+                                    <rect key="frame" x="30" y="82" width="313" height="16"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="경기도 성남시 수정구 금토로 70 (금토동, 텐엑스타워)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCS-Ur-bE3">
-                                    <rect key="frame" x="30" y="103" width="276" height="16"/>
+                                    <rect key="frame" x="30" y="103" width="313" height="16"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="호스팅서비스제공자: (주)놀유니버스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ky-gn-3s4">
-                                    <rect key="frame" x="30" y="124" width="186" height="16"/>
+                                    <rect key="frame" x="30" y="124" width="263" height="16"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="항공, 숙소 및 투어·티켓문의 1588-2539" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slD-ob-8UY">
-                                    <rect key="frame" x="30" y="145" width="215" height="16"/>
+                                    <rect key="frame" x="30" y="145" width="313" height="16"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(주)놀유니버스는 통신판매중개자로서 통신판매의 당사자가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZR9-AQ-0hf">
-                                    <rect key="frame" x="30" y="176" width="302" height="16"/>
+                                    <rect key="frame" x="30" y="176" width="353" height="16"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아니며 상품 거래정보 및 거래 등에 대해 책임을 지지 않습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7VC-B9-K9w">
-                                    <rect key="frame" x="30" y="197" width="318" height="16"/>
+                                    <rect key="frame" x="30" y="197" width="353" height="16"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -507,16 +495,16 @@
                             <constraints>
                                 <constraint firstItem="gYa-Ei-Rhi" firstAttribute="leading" secondItem="iXY-V4-W0s" secondAttribute="leading" constant="30" id="21w-Vc-hVM"/>
                                 <constraint firstItem="ZR9-AQ-0hf" firstAttribute="leading" secondItem="iXY-V4-W0s" secondAttribute="leading" constant="30" id="3mt-Fq-dEK"/>
-                                <constraint firstAttribute="trailing" secondItem="slD-ob-8UY" secondAttribute="trailing" constant="148" id="4WJ-oc-GJi"/>
-                                <constraint firstAttribute="trailing" secondItem="7VC-B9-K9w" secondAttribute="trailing" constant="45" id="4v7-zn-mNI"/>
+                                <constraint firstAttribute="trailing" secondItem="slD-ob-8UY" secondAttribute="trailing" constant="50" id="4WJ-oc-GJi"/>
+                                <constraint firstAttribute="trailing" secondItem="7VC-B9-K9w" secondAttribute="trailing" constant="10" id="4v7-zn-mNI"/>
                                 <constraint firstItem="tmZ-xu-yQy" firstAttribute="top" secondItem="iXY-V4-W0s" secondAttribute="top" constant="40" id="Edx-4c-VBc"/>
-                                <constraint firstAttribute="trailing" secondItem="bSK-wt-2zh" secondAttribute="trailing" constant="135" id="I7j-DR-fzo"/>
-                                <constraint firstAttribute="trailing" secondItem="5ky-gn-3s4" secondAttribute="trailing" constant="177" id="JCd-B0-kw2"/>
-                                <constraint firstAttribute="trailing" secondItem="gYa-Ei-Rhi" secondAttribute="trailing" constant="188" id="L8I-Xq-6PM"/>
+                                <constraint firstAttribute="trailing" secondItem="bSK-wt-2zh" secondAttribute="trailing" constant="50" id="I7j-DR-fzo"/>
+                                <constraint firstAttribute="trailing" secondItem="5ky-gn-3s4" secondAttribute="trailing" constant="100" id="JCd-B0-kw2"/>
+                                <constraint firstAttribute="trailing" secondItem="gYa-Ei-Rhi" secondAttribute="trailing" constant="100" id="L8I-Xq-6PM"/>
                                 <constraint firstAttribute="bottom" secondItem="7VC-B9-K9w" secondAttribute="bottom" constant="157" id="OUN-dk-MiJ"/>
                                 <constraint firstItem="bSK-wt-2zh" firstAttribute="leading" secondItem="iXY-V4-W0s" secondAttribute="leading" constant="30" id="P08-OB-dg4"/>
-                                <constraint firstAttribute="trailing" secondItem="tmZ-xu-yQy" secondAttribute="trailing" constant="193" id="PW6-xI-w7W"/>
-                                <constraint firstAttribute="trailing" secondItem="RCS-Ur-bE3" secondAttribute="trailing" constant="87" id="PbO-z7-eMe"/>
+                                <constraint firstAttribute="trailing" secondItem="tmZ-xu-yQy" secondAttribute="trailing" constant="100" id="PW6-xI-w7W"/>
+                                <constraint firstAttribute="trailing" secondItem="RCS-Ur-bE3" secondAttribute="trailing" constant="50" id="PbO-z7-eMe"/>
                                 <constraint firstItem="5ky-gn-3s4" firstAttribute="leading" secondItem="iXY-V4-W0s" secondAttribute="leading" constant="30" id="RiR-FE-ozg"/>
                                 <constraint firstItem="RCS-Ur-bE3" firstAttribute="leading" secondItem="iXY-V4-W0s" secondAttribute="leading" constant="30" id="Yh0-5E-BBa"/>
                                 <constraint firstItem="5ky-gn-3s4" firstAttribute="top" secondItem="RCS-Ur-bE3" secondAttribute="bottom" constant="5" id="ZDC-jV-vO3"/>
@@ -527,14 +515,14 @@
                                 <constraint firstItem="7VC-B9-K9w" firstAttribute="top" secondItem="ZR9-AQ-0hf" secondAttribute="bottom" constant="5" id="mZx-fl-grd"/>
                                 <constraint firstItem="slD-ob-8UY" firstAttribute="top" secondItem="5ky-gn-3s4" secondAttribute="bottom" constant="5" id="nJn-Cy-vcS"/>
                                 <constraint firstItem="ZR9-AQ-0hf" firstAttribute="top" secondItem="slD-ob-8UY" secondAttribute="bottom" constant="15" id="og5-Su-2g2"/>
-                                <constraint firstAttribute="trailing" secondItem="ZR9-AQ-0hf" secondAttribute="trailing" constant="61" id="ovb-SD-v9l"/>
+                                <constraint firstAttribute="trailing" secondItem="ZR9-AQ-0hf" secondAttribute="trailing" constant="10" id="ovb-SD-v9l"/>
                                 <constraint firstItem="tmZ-xu-yQy" firstAttribute="leading" secondItem="iXY-V4-W0s" secondAttribute="leading" constant="30" id="rps-82-5fD"/>
                                 <constraint firstItem="7VC-B9-K9w" firstAttribute="leading" secondItem="iXY-V4-W0s" secondAttribute="leading" constant="30" id="svF-Th-6NM"/>
                             </constraints>
                         </view>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="A6D-Sn-rBj">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mJF-Ju-LTU">
                                 <size key="itemSize" width="128" height="128"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -606,23 +594,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemCyanColor">
-            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

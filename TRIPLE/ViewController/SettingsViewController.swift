@@ -14,20 +14,26 @@ class SettingsViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    var swipeRecognizer: UISwipeGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.preservesSuperviewLayoutMargins = false
-        view.directionalLayoutMargins = .zero
-        containerView?.preservesSuperviewLayoutMargins = false
-        containerView?.directionalLayoutMargins = .zero
+        swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(_:)))
+        swipeRecognizer.direction = .right
+        self.view.addGestureRecognizer(swipeRecognizer)
         embedSettingsView()
+    }
+    
+    @objc func swipeAction(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == .right {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 
     private func embedSettingsView() {
-        let detailView = SettingsView()
-        detailView.translatesAutoresizingMaskIntoConstraints = false
-        let targetContainer = containerView ?? view
+        let detailView = SettingsView() // SettingView 가져오기
+        detailView.translatesAutoresizingMaskIntoConstraints = false // Auto Layout 필수
+        let targetContainer = containerView ?? view // containerView에 넣기
         targetContainer?.addSubview(detailView)
 
         if let target = targetContainer {

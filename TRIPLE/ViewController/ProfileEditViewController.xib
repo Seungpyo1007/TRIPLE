@@ -29,18 +29,29 @@
                                 <constraint firstAttribute="height" constant="90" id="qtt-hx-BlM"/>
                             </constraints>
                         </imageView>
-                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="청계천꿈나라" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NyR-Cs-P5c">
-                            <rect key="frame" x="30" y="170" width="333" height="40"/>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="청계천꿈나라" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NyR-Cs-P5c">
+                            <rect key="frame" x="30" y="170" width="333" height="31.666666666666657"/>
                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRt-QZ-XQ6">
+                            <rect key="frame" x="30" y="208.66666666666669" width="333" height="1"/>
+                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="V2g-TE-UcQ"/>
+                            </constraints>
+                        </view>
                     </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="dcJ-Z8-O6h" firstAttribute="centerY" secondItem="vKE-Nu-85T" secondAttribute="centerY" id="fDP-pQ-Hta"/>
                         <constraint firstItem="NyR-Cs-P5c" firstAttribute="leading" secondItem="vKE-Nu-85T" secondAttribute="leading" constant="30" id="ghY-ca-Ave"/>
+                        <constraint firstAttribute="trailing" secondItem="pRt-QZ-XQ6" secondAttribute="trailing" constant="30" id="gmV-Zu-Kca"/>
                         <constraint firstAttribute="trailing" secondItem="NyR-Cs-P5c" secondAttribute="trailing" constant="30" id="mQE-fy-CLd"/>
                         <constraint firstItem="dcJ-Z8-O6h" firstAttribute="centerX" secondItem="vKE-Nu-85T" secondAttribute="centerX" id="meI-vP-SuL"/>
                         <constraint firstItem="NyR-Cs-P5c" firstAttribute="top" secondItem="dcJ-Z8-O6h" secondAttribute="bottom" constant="17.000000000000028" id="nke-ax-CJ0"/>
+                        <constraint firstItem="pRt-QZ-XQ6" firstAttribute="top" secondItem="NyR-Cs-P5c" secondAttribute="bottom" constant="7" id="oi2-EU-MeI"/>
+                        <constraint firstItem="pRt-QZ-XQ6" firstAttribute="leading" secondItem="vKE-Nu-85T" secondAttribute="leading" constant="30" id="ydv-PJ-bd0"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k9C-dy-UfJ">
@@ -56,18 +67,21 @@
                                 <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
                             </buttonConfiguration>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="한글/영어/숫자/밑줄/띄어쓰기를 사용할 수 있습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyN-s1-ycz">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한글/영어/숫자/밑줄/띄어쓰기를 사용할 수 있습니다." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyN-s1-ycz">
                             <rect key="frame" x="30" y="63" width="267" height="16"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="yyN-s1-ycz" firstAttribute="leading" secondItem="k9C-dy-UfJ" secondAttribute="leading" constant="30" id="C70-Nd-7Dy"/>
+                        <constraint firstAttribute="trailing" secondItem="yyN-s1-ycz" secondAttribute="trailing" constant="96" id="IoY-fg-3G2"/>
+                        <constraint firstItem="yyN-s1-ycz" firstAttribute="top" secondItem="c5B-84-aj0" secondAttribute="bottom" constant="8" symbolic="YES" id="RgX-0y-oAM"/>
                         <constraint firstItem="c5B-84-aj0" firstAttribute="top" secondItem="k9C-dy-UfJ" secondAttribute="top" constant="10" id="Yvf-bW-3vi"/>
                         <constraint firstItem="c5B-84-aj0" firstAttribute="leading" secondItem="k9C-dy-UfJ" secondAttribute="leading" constant="30" id="q8b-4P-xOi"/>
                         <constraint firstAttribute="trailing" secondItem="c5B-84-aj0" secondAttribute="trailing" constant="30" id="wF1-Ct-t4c"/>
+                        <constraint firstAttribute="bottom" secondItem="yyN-s1-ycz" secondAttribute="bottom" constant="51" id="z9L-ip-sAg"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHR-uv-P0H">
@@ -125,6 +139,9 @@
         <image name="circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

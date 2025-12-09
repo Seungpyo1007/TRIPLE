@@ -231,7 +231,7 @@
                         </view>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="XEk-YA-Sap">
                             <rect key="frame" x="0.0" y="68" width="393" height="102"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O10-aU-QKR">
                                 <size key="itemSize" width="128" height="128"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
