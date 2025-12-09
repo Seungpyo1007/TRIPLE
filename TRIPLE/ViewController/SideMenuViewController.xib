@@ -37,6 +37,9 @@
                         <navigationItem id="c6D-nx-WjY">
                             <barButtonItem key="leftBarButtonItem" title="Item" image="xmark" catalog="system" landscapeImage="xmark" largeContentSizeImage="xmark" id="mlu-R6-9oS">
                                 <color key="tintColor" systemColor="labelColor"/>
+                                <connections>
+                                    <action selector="closeSideMenu:" destination="-1" id="jII-oz-nYf"/>
+                                </connections>
                             </barButtonItem>
                             <rightBarButtonItems>
                                 <barButtonItem title="Item" image="gearshape" catalog="system" landscapeImage="gearshape" largeContentSizeImage="gearshape" id="pWf-cb-T0y">
@@ -47,6 +50,9 @@
                                 </barButtonItem>
                                 <barButtonItem title="Item" image="bell" catalog="system" landscapeImage="bell" largeContentSizeImage="bell" id="S2X-Di-Rzc">
                                     <color key="tintColor" systemColor="labelColor"/>
+                                    <connections>
+                                        <action selector="openNotificationMenu:" destination="-1" id="g8g-Bq-DWx"/>
+                                    </connections>
                                 </barButtonItem>
                             </rightBarButtonItems>
                         </navigationItem>

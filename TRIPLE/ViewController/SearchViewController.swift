@@ -8,10 +8,14 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+    @IBOutlet weak var searchTextField: UITextField!
     
     // MARK: - @IBAction
     @IBAction func backButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func searchButton(_ sender: Any) {
     }
     
     // MARK: - 스와이프 변수

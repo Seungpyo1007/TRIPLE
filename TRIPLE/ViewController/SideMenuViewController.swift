@@ -9,6 +9,9 @@ import UIKit
 
 class SideMenuViewController: UIViewController, SideMenuDetailViewDelegate {
     
+    private let viewModel = SideMenuViewModel()
+    private weak var detailView: SideMenuDetailView?
+    
     // MARK: - @IBOutlet
     @IBOutlet weak var containerView: UIView!
     
@@ -27,16 +30,29 @@ class SideMenuViewController: UIViewController, SideMenuDetailViewDelegate {
         }
     }
     
+    @IBAction func closeSideMenu(_ sender: Any) {
+    }
+    
+    @IBAction func openNotificationMenu(_ sender: Any) {
+    }
+    
     // MARK: - 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         embedSideMenuDetail()
+        viewModel.reload()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.reload()
     }
 
     // MARK: - UIView 초기세팅
     private func embedSideMenuDetail() {
         let detailView = SideMenuDetailView() // SideMenuDetailView 가져오기
         detailView.delegate = self
+        self.detailView = detailView
         detailView.translatesAutoresizingMaskIntoConstraints = false // Auto Layout을 사용하기 위해 기본 설정을 비활성화
         let targetContainer = containerView ?? view // containerView에 넣기
         targetContainer?.addSubview(detailView)
@@ -49,6 +65,25 @@ class SideMenuViewController: UIViewController, SideMenuDetailViewDelegate {
                 detailView.trailingAnchor.constraint(equalTo: target.trailingAnchor)
             ])
         }
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+        viewModel.onProfileChanged = { [weak self] profile in
+            self?.detailView?.configure(name: profile.name, image: self?.imageFromData(profile.imageData))
+        }
+        viewModel.onProfileImageChanged = { [weak self] image in
+            guard let name = self?.viewModel.profile.name else { return }
+            self?.detailView?.configure(name: name, image: image)
+        }
+        // initialize with current profile
+        let current = viewModel.profile
+        detailView?.configure(name: current.name, image: imageFromData(current.imageData))
+    }
+    
+    private func imageFromData(_ data: Data?) -> UIImage? {
+        guard let data = data else { return nil }
+        return UIImage(data: data)
     }
     
     // MARK: - SideMenuDetailViewDelegate (ProfileEditLabel)
@@ -59,3 +94,4 @@ class SideMenuViewController: UIViewController, SideMenuDetailViewDelegate {
         }
     }
 }
+

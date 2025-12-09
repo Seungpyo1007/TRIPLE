@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileEditViewController" customModule="TRIPLE" customModuleProvider="target">
             <connections>
+                <outlet property="profileImageView" destination="dcJ-Z8-O6h" id="K6R-SY-oMm"/>
+                <outlet property="profileTextField" destination="NyR-Cs-P5c" id="sbh-9O-mOt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -66,6 +68,9 @@
                             <buttonConfiguration key="configuration" style="filled" title="수정완료" cornerStyle="fixed">
                                 <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="saveButton:" destination="-1" eventType="touchUpInside" id="ZUu-dd-EnS"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한글/영어/숫자/밑줄/띄어쓰기를 사용할 수 있습니다." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyN-s1-ycz">
                             <rect key="frame" x="30" y="63" width="267" height="16"/>

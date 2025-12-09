@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SideMenuDetailView" customModule="TRIPLE" customModuleProvider="target">
             <connections>
                 <outlet property="profileEditLabel" destination="rZc-yj-VQ9" id="4wK-Ud-BrF"/>
+                <outlet property="profileImageView" destination="J6t-yx-P8o" id="IHZ-jm-FdX"/>
+                <outlet property="profileLabel" destination="Usy-at-5nK" id="DMv-AO-Kaf"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

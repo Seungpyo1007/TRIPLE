@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="TRIPLE" customModuleProvider="target">
             <connections>
+                <outlet property="searchTextField" destination="fFx-ml-Tu3" id="Ixs-XG-H1W"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -49,6 +50,9 @@
                             </textField>
                             <barButtonItem key="rightBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="ftN-MC-t9S">
                                 <color key="tintColor" systemColor="labelColor"/>
+                                <connections>
+                                    <action selector="searchButton:" destination="-1" id="kxF-4u-2fJ"/>
+                                </connections>
                             </barButtonItem>
                         </navigationItem>
                     </items>

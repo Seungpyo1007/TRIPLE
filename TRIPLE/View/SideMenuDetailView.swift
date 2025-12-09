@@ -20,8 +20,16 @@ class SideMenuDetailView: UIView {
     private let scrollView = UIScrollView()
     
     // MARK: - @IBOutlet
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileEditLabel: UILabel!
-
+    @IBOutlet weak var profileLabel: UILabel!
+    
+    // MARK: - Configure UI
+    func configure(name: String, image: UIImage?) {
+        profileLabel?.text = name
+        profileImageView?.image = image
+    }
+    
     // MARK: - 생명주기 (초기화)
     override init(frame: CGRect) {
         super.init(frame: frame)
