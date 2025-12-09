@@ -39,14 +39,6 @@
                                     <action selector="backButton:" destination="-1" id="H1r-rR-8qs"/>
                                 </connections>
                             </barButtonItem>
-                            <textField key="titleView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="fFx-ml-Tu3">
-                                <rect key="frame" x="72" y="5" width="249" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <barButtonItem key="rightBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="ftN-MC-t9S">
                                 <color key="tintColor" systemColor="labelColor"/>
                             </barButtonItem>
