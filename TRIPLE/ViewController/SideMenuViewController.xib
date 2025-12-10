@@ -22,35 +22,36 @@
             <subviews>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSQ-Zs-ASI">
                     <rect key="frame" x="0.0" y="118" width="260" height="54"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="tintColor" systemColor="systemBackgroundColor"/>
+                    <color key="barTintColor" systemColor="systemBackgroundColor"/>
                     <textAttributes key="titleTextAttributes">
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" systemColor="systemBackgroundColor"/>
+                        <color key="textShadowColor" systemColor="systemBackgroundColor"/>
                     </textAttributes>
                     <textAttributes key="largeTitleTextAttributes">
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" systemColor="systemBackgroundColor"/>
+                        <color key="textShadowColor" systemColor="systemBackgroundColor"/>
                     </textAttributes>
                     <items>
                         <navigationItem id="c6D-nx-WjY">
                             <barButtonItem key="leftBarButtonItem" title="Item" image="xmark" catalog="system" landscapeImage="xmark" largeContentSizeImage="xmark" id="mlu-R6-9oS">
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                             </barButtonItem>
                             <rightBarButtonItems>
                                 <barButtonItem title="Item" image="gearshape" catalog="system" landscapeImage="gearshape" largeContentSizeImage="gearshape" id="pWf-cb-T0y">
-                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" systemColor="labelColor"/>
                                     <connections>
                                         <action selector="openSettingsMenu:" destination="-1" id="SOr-yT-g7V"/>
                                     </connections>
                                 </barButtonItem>
                                 <barButtonItem title="Item" image="bell" catalog="system" landscapeImage="bell" largeContentSizeImage="bell" id="S2X-Di-Rzc">
-                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" systemColor="labelColor"/>
                                 </barButtonItem>
                             </rightBarButtonItems>
                         </navigationItem>
                     </items>
+                    <navigationBarAppearance key="standardAppearance"/>
                 </navigationBar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YeQ-NU-eOi">
                     <rect key="frame" x="0.0" y="172" width="260" height="428"/>
@@ -76,6 +77,9 @@
         <image name="bell" catalog="system" width="125" height="128"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

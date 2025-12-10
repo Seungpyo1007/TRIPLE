@@ -20,14 +20,14 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J2G-Ir-aKl">
                             <rect key="frame" x="30" y="68" width="336" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="8mN-at-BxN"/>
                             </constraints>
                         </view>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="F9D-3B-c6b">
                             <rect key="frame" x="353.33333333333331" y="36" width="12.666666666666686" height="16"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로필 및 계정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQK-7L-LGi">
                             <rect key="frame" x="30" y="30" width="113" height="22"/>
@@ -55,7 +55,7 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="762-WZ-W74">
                             <rect key="frame" x="31" y="58" width="336" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="qvm-Qn-8eQ"/>
                             </constraints>
@@ -72,7 +72,7 @@
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Od6-yy-8aA">
                             <rect key="frame" x="351" y="24" width="16" height="16"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="19.670000000000002" id="0jr-U0-Qqo"/>
                                 <constraint firstAttribute="width" constant="16" id="q4n-Jy-WS4"/>
@@ -117,7 +117,7 @@
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LXp-Ah-uTg">
                             <rect key="frame" x="350" y="76" width="16" height="16"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="16" id="EaR-cD-BJL"/>
                                 <constraint firstAttribute="height" constant="19.670000000000002" id="qeF-pi-f49"/>
@@ -125,7 +125,7 @@
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="geP-eY-51s">
                             <rect key="frame" x="349" y="133" width="16" height="16"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="16" id="5vB-7Q-wFF"/>
                                 <constraint firstAttribute="height" constant="19.670000000000002" id="zhS-CM-0Qh"/>
@@ -133,14 +133,14 @@
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4c6-Ja-HLd">
                             <rect key="frame" x="29" y="108" width="336" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="tSa-0Y-4dq"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zi9-gd-QlK">
                             <rect key="frame" x="29" y="165" width="336" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="jlO-vZ-xpz"/>
                             </constraints>
@@ -181,7 +181,7 @@
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QBq-ai-BTA">
                             <rect key="frame" x="349" y="188" width="16" height="16"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="19.670000000000002" id="K4H-y6-7p6"/>
                                 <constraint firstAttribute="width" constant="16" id="eRh-86-d4n"/>
@@ -189,7 +189,7 @@
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HPd-nK-gWX">
                             <rect key="frame" x="30" y="108" width="336" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="By9-9e-eU4"/>
                             </constraints>
@@ -216,7 +216,7 @@
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MwO-3u-Wd0">
                             <rect key="frame" x="348" y="132" width="16" height="16"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="16" id="ZUy-Ij-Zb9"/>
                                 <constraint firstAttribute="height" constant="19.670000000000002" id="oUb-UY-S0E"/>
@@ -224,7 +224,7 @@
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Egd-GK-Tte">
                             <rect key="frame" x="349" y="76" width="16" height="16"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="19.670000000000002" id="7yk-Ys-WPX"/>
                                 <constraint firstAttribute="width" constant="16" id="sP1-0M-jPL"/>
@@ -232,7 +232,7 @@
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bXJ-ke-YUP">
                             <rect key="frame" x="30" y="164" width="336" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="KL0-KG-tYe"/>
                             </constraints>
@@ -249,7 +249,7 @@
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="271-kS-rph">
                             <rect key="frame" x="31" y="220" width="336" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="5Db-sp-RxZ"/>
                             </constraints>
@@ -287,7 +287,7 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Vh-et-STu">
                             <rect key="frame" x="30" y="120" width="333" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="VyT-d5-8B8"/>
                             </constraints>
@@ -324,14 +324,14 @@
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUe-QA-4np">
                             <rect key="frame" x="30" y="177" width="333" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="2MX-Fx-Nvd"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dC2-g6-Zir">
                             <rect key="frame" x="30" y="234" width="333" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="wx8-jD-OpY"/>
                             </constraints>
@@ -348,7 +348,7 @@
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="inS-Jj-bwP">
                             <rect key="frame" x="347" y="145" width="16" height="16"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="16" id="mn2-4u-llN"/>
                                 <constraint firstAttribute="height" constant="19.670000000000002" id="vU0-mO-OFX"/>
@@ -356,7 +356,7 @@
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dnK-ev-C3B">
                             <rect key="frame" x="347" y="202" width="16" height="16"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="16" id="er3-yy-drp"/>
                                 <constraint firstAttribute="height" constant="19.670000000000002" id="kSz-Qd-VtT"/>
@@ -413,7 +413,7 @@
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PG2-tQ-14p">
                             <rect key="frame" x="30" y="126" width="333" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="ZDw-7e-nZr"/>
                             </constraints>
@@ -440,21 +440,21 @@
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Bm-Pt-eBs">
                             <rect key="frame" x="30" y="180" width="333" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="fXm-0s-aA4"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZl-by-gCO">
                             <rect key="frame" x="30" y="234" width="333" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="Glw-PR-ccU"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRb-QF-4Qf">
                             <rect key="frame" x="30" y="288" width="333" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="eDv-Ix-17D"/>
                             </constraints>
@@ -501,28 +501,28 @@
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1a-27-2Fv">
                             <rect key="frame" x="30" y="342" width="333" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="zbA-Hf-bhi"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RzN-hZ-rZa">
                             <rect key="frame" x="30" y="401" width="333" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="pDW-07-zYv"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2z1-Ru-P8k">
                             <rect key="frame" x="30" y="455" width="333" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="W4I-TG-8gI"/>
                             </constraints>
                         </view>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IqE-85-mzJ">
                             <rect key="frame" x="347" y="92" width="16" height="16"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="16" id="28Y-4j-HL7"/>
                                 <constraint firstAttribute="height" constant="19.670000000000002" id="BEy-AH-7en"/>
@@ -530,7 +530,7 @@
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Bde-q1-SZj">
                             <rect key="frame" x="347" y="151" width="16" height="16"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="19.670000000000002" id="EOG-VF-uzG"/>
                                 <constraint firstAttribute="width" constant="16" id="Fwf-CK-6xN"/>
@@ -538,7 +538,7 @@
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mO0-Xn-paT">
                             <rect key="frame" x="347" y="205" width="16" height="16"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="19.670000000000002" id="LPD-Ii-pu6"/>
                                 <constraint firstAttribute="width" constant="16" id="a5I-ck-KTT"/>
@@ -546,7 +546,7 @@
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VXE-BU-u3r">
                             <rect key="frame" x="347" y="259" width="16" height="16"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="16" id="g1c-a1-w0s"/>
                                 <constraint firstAttribute="height" constant="19.670000000000002" id="qlZ-yp-gZT"/>
@@ -554,7 +554,7 @@
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MBA-Fc-vg6">
                             <rect key="frame" x="347" y="313" width="16" height="16"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="16" id="JYc-PS-uqr"/>
                                 <constraint firstAttribute="height" constant="19.670000000000002" id="sGL-tC-5OR"/>
@@ -562,7 +562,7 @@
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="O2t-TP-XbN">
                             <rect key="frame" x="347" y="367" width="16" height="16"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="19.670000000000002" id="27e-cF-k2w"/>
                                 <constraint firstAttribute="width" constant="16" id="OYe-lZ-byZ"/>
@@ -570,7 +570,7 @@
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ljB-aM-PTr">
                             <rect key="frame" x="347" y="426" width="16" height="16"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="16" id="SuS-nv-6KI"/>
                                 <constraint firstAttribute="height" constant="19.670000000000002" id="jVL-lK-7AN"/>
@@ -725,35 +725,35 @@
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vpv-br-FSV">
                             <rect key="frame" x="30" y="236" width="333" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="JaQ-VU-Exc"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bX3-JR-WoI">
                             <rect key="frame" x="30" y="165" width="333" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="hP1-T4-Suu"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1w-es-po7">
                             <rect key="frame" x="40" y="291" width="323" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="cNZ-rk-dHD"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rya-2k-HNJ">
                             <rect key="frame" x="40" y="342" width="323" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="LRz-Nf-1YY"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2g-Ir-q8d">
                             <rect key="frame" x="40" y="396" width="323" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="gCi-mw-sHi"/>
                             </constraints>
@@ -860,7 +860,7 @@
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7co-T7-ddP">
                             <rect key="frame" x="347" y="36" width="16" height="16"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="19.670000000000002" id="5cc-0u-kTS"/>
                                 <constraint firstAttribute="width" constant="16" id="kMf-8k-pQD"/>
@@ -868,7 +868,7 @@
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yqq-Aa-MFs">
                             <rect key="frame" x="30" y="65" width="333" height="1"/>
-                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="eij-Fj-Ucs"/>
                             </constraints>
@@ -927,10 +927,13 @@
     </objects>
     <resources>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray6Color">
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>

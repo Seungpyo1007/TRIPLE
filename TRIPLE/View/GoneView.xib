@@ -32,11 +32,16 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Soo-0F-lVZ"/>
                             </constraints>
+                            <color key="tintColor" systemColor="systemBackgroundColor"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" image="paperplane" catalog="system"/>
+                            <buttonConfiguration key="configuration" style="filled" image="paperplane" catalog="system">
+                                <backgroundConfiguration key="background"/>
+                                <color key="baseForegroundColor" systemColor="labelColor"/>
+                                <color key="baseBackgroundColor" systemColor="systemBackgroundColor"/>
+                            </buttonConfiguration>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="N2v-bF-39Y" firstAttribute="top" secondItem="ojf-aY-esb" secondAttribute="bottom" constant="6" id="6kZ-jc-t21"/>
                         <constraint firstItem="ojf-aY-esb" firstAttribute="leading" secondItem="Wej-Cg-SGc" secondAttribute="leading" constant="15" id="Cw7-yG-3Tj"/>
@@ -63,11 +68,15 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="K82-2k-TN2"/>
                             </constraints>
+                            <color key="tintColor" systemColor="systemBackgroundColor"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" image="house.fill" catalog="system"/>
+                            <buttonConfiguration key="configuration" style="filled" image="house.fill" catalog="system">
+                                <color key="baseForegroundColor" systemColor="labelColor"/>
+                                <color key="baseBackgroundColor" systemColor="systemBackgroundColor"/>
+                            </buttonConfiguration>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="wEV-2M-3AR" firstAttribute="leading" secondItem="n42-uc-Y0q" secondAttribute="leading" constant="15" id="DEH-UQ-fTB"/>
                         <constraint firstItem="lMi-gl-wg8" firstAttribute="leading" secondItem="n42-uc-Y0q" secondAttribute="leading" constant="15" id="G3E-2p-0pO"/>
@@ -94,11 +103,15 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="1XM-t6-pTf"/>
                             </constraints>
+                            <color key="tintColor" systemColor="systemBackgroundColor"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" image="ticket.fill" catalog="system"/>
+                            <buttonConfiguration key="configuration" style="filled" image="ticket.fill" catalog="system">
+                                <color key="baseForegroundColor" systemColor="labelColor"/>
+                                <color key="baseBackgroundColor" systemColor="systemBackgroundColor"/>
+                            </buttonConfiguration>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="Ru7-UI-fAV" firstAttribute="top" secondItem="pIl-rA-WbU" secondAttribute="top" constant="15" id="8y1-Tm-fpv"/>
                         <constraint firstAttribute="trailing" secondItem="Ru7-UI-fAV" secondAttribute="trailing" constant="15" id="Mnc-hr-hUa"/>
@@ -125,11 +138,15 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="m2h-79-MfC"/>
                             </constraints>
+                            <color key="tintColor" systemColor="systemBackgroundColor"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" image="building.2" catalog="system"/>
+                            <buttonConfiguration key="configuration" style="filled" image="building.2" catalog="system">
+                                <color key="baseForegroundColor" systemColor="labelColor"/>
+                                <color key="baseBackgroundColor" systemColor="systemBackgroundColor"/>
+                            </buttonConfiguration>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="odj-kj-cpn" firstAttribute="top" secondItem="bKE-JK-KsP" secondAttribute="top" constant="15" id="Fs5-cY-uka"/>
                         <constraint firstAttribute="trailing" secondItem="WDI-oV-Mtk" secondAttribute="trailing" constant="10" id="Rdy-ZU-pEK"/>
@@ -156,11 +173,15 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="6Xb-bk-yQH"/>
                             </constraints>
+                            <color key="tintColor" systemColor="systemBackgroundColor"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" image="car" catalog="system"/>
+                            <buttonConfiguration key="configuration" style="filled" image="car" catalog="system">
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="baseBackgroundColor" systemColor="systemBackgroundColor"/>
+                            </buttonConfiguration>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="YpF-eP-n8O" secondAttribute="trailing" constant="15" id="1Ur-LL-On3"/>
                         <constraint firstItem="YpF-eP-n8O" firstAttribute="top" secondItem="ifE-18-NVG" secondAttribute="top" constant="15" id="4Fb-q1-C5D"/>
@@ -187,11 +208,15 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="dNo-Dd-tbX"/>
                             </constraints>
+                            <color key="tintColor" systemColor="systemBackgroundColor"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" image="globe.europe.africa.fill" catalog="system"/>
+                            <buttonConfiguration key="configuration" style="filled" image="globe.europe.africa.fill" catalog="system">
+                                <color key="baseForegroundColor" systemColor="labelColor"/>
+                                <color key="baseBackgroundColor" systemColor="systemBackgroundColor"/>
+                            </buttonConfiguration>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="X0x-sl-RHp" firstAttribute="top" secondItem="LGB-IE-XlF" secondAttribute="bottom" constant="6" id="GcS-fu-no9"/>
                         <constraint firstItem="LGB-IE-XlF" firstAttribute="top" secondItem="L9u-mY-eRJ" secondAttribute="top" constant="15" id="LI9-aZ-9rP"/>
@@ -218,11 +243,15 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="tTm-7G-Hup"/>
                             </constraints>
+                            <color key="tintColor" systemColor="systemBackgroundColor"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" image="safari" catalog="system"/>
+                            <buttonConfiguration key="configuration" style="filled" image="safari" catalog="system">
+                                <color key="baseForegroundColor" systemColor="labelColor"/>
+                                <color key="baseBackgroundColor" systemColor="systemBackgroundColor"/>
+                            </buttonConfiguration>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="lbl-aR-1ia" firstAttribute="top" secondItem="gQE-G0-nih" secondAttribute="top" constant="15" id="1M0-ha-TSE"/>
                         <constraint firstItem="lbl-aR-1ia" firstAttribute="leading" secondItem="gQE-G0-nih" secondAttribute="leading" constant="15" id="Fxa-6Y-FIC"/>
@@ -249,11 +278,15 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="KkD-Ps-7As"/>
                             </constraints>
+                            <color key="tintColor" systemColor="systemBackgroundColor"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" image="airplane.departure" catalog="system"/>
+                            <buttonConfiguration key="configuration" style="filled" image="airplane.departure" catalog="system">
+                                <color key="baseForegroundColor" systemColor="labelColor"/>
+                                <color key="baseBackgroundColor" systemColor="systemBackgroundColor"/>
+                            </buttonConfiguration>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="JFz-GV-gHc" firstAttribute="leading" secondItem="ojb-pY-JtK" secondAttribute="leading" constant="15" id="Gac-hf-sM9"/>
                         <constraint firstItem="JFz-GV-gHc" firstAttribute="top" secondItem="ojb-pY-JtK" secondAttribute="top" constant="15" id="Ire-hs-juE"/>
@@ -280,11 +313,15 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="NYJ-aA-gIU"/>
                             </constraints>
+                            <color key="tintColor" systemColor="systemBackgroundColor"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" image="message" catalog="system"/>
+                            <buttonConfiguration key="configuration" style="filled" image="message" catalog="system">
+                                <color key="baseForegroundColor" systemColor="labelColor"/>
+                                <color key="baseBackgroundColor" systemColor="systemBackgroundColor"/>
+                            </buttonConfiguration>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="bNG-bL-g11" firstAttribute="leading" secondItem="885-eh-KNi" secondAttribute="leading" constant="15" id="9jJ-DF-Hy6"/>
                         <constraint firstItem="e0m-gi-zYD" firstAttribute="leading" secondItem="885-eh-KNi" secondAttribute="leading" constant="15" id="K1O-8F-iDg"/>
@@ -296,7 +333,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="FLi-xK-Fyu"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
             <constraints>
                 <constraint firstItem="n42-uc-Y0q" firstAttribute="width" secondItem="pIl-rA-WbU" secondAttribute="width" id="2LR-ZR-PV9"/>
                 <constraint firstItem="L9u-mY-eRJ" firstAttribute="bottom" secondItem="NKM-by-0yf" secondAttribute="bottom" id="2RQ-Wd-F2a"/>
@@ -357,8 +394,14 @@
         <image name="paperplane" catalog="system" width="128" height="119"/>
         <image name="safari" catalog="system" width="128" height="123"/>
         <image name="ticket.fill" catalog="system" width="128" height="86"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

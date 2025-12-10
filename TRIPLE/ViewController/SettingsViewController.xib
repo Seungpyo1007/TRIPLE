@@ -37,14 +37,18 @@
                         <navigationItem id="HQB-on-w1a">
                             <leftBarButtonItems>
                                 <barButtonItem image="arrow.backward" catalog="system" id="EVu-E6-WXd">
+                                    <color key="tintColor" systemColor="labelColor"/>
                                     <connections>
                                         <action selector="backButton:" destination="-1" id="Lqf-uW-Kre"/>
                                     </connections>
                                 </barButtonItem>
-                                <barButtonItem title="설정" id="bT7-lQ-XJ2"/>
+                                <barButtonItem title="설정" id="bT7-lQ-XJ2">
+                                    <color key="tintColor" systemColor="labelColor"/>
+                                </barButtonItem>
                             </leftBarButtonItems>
                         </navigationItem>
                     </items>
+                    <navigationBarAppearance key="standardAppearance"/>
                 </navigationBar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJM-40-OLG">
                     <rect key="frame" x="0.0" y="172" width="393" height="680"/>
@@ -67,6 +71,9 @@
     </objects>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="95"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
