@@ -24,9 +24,6 @@ class GoneView: UIView {
     }
 
     private func commonInit() {
-        backgroundColor = .systemBackground
-        scrollView.backgroundColor = .systemBackground
-
         scrollView.alwaysBounceVertical = false
         scrollView.alwaysBounceHorizontal = true
         scrollView.showsVerticalScrollIndicator = false
@@ -34,7 +31,6 @@ class GoneView: UIView {
         scrollView.isDirectionalLockEnabled = true
         scrollView.keyboardDismissMode = .interactive
         scrollView.contentInsetAdjustmentBehavior = .never
-
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(scrollView)
         NSLayoutConstraint.activate([
@@ -69,9 +65,6 @@ class GoneView: UIView {
             actualContent.heightAnchor.constraint(equalTo: scrollView.frameLayoutGuide.heightAnchor, constant: 0),
             actualContent.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, multiplier: 1.9)
         ])
-        
-        actualContent.setContentHuggingPriority(.required, for: .vertical)
-        actualContent.setContentCompressionResistancePriority(.required, for: .vertical)
 
         scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0)
     }

@@ -23,13 +23,11 @@ class SettingsView: UIView {
     }
 
     private func commonInit() {
-        backgroundColor = .systemBackground
-        scrollView.backgroundColor = .systemBackground
 
-        scrollView.alwaysBounceVertical = true
-        scrollView.showsVerticalScrollIndicator = true
-        scrollView.keyboardDismissMode = .interactive
-        scrollView.contentInsetAdjustmentBehavior = .never
+//        scrollView.alwaysBounceVertical = true
+//        scrollView.showsVerticalScrollIndicator = true
+//        scrollView.keyboardDismissMode = .interactive
+//        scrollView.contentInsetAdjustmentBehavior = .never 내일 볼거임 ㅇㅇ
 
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(scrollView)
@@ -61,11 +59,8 @@ class SettingsView: UIView {
             actualContent.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 0),
             actualContent.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: 0),
             actualContent.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: 0),
-            actualContent.heightAnchor.constraint(equalToConstant: 1850)
+            actualContent.heightAnchor.constraint(equalToConstant: 1860)
         ])
-        
-        actualContent.setContentHuggingPriority(.required, for: .vertical)
-        actualContent.setContentCompressionResistancePriority(.required, for: .vertical)
 
         scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0)
     }

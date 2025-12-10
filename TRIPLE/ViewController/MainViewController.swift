@@ -8,7 +8,6 @@
 import UIKit
 
 protocol MainViewScrollDelegate: AnyObject {
-    // Called with vertical content offset (positive when scrolling up)
     func mainViewDidScroll(to offsetY: CGFloat)
 }
 
@@ -22,8 +21,7 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     // 사이드메뉴 열기/닫기 설정용 TC
     private var sideMenuTrailingConstraint: NSLayoutConstraint!
     
-    // Sticky header configuration
-    private let stickyRange: CGFloat = 120 // how much header can collapse/expand
+    private let stickyRange: CGFloat = 120
     private var initialMainTopConstant: CGFloat = 0
     
     @IBOutlet weak var goneViewTopConstraint: NSLayoutConstraint!
@@ -32,7 +30,6 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
    
     override public func viewDidLoad() {
         super.viewDidLoad()
-        // Save initial top constraint for sticky behavior
         self.initialMainTopConstant = self.mainViewTopConstraint?.constant ?? 0
         // 사이드바 추가
         self.setBasicSideMenu()
@@ -83,8 +80,7 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     // 누르면 push 방식으로 SearchViewController로 이동
     @IBAction func openSearchMenu(_ sender: Any) {
         let vc: UIViewController
-        if Bundle.main.path(forResource: "SearchViewController", ofType: "nib") != nil ||
-            Bundle.main.path(forResource: "SearchViewController", ofType: "xib") != nil {
+        if Bundle.main.path(forResource: "SearchViewController", ofType: "nib") != nil {
             vc = SearchViewController(nibName: "SearchViewController", bundle: .main)
         } else {
             vc = SearchViewController()
@@ -106,7 +102,6 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     
     //MARK: - 수동제작 사이드 메뉴 관련 코드들
     func setBasicSideMenu(){
-        // Shadow Background View
         self.sideMenuShadowView = UIView(frame: self.view.bounds)
         self.sideMenuShadowView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.sideMenuShadowView.backgroundColor = .black
@@ -117,9 +112,7 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
         // 그림자 영역 추가
         view.addSubview(self.sideMenuShadowView)
 
-        // Side Menu
-        if Bundle.main.path(forResource: "SideMenuViewController", ofType: "nib") != nil ||
-            Bundle.main.path(forResource: "SideMenuViewController", ofType: "xib") != nil {
+        if Bundle.main.path(forResource: "SideMenuViewController", ofType: "nib") != nil {
             self.sideMenuViewController = SideMenuViewController(nibName: "SideMenuViewController", bundle: .main)
         } else {
             self.sideMenuViewController = SideMenuViewController()

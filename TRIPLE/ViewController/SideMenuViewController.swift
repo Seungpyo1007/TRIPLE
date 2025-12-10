@@ -12,8 +12,7 @@ class SideMenuViewController: UIViewController {
 
     @IBAction func openSettingsMenu(_ sender: Any) {
         let vc: UIViewController
-        if Bundle.main.path(forResource: "SettingsViewController", ofType: "nib") != nil ||
-            Bundle.main.path(forResource: "SettingsViewController", ofType: "xib") != nil {
+        if Bundle.main.path(forResource: "SettingsViewController", ofType: "nib") != nil {
             vc = SettingsViewController(nibName: "SettingsViewController", bundle: .main)
         } else {
             vc = SettingsViewController()
