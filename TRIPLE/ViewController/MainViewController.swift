@@ -24,6 +24,12 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     private let stickyRange: CGFloat = 120 // mainView가 NavigationBar에 어디서 붙을지
     private var initialMainTopConstant: CGFloat = 0
     
+    // ViewModel 보유(필요 시 네트워크/DI로 교체)
+    private let mainViewModel = MainViewModel()
+    private lazy var storyCollectionDelegate = StoryCollectionDelegate(viewModel: mainViewModel)
+    private lazy var cityRecDelegate = CityRecCollectionDelegate(viewModel: mainViewModel)
+    private lazy var benefitDelegate = BenefitCollectionDelegate(viewModel: mainViewModel)
+    
     // MARK: - @IBOutlets
     // mainView를 위로 올리기 위한 상단 제약
     @IBOutlet weak var mainViewTopConstraint: NSLayoutConstraint!
@@ -44,6 +50,10 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     // MARK: - UIView 초기세팅
     private func embedMainView() {
         let detailView = MainView()
+        detailView.viewModel = mainViewModel
+        detailView.setCollectionHandlers(dataSource: storyCollectionDelegate, delegate: storyCollectionDelegate)
+        detailView.setCityRecHandlers(dataSource: cityRecDelegate, delegate: cityRecDelegate)
+        detailView.setBenefitHandlers(dataSource: benefitDelegate, delegate: benefitDelegate)
         detailView.scrollDelegate = self
         detailView.translatesAutoresizingMaskIntoConstraints = false // Auto Layout을 사용하기 위해 기본 설정을 비활성화
         let targetContainer = mainView ?? view

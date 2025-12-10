@@ -9,7 +9,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainView" customModule="TRIPLE" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainView" customModule="TRIPLE" customModuleProvider="target">
+            <connections>
+                <outlet property="benefitCollectionView" destination="4bU-XF-1KT" id="iLp-mq-4IX"/>
+                <outlet property="cityRecCollectionView" destination="jqN-0q-2mK" id="7hZ-eW-tUR"/>
+                <outlet property="storyCollectionView" destination="KM3-mb-tzf" id="Npl-zs-HVb"/>
+                <outlet property="subTitle" destination="LzP-Xo-3Q3" id="PLv-d1-1O6"/>
+                <outlet property="titleName" destination="wGQ-b0-Npd" id="1SR-WJ-ttL"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="393" height="7000"/>
@@ -18,13 +26,13 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x0F-Ub-L71" userLabel="HeaderView">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="청계천꿈나라님, 트리플과의 첫 여행!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGQ-b0-Npd" userLabel="Lorem Lorem Lorem Lorem Lorem">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="청계천꿈나라님, 트리플과의 첫 여행!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGQ-b0-Npd" userLabel="TitleName">
                             <rect key="frame" x="20" y="20" width="253" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어디로 갈지 정해볼까요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzP-Xo-3Q3" userLabel="Lorem Lorem Lorem Lorem Lorem">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어디로 갈지 정해볼까요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzP-Xo-3Q3" userLabel="SubTitle">
                             <rect key="frame" x="20" y="45" width="272" height="24"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <nil key="textColor"/>
@@ -42,10 +50,10 @@
                         <constraint firstItem="LzP-Xo-3Q3" firstAttribute="top" secondItem="wGQ-b0-Npd" secondAttribute="bottom" constant="4" id="s8A-Wo-Joz"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XdZ-n2-2km">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XdZ-n2-2km" userLabel="HeaderListView">
                     <rect key="frame" x="0.0" y="100" width="393" height="640"/>
                     <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="jqN-0q-2mK">
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="jqN-0q-2mK" userLabel="CityRecCollectionView">
                             <rect key="frame" x="0.0" y="514" width="393" height="126"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vuf-IG-Gow">
@@ -55,7 +63,7 @@
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
                         </collectionView>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="KM3-mb-tzf">
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="KM3-mb-tzf" userLabel="StoryCollectionView">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cad-NT-bb2">
@@ -65,10 +73,10 @@
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
                         </collectionView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nCx-TV-1Qe">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nCx-TV-1Qe" userLabel="AdsImageView">
                             <rect key="frame" x="20" y="320" width="353" height="100"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 취향에 맞는 추천 도시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvN-CP-9HE" userLabel="Lorem Lorem Lorem Lorem Lorem">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 취향에 맞는 추천 도시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvN-CP-9HE">
                             <rect key="frame" x="20" y="470" width="202" height="24"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <nil key="textColor"/>
@@ -94,16 +102,16 @@
                         <constraint firstItem="WvN-CP-9HE" firstAttribute="leading" secondItem="XdZ-n2-2km" secondAttribute="leading" constant="20" symbolic="YES" id="w4Z-de-GZy"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hD7-T4-3em">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hD7-T4-3em" userLabel="BenefitListView">
                     <rect key="frame" x="0.0" y="740" width="393" height="310"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금 유용한 정보와 해택!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAW-NN-TdJ" userLabel="Lorem Lorem Lorem Lorem Lorem">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금 유용한 정보와 해택!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAW-NN-TdJ">
                             <rect key="frame" x="20" y="60" width="202" height="24"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="4bU-XF-1KT">
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="4bU-XF-1KT" userLabel="BenefitCollectionView">
                             <rect key="frame" x="0.0" y="104" width="393" height="206"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="b9q-7v-s4y">
@@ -125,7 +133,7 @@
                         <constraint firstItem="4bU-XF-1KT" firstAttribute="leading" secondItem="hD7-T4-3em" secondAttribute="leading" id="w7h-bX-NXN"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="593-Ax-1gH">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="593-Ax-1gH" userLabel="TravelListView">
                     <rect key="frame" x="0.0" y="1050" width="393" height="550"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이번 주 여행 매거진" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdA-qc-U6u" userLabel="Lorem Lorem Lorem Lorem Lorem">
@@ -156,7 +164,7 @@
                         <constraint firstAttribute="bottom" secondItem="pBg-QA-ez2" secondAttribute="bottom" id="yy9-gv-L47"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMA-bp-sxV">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMA-bp-sxV" userLabel="CityListView">
                     <rect key="frame" x="0.0" y="1600" width="393" height="450"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xhS-dJ-DQS">
@@ -180,7 +188,7 @@
                         <constraint firstItem="xhS-dJ-DQS" firstAttribute="leading" secondItem="pMA-bp-sxV" secondAttribute="leading" id="wTW-oq-a0A"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pan-61-e0t">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pan-61-e0t" userLabel="HotelListView">
                     <rect key="frame" x="0.0" y="2050" width="393" height="500"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3Vb-eA-Q5H">
@@ -239,7 +247,7 @@
                         <constraint firstItem="M8e-YM-JjC" firstAttribute="leading" secondItem="Pan-61-e0t" secondAttribute="leading" constant="20" symbolic="YES" id="uRU-Lh-bAe"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkD-4O-f9C">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkD-4O-f9C" userLabel="TicketListView">
                     <rect key="frame" x="0.0" y="2550" width="393" height="550"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxI-Hq-8CG">
@@ -287,7 +295,7 @@
                         <constraint firstItem="riS-0A-15m" firstAttribute="leading" secondItem="OkD-4O-f9C" secondAttribute="leading" constant="20" symbolic="YES" id="x3a-5i-Wmk"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOr-5H-yzI">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOr-5H-yzI" userLabel="MainContentView">
                     <rect key="frame" x="0.0" y="3100" width="393" height="3200"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hec-72-kNG">
@@ -436,7 +444,7 @@
                         <constraint firstAttribute="trailing" secondItem="6g3-eh-XYI" secondAttribute="trailing" id="upH-yE-lKM"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWg-uj-smx">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWg-uj-smx" userLabel="FooterView">
                     <rect key="frame" x="0.0" y="6300" width="393" height="700"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iXY-V4-W0s">
