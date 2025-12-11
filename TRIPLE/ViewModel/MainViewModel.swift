@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import YouTubePlayerKit
 
 struct Story {
     let id: UUID = UUID()
@@ -34,5 +35,21 @@ final class MainViewModel {
     func reload() {
         // 향후 네트워크/캐시 로직 추가
         // self.stories = fetched
+    }
+    
+    func videoIDForStory(at index: Int) -> String? {
+        let story = stories[index]
+
+        // Only use the title to derive the video ID to avoid relying on absent properties.
+        let title = story.title
+        if let source = YouTubePlayer.Source(urlString: title),
+           case let .video(id: parsedID) = source {
+            return parsedID
+        }
+        let trimmed = title.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !trimmed.isEmpty, !trimmed.contains(" "), trimmed.count <= 64 {
+            return trimmed
+        }
+        return nil
     }
 }
