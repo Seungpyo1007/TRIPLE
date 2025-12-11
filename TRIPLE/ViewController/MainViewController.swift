@@ -24,11 +24,16 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     private let stickyRange: CGFloat = 120 // mainView가 NavigationBar에 어디서 붙을지
     private var initialMainTopConstant: CGFloat = 0
     
-    // ViewModel 보유(필요 시 네트워크/DI로 교체)
+    // MARK: - ViewModel 보유(필요 시 네트워크/DI로 교체)
     private let mainViewModel = MainViewModel()
+    
     private lazy var storyCollectionDelegate = StoryCollectionDelegate(viewModel: mainViewModel)
-    private lazy var cityRecDelegate = CityRecCollectionDelegate(viewModel: mainViewModel)
-    private lazy var benefitDelegate = BenefitCollectionDelegate(viewModel: mainViewModel)
+    private lazy var cityRecCollectionDelegate = CityRecCollectionDelegate(viewModel: mainViewModel)
+    private lazy var benefitCollectionDelegate = BenefitCollectionDelegate(viewModel: mainViewModel)
+    private lazy var travelCollectionDelegate = TravelCollectionDelegate(viewModel: mainViewModel)
+    private lazy var hotelCollectionDelegate = HotelCollectionDelegate(viewModel: mainViewModel)
+    private lazy var ticketCollectionDelegate = TicketCollectionDelegate(viewModel: mainViewModel)
+    private lazy var eventCollectionDelegate = EventCollectionDelegate(viewModel: mainViewModel)
     
     // MARK: - @IBOutlets
     // mainView를 위로 올리기 위한 상단 제약
@@ -51,9 +56,13 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     private func embedMainView() {
         let detailView = MainView()
         detailView.viewModel = mainViewModel
-        detailView.setCollectionHandlers(dataSource: storyCollectionDelegate, delegate: storyCollectionDelegate)
-        detailView.setCityRecHandlers(dataSource: cityRecDelegate, delegate: cityRecDelegate)
-        detailView.setBenefitHandlers(dataSource: benefitDelegate, delegate: benefitDelegate)
+        detailView.setStoryHandlers(dataSource: storyCollectionDelegate, delegate: storyCollectionDelegate)
+        detailView.setCityRecHandlers(dataSource: cityRecCollectionDelegate, delegate: cityRecCollectionDelegate)
+        detailView.setBenefitHandlers(dataSource: benefitCollectionDelegate, delegate: benefitCollectionDelegate)
+        detailView.setTravelHandlers(dataSource: travelCollectionDelegate, delegate: travelCollectionDelegate)
+        detailView.setHotelHandlers(dataSource: hotelCollectionDelegate, delegate: hotelCollectionDelegate)
+        detailView.setTicketHandlers(dataSource: ticketCollectionDelegate, delegate: ticketCollectionDelegate)
+        detailView.setEventHandlers(dataSource: eventCollectionDelegate, delegate: eventCollectionDelegate)
         detailView.scrollDelegate = self
         detailView.translatesAutoresizingMaskIntoConstraints = false // Auto Layout을 사용하기 위해 기본 설정을 비활성화
         let targetContainer = mainView ?? view
