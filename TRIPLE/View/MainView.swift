@@ -32,12 +32,12 @@ class MainView: UIView, UIScrollViewDelegate {
     @IBOutlet weak var subTitle: UILabel!
     
     @IBOutlet weak var storyCollectionView: UICollectionView!
-    
     @IBOutlet weak var cityRecCollectionView: UICollectionView!
-    
     @IBOutlet weak var benefitCollectionView: UICollectionView!
-    
-    private let storyCellReuseID = "StoryCollectionViewCell"
+    @IBOutlet weak var travelCollectionView: UICollectionView!
+    @IBOutlet weak var hotelCollectionView: UICollectionView!
+    @IBOutlet weak var ticketCollectionView: UICollectionView!
+    @IBOutlet weak var eventCollectionView: UICollectionView!
     
     // MARK: - 생명주기 (초기화)
     override init(frame: CGRect) {
@@ -94,8 +94,8 @@ class MainView: UIView, UIScrollViewDelegate {
         
         // CollectionView Cell 위치 맞추기
         if let storyCollectionView = self.storyCollectionView {
-            let cellNib = UINib(nibName: "StoryCollectionViewCell", bundle: Bundle(for: type(of: self)))
-            storyCollectionView.register(cellNib, forCellWithReuseIdentifier: storyCellReuseID)
+            let storyNib = UINib(nibName: "StoryCollectionViewCell", bundle: Bundle(for: type(of: self)))
+            storyCollectionView.register(storyNib,forCellWithReuseIdentifier: StoryCollectionViewCell.reuseIdentifier)
 
             if let flow = storyCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
                 flow.scrollDirection = .horizontal
@@ -107,8 +107,8 @@ class MainView: UIView, UIScrollViewDelegate {
         }
         
         if let cityRecCollectionView = self.cityRecCollectionView {
-            let recCellNib = UINib(nibName: "CityRecCollectionViewCell", bundle: Bundle(for: type(of: self)))
-            cityRecCollectionView.register(recCellNib, forCellWithReuseIdentifier: CityRecCollectionViewCell.reuseIdentifier)
+            let cityRecNib = UINib(nibName: "CityRecCollectionViewCell", bundle: Bundle(for: type(of: self)))
+            cityRecCollectionView.register(cityRecNib,forCellWithReuseIdentifier: CityRecCollectionViewCell.reuseIdentifier)
 
             if let flow = cityRecCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
                 flow.scrollDirection = .horizontal
@@ -131,6 +131,58 @@ class MainView: UIView, UIScrollViewDelegate {
             }
             benefitCollectionView.showsHorizontalScrollIndicator = false
         }
+        
+        if let travelCollectionView = self.travelCollectionView {
+            let travelNib = UINib(nibName: "TravelCollectionViewCell", bundle: Bundle(for: type(of: self)))
+            travelCollectionView.register(travelNib, forCellWithReuseIdentifier: TravelCollectionViewCell.reuseIdentifier)
+
+            if let flow = travelCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                flow.scrollDirection = .horizontal
+                flow.minimumInteritemSpacing = 10
+                flow.minimumLineSpacing = 10
+                flow.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+            }
+            travelCollectionView.showsHorizontalScrollIndicator = false
+        }
+        
+        if let hotelCollectionView = self.hotelCollectionView {
+            let hotelNib = UINib(nibName: "HotelCollectionViewCell", bundle: Bundle(for: type(of: self)))
+            hotelCollectionView.register(hotelNib, forCellWithReuseIdentifier: HotelCollectionViewCell.reuseIdentifier)
+            
+            if let flow = hotelCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                flow.scrollDirection = .horizontal
+                flow.minimumInteritemSpacing = 10
+                flow.minimumLineSpacing = 10
+                flow.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+            }
+            hotelCollectionView.showsHorizontalScrollIndicator = false
+        }
+        
+        if let ticketCollectionView = self.ticketCollectionView {
+            let ticketNib = UINib(nibName: "TicketCollectionViewCell", bundle: Bundle(for: type(of: self)))
+            ticketCollectionView.register(ticketNib, forCellWithReuseIdentifier: TicketCollectionViewCell.reuseIdentifier)
+            
+            if let flow = ticketCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                flow.scrollDirection = .horizontal
+                flow.minimumInteritemSpacing = 10
+                flow.minimumLineSpacing = 10
+                flow.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+            }
+            ticketCollectionView.showsHorizontalScrollIndicator = false
+        }
+        
+        if let eventCollectionView = self.eventCollectionView {
+            let eventNib = UINib(nibName: "EventCollectionViewCell", bundle: Bundle(for: type(of: self)))
+            eventCollectionView.register(eventNib, forCellWithReuseIdentifier: EventCollectionViewCell.reuseIdentifier)
+            
+            if let flow = eventCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                flow.scrollDirection = .horizontal
+                flow.minimumInteritemSpacing = 10
+                flow.minimumLineSpacing = 10
+                flow.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+            }
+            eventCollectionView.showsHorizontalScrollIndicator = false
+        }
     }
     
     
@@ -140,6 +192,10 @@ class MainView: UIView, UIScrollViewDelegate {
             self?.storyCollectionView?.reloadData()
             self?.cityRecCollectionView?.reloadData()
             self?.benefitCollectionView?.reloadData()
+            self?.travelCollectionView?.reloadData()
+            self?.hotelCollectionView?.reloadData()
+            self?.ticketCollectionView?.reloadData()
+            self?.eventCollectionView?.reloadData()
         }
     }
 
@@ -148,8 +204,10 @@ class MainView: UIView, UIScrollViewDelegate {
         scrollDelegate?.mainViewDidScroll(to: scrollView.contentOffset.y)
     }
     
+    // MARK: - Delegate
+    
     // 외부에서 컬렉션뷰 핸들러 주입
-    func setCollectionHandlers(dataSource: UICollectionViewDataSource, delegate: UICollectionViewDelegateFlowLayout) {
+    func setStoryHandlers(dataSource: UICollectionViewDataSource, delegate: UICollectionViewDelegateFlowLayout) {
         storyCollectionView?.dataSource = dataSource
         storyCollectionView?.delegate = delegate
         storyCollectionView?.reloadData()
@@ -165,5 +223,26 @@ class MainView: UIView, UIScrollViewDelegate {
         benefitCollectionView?.dataSource = dataSource
         benefitCollectionView?.delegate = delegate
         benefitCollectionView?.reloadData()
+    }
+    
+    func setTravelHandlers(dataSource: UICollectionViewDataSource, delegate: UICollectionViewDelegateFlowLayout) {
+        travelCollectionView?.dataSource = dataSource
+        travelCollectionView?.delegate = delegate
+        travelCollectionView?.reloadData()
+    }
+    func setHotelHandlers(dataSource: UICollectionViewDataSource, delegate: UICollectionViewDelegateFlowLayout) {
+        hotelCollectionView?.dataSource = dataSource
+        hotelCollectionView?.delegate = delegate
+        hotelCollectionView?.reloadData()
+    }
+    func setTicketHandlers(dataSource: UICollectionViewDataSource, delegate: UICollectionViewDelegateFlowLayout) {
+        ticketCollectionView?.dataSource = dataSource
+        ticketCollectionView?.delegate = delegate
+        ticketCollectionView?.reloadData()
+    }
+    func setEventHandlers(dataSource: UICollectionViewDataSource, delegate: UICollectionViewDelegateFlowLayout) {
+        eventCollectionView?.dataSource = dataSource
+        eventCollectionView?.delegate = delegate
+        eventCollectionView?.reloadData()
     }
 }
