@@ -176,7 +176,7 @@
                             <color key="tintColor" systemColor="systemBackgroundColor"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" image="car" catalog="system">
-                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="baseForegroundColor" systemColor="labelColor"/>
                                 <color key="baseBackgroundColor" systemColor="systemBackgroundColor"/>
                             </buttonConfiguration>
                         </button>
