@@ -1,19 +1,19 @@
 //
-//  BenefitCollectionViewCell.swift
+//  TicketCollectionViewCell.swift
 //  TRIPLE
 //
-//  Created by 홍승표 on 12/10/25.
+//  Created by 홍승표 on 12/11/25.
 //
 
 import UIKit
 
-class BenefitCollectionViewCell: UICollectionViewCell {
+class TicketCollectionViewCell: UICollectionViewCell {
 
-    static let reuseIdentifier = "BenefitCollectionViewCell"
+    static let reuseIdentifier = "TicketCollectionViewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        contentView.backgroundColor = .tertiarySystemBackground
+        contentView.backgroundColor = .secondarySystemBackground
         contentView.layer.cornerRadius = 12
         contentView.layer.masksToBounds = true
     }

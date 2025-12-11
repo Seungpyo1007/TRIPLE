@@ -30,7 +30,6 @@ final class BenefitCollectionDelegate: NSObject, UICollectionViewDataSource, UIC
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BenefitCollectionViewCell.reuseIdentifier, for: indexPath) as? BenefitCollectionViewCell else {
             fatalError("The dequeued cell is not an instance of BenefitCollectionViewCell.")
         }
-        // 임시: 스토리 타이틀을 플레이스홀더로 사용. 추후 Benefit 전용 모델로 교체 예정
         let placeholder = viewModel.story(at: indexPath.item).title
         cell.configure(with: placeholder)
         return cell

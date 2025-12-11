@@ -1,13 +1,13 @@
 //
-//  CityRecCollectionDelegate.swift
+//  TicketCollectionDelegate.swift
 //  TRIPLE
 //
-//  Created by 홍승표 on 12/10/25.
+//  Created by 홍승표 on 12/11/25.
 //
 
 import UIKit
 
-final class CityRecCollectionDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+final class TicketCollectionDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     private var viewModel: MainViewModel
 
@@ -27,10 +27,9 @@ final class CityRecCollectionDelegate: NSObject, UICollectionViewDataSource, UIC
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CityRecCollectionViewCell.reuseIdentifier, for: indexPath) as? CityRecCollectionViewCell else {
-            fatalError("The dequeued cell is not an instance of CityRecCollectionViewCell.")
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TicketCollectionViewCell.reuseIdentifier, for: indexPath) as? TicketCollectionViewCell else {
+            fatalError("The dequeued cell is not an instance of TicketCollectionViewCell.")
         }
-        // 임시: 스토리 타이틀을 플레이스홀더로 사용. 추후 City 전용 모델로 교체 예정
         let placeholder = viewModel.story(at: indexPath.item).title
         cell.configure(with: placeholder)
         return cell
@@ -41,6 +40,7 @@ final class CityRecCollectionDelegate: NSObject, UICollectionViewDataSource, UIC
         let height = collectionView.bounds.height
         let verticalInset: CGFloat = 0
         let adjustedHeight = max(0, height - verticalInset * 2)
-        return CGSize(width: adjustedHeight, height: adjustedHeight)
+        let width = adjustedHeight * 0.75
+        return CGSize(width: width, height: adjustedHeight)
     }
 }
