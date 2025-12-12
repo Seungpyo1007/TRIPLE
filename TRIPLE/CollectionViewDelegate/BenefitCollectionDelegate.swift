@@ -9,28 +9,28 @@ import UIKit
 
 final class BenefitCollectionDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    private var viewModel: MainViewModel
+    private var viewModel: BenefitCollectionViewModel
 
-    init(viewModel: MainViewModel) {
+    init(viewModel: BenefitCollectionViewModel) {
         self.viewModel = viewModel
         super.init()
     }
 
     // MARK: - Public API
-    func reload(with viewModel: MainViewModel) {
+    func reload(with viewModel: BenefitCollectionViewModel) {
         self.viewModel = viewModel
     }
 
     // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.numberOfStories
+        return viewModel.numberOfItems
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BenefitCollectionViewCell.reuseIdentifier, for: indexPath) as? BenefitCollectionViewCell else {
             fatalError("The dequeued cell is not an instance of BenefitCollectionViewCell.")
         }
-        let placeholder = viewModel.story(at: indexPath.item).title
+        let placeholder = viewModel.item(at: indexPath.item).title
         cell.configure(with: placeholder)
         return cell
     }

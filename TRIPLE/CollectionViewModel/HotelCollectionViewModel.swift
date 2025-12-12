@@ -6,3 +6,20 @@
 //
 
 import Foundation
+
+struct HotelItem {
+    let id: UUID = UUID()
+    let title: String
+}
+
+final class HotelCollectionViewModel {
+    private(set) var items: [HotelItem] = [] { didSet { onItemsChanged?(items) } }
+    var onItemsChanged: (([HotelItem]) -> Void)?
+
+    var numberOfItems: Int { items.count }
+    func item(at index: Int) -> HotelItem { items[index] }
+
+    func loadMock() {
+        self.items = (1...10).map { HotelItem(title: "Hotel \($0)") }
+    }
+}

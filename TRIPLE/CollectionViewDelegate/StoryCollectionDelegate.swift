@@ -10,21 +10,21 @@ import YouTubePlayerKit
 
 final class StoryCollectionDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    private var viewModel: MainViewModel
+    private var viewModel: StoryCollectionViewModel
     
-    init(viewModel: MainViewModel) {
+    init(viewModel: StoryCollectionViewModel) {
         self.viewModel = viewModel
         super.init()
     }
     
     // MARK: - Public API
-    func reload(with viewModel: MainViewModel) {
+    func reload(with viewModel: StoryCollectionViewModel) {
         self.viewModel = viewModel
     }
     
     // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.numberOfStories
+        return viewModel.numberOfItems
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -33,7 +33,7 @@ final class StoryCollectionDelegate: NSObject, UICollectionViewDataSource, UICol
             fatalError("The dequeued cell is not an instance of StoryCollectionViewCell.")
         }
         // Ask the ViewModel for a ready-to-use videoID (MVVM)
-        let videoID = viewModel.videoIDForStory(at: indexPath.item) ?? ""
+        let videoID = viewModel.videoIDForItem(at: indexPath.item) ?? ""
         cell.configure(videoID: videoID, autoplay: false, loop: false, showControls: true)
         return cell
     }
@@ -47,4 +47,3 @@ final class StoryCollectionDelegate: NSObject, UICollectionViewDataSource, UICol
         return CGSize(width: width, height: adjustedHeight)
     }
 }
-

@@ -27,13 +27,21 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     // MARK: - ViewModel 보유(필요 시 네트워크/DI로 교체)
     private let mainViewModel = MainViewModel()
     
-    private lazy var storyCollectionDelegate = StoryCollectionDelegate(viewModel: mainViewModel)
-    private lazy var cityRecCollectionDelegate = CityRecCollectionDelegate(viewModel: mainViewModel)
-    private lazy var benefitCollectionDelegate = BenefitCollectionDelegate(viewModel: mainViewModel)
-    private lazy var travelCollectionDelegate = TravelCollectionDelegate(viewModel: mainViewModel)
-    private lazy var hotelCollectionDelegate = HotelCollectionDelegate(viewModel: mainViewModel)
-    private lazy var ticketCollectionDelegate = TicketCollectionDelegate(viewModel: mainViewModel)
-    private lazy var eventCollectionDelegate = EventCollectionDelegate(viewModel: mainViewModel)
+    private let storyVM = StoryCollectionViewModel()
+    private let cityRecVM = CityRecCollectionViewModel()
+    private let benefitVM = BenefitCollectionViewModel()
+    private let travelVM = TravelCollectionViewModel()
+    private let hotelVM = HotelCollectionViewModel()
+    private let ticketVM = TicketCollectionViewModel()
+    private let eventVM = EventCollectionViewModel()
+    
+    private lazy var storyCollectionDelegate = StoryCollectionDelegate(viewModel: storyVM)
+    private lazy var cityRecCollectionDelegate = CityRecCollectionDelegate(viewModel: cityRecVM)
+    private lazy var benefitCollectionDelegate = BenefitCollectionDelegate(viewModel: benefitVM)
+    private lazy var travelCollectionDelegate = TravelCollectionDelegate(viewModel: travelVM)
+    private lazy var hotelCollectionDelegate = HotelCollectionDelegate(viewModel: hotelVM)
+    private lazy var ticketCollectionDelegate = TicketCollectionDelegate(viewModel: ticketVM)
+    private lazy var eventCollectionDelegate = EventCollectionDelegate(viewModel: eventVM)
     
     // MARK: - @IBOutlets
     // mainView를 위로 올리기 위한 상단 제약
@@ -50,12 +58,20 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
         self.setSideMenu() // 사이드바 추가
         embedMainView()
         embedGoneView()
+
+        storyVM.loadMock()
+        cityRecVM.loadMock()
+        benefitVM.loadMock()
+        travelVM.loadMock()
+        hotelVM.loadMock()
+        ticketVM.loadMock()
+        eventVM.loadMock()
     }
     
     // MARK: - UIView 초기세팅
     private func embedMainView() {
         let detailView = MainView()
-        detailView.viewModel = mainViewModel
+        // detailView.viewModel = mainViewModel  // Removed per instructions
         detailView.setStoryHandlers(dataSource: storyCollectionDelegate, delegate: storyCollectionDelegate)
         detailView.setCityRecHandlers(dataSource: cityRecCollectionDelegate, delegate: cityRecCollectionDelegate)
         detailView.setBenefitHandlers(dataSource: benefitCollectionDelegate, delegate: benefitCollectionDelegate)

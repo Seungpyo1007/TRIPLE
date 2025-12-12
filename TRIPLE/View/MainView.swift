@@ -16,14 +16,6 @@ class MainView: UIView, UIScrollViewDelegate {
     // MARK: - 변수 & 상수
     weak var scrollDelegate: MainViewScrollDelegate?
     
-    // 외부에서 주입받는 ViewModel
-    var viewModel: MainViewModel? {
-        didSet {
-            bindViewModel()
-            storyCollectionView?.reloadData()
-        }
-    }
-
     private var contentView: UIView?
     private let scrollView = UIScrollView()
     
@@ -185,20 +177,6 @@ class MainView: UIView, UIScrollViewDelegate {
         }
     }
     
-    
-    // 실시간 데이터? 무조건 있어야된다 하네요
-    private func bindViewModel() {
-        viewModel?.onStoriesChanged = { [weak self] _ in
-            self?.storyCollectionView?.reloadData()
-            self?.cityRecCollectionView?.reloadData()
-            self?.benefitCollectionView?.reloadData()
-            self?.travelCollectionView?.reloadData()
-            self?.hotelCollectionView?.reloadData()
-            self?.ticketCollectionView?.reloadData()
-            self?.eventCollectionView?.reloadData()
-        }
-    }
-
     // MARK: - UIScrollViewDelegate
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollDelegate?.mainViewDidScroll(to: scrollView.contentOffset.y)

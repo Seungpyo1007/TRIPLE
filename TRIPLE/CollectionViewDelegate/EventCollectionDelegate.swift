@@ -9,28 +9,28 @@ import UIKit
 
 final class EventCollectionDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    private var viewModel: MainViewModel
+    private var viewModel: EventCollectionViewModel
 
-    init(viewModel: MainViewModel) {
+    init(viewModel: EventCollectionViewModel) {
         self.viewModel = viewModel
         super.init()
     }
 
     // MARK: - Public API
-    func reload(with viewModel: MainViewModel) {
+    func reload(with viewModel: EventCollectionViewModel) {
         self.viewModel = viewModel
     }
 
     // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.numberOfStories
+        return viewModel.numberOfItems
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventCollectionViewCell.reuseIdentifier, for: indexPath) as? EventCollectionViewCell else {
             fatalError("The dequeued cell is not an instance of EventCollectionViewCell.")
         }
-        let placeholder = viewModel.story(at: indexPath.item).title
+        let placeholder = viewModel.item(at: indexPath.item).title
         cell.configure(with: placeholder)
         return cell
     }
