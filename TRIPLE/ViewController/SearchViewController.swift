@@ -8,12 +8,16 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+    
+    // MARK: - @IBAction
     @IBAction func backButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
+    // MARK: - 스와이프 변수
     var swipeRecognizer: UISwipeGestureRecognizer!
     
+    // MARK: - 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(_:)))
@@ -21,21 +25,10 @@ class SearchViewController: UIViewController {
         self.view.addGestureRecognizer(swipeRecognizer)
     }
     
+    // MARK: - Action
     @objc func swipeAction(_ sender: UISwipeGestureRecognizer) {
         if sender.direction == .right {
             self.navigationController?.popViewController(animated: true)
         }
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
