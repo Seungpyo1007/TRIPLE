@@ -12,6 +12,34 @@ final class StoryCollectionDelegate: NSObject, UICollectionViewDataSource, UICol
     
     private var viewModel: StoryCollectionViewModel
     
+    // Cache one YouTubePlayer per index to keep playback alive while offscreen
+    private var playerCache: [Int: YouTubePlayer] = [:]
+
+    private func playerForItem(at index: Int) -> YouTubePlayer? {
+        guard let videoID = viewModel.videoIDForItem(at: index) else { return nil }
+        if let cached = playerCache[index] {
+            return cached
+        }
+        // Create a player once and cache it
+        let parameters = YouTubePlayer.Parameters(
+            autoPlay: true,
+            loopEnabled: true,
+            startTime: nil,
+            showControls: false
+        )
+        let configuration = YouTubePlayer.Configuration(
+            allowsInlineMediaPlayback: true,
+            customUserAgent: nil
+        )
+        let player = YouTubePlayer(
+            source: .video(id: videoID),
+            parameters: parameters,
+            configuration: configuration
+        )
+        playerCache[index] = player
+        return player
+    }
+    
     init(viewModel: StoryCollectionViewModel) {
         self.viewModel = viewModel
         super.init()
@@ -20,6 +48,7 @@ final class StoryCollectionDelegate: NSObject, UICollectionViewDataSource, UICol
     // MARK: - Public API
     func reload(with viewModel: StoryCollectionViewModel) {
         self.viewModel = viewModel
+        playerCache.removeAll()
     }
     
     // MARK: - UICollectionViewDataSource
@@ -28,13 +57,16 @@ final class StoryCollectionDelegate: NSObject, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoryCollectionViewCell.reuseIdentifier, for: indexPath) as?
-            StoryCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoryCollectionViewCell.reuseIdentifier, for: indexPath) as? StoryCollectionViewCell else {
             fatalError("The dequeued cell is not an instance of StoryCollectionViewCell.")
         }
-        // Ask the ViewModel for a ready-to-use videoID (MVVM)
-        let videoID = viewModel.videoIDForItem(at: indexPath.item) ?? ""
-        cell.configure(videoID: videoID, autoplay: false, loop: false, showControls: true)
+        let index = indexPath.item
+        if let player = playerForItem(at: index) {
+            cell.configureWithExisting(player: player)
+        }
+        
+        // 유튜브 UI deprecated
+        cell.isUserInteractionEnabled = false
         return cell
     }
     
@@ -47,3 +79,4 @@ final class StoryCollectionDelegate: NSObject, UICollectionViewDataSource, UICol
         return CGSize(width: width, height: adjustedHeight)
     }
 }
+
