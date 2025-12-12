@@ -12,6 +12,9 @@ class StoryCollectionViewCell: UICollectionViewCell {
 
     static let reuseIdentifier = "StoryCollectionViewCell"
 
+    // Track current configured video ID to avoid reloading on reuse
+    private var currentVideoID: String?
+
     // Container view to host the YouTubePlayerHostingView
     private let playerContainerView = UIView()
     // Hosting view is created once a player exists
@@ -41,10 +44,8 @@ class StoryCollectionViewCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        // Remove hosting view and clear player for reuse
-        hostingView?.removeFromSuperview()
-        hostingView = nil
-        player = nil
+        // Intentionally keep player and hostingView attached to preserve playback while offscreen.
+        // No-op to preserve already loaded web content.
     }
 
     /// Configure the cell to display a YouTube video
@@ -65,6 +66,12 @@ class StoryCollectionViewCell: UICollectionViewCell {
         allowsInlineMediaPlayback: Bool = true,
         customUserAgent: String? = nil
     ) {
+        // If the same video is already configured, skip reconfiguration to prevent reloads
+        if currentVideoID == videoID, hostingView != nil {
+            return
+        }
+        currentVideoID = videoID
+
         // Build player parameters
         let parameters = YouTubePlayer.Parameters(
             autoPlay: autoplay,
@@ -100,5 +107,27 @@ class StoryCollectionViewCell: UICollectionViewCell {
             hostingView.trailingAnchor.constraint(equalTo: playerContainerView.trailingAnchor),
             hostingView.bottomAnchor.constraint(equalTo: playerContainerView.bottomAnchor)
         ])
+    }
+
+    /// Attach an existing YouTubePlayer without resetting playback
+    /// This keeps playback continuous while the cell is reused/shown again.
+    func configureWithExisting(player: YouTubePlayer) {
+        // Keep reference to provided player
+        self.player = player
+        // Remove previous hosting view if it was created for a different player
+        if hostingView?.player !== player {
+            hostingView?.removeFromSuperview()
+            let hostingView = YouTubePlayerHostingView(player: player)
+            self.hostingView = hostingView
+            hostingView.translatesAutoresizingMaskIntoConstraints = false
+            playerContainerView.addSubview(hostingView)
+            NSLayoutConstraint.activate([
+                hostingView.topAnchor.constraint(equalTo: playerContainerView.topAnchor),
+                hostingView.leadingAnchor.constraint(equalTo: playerContainerView.leadingAnchor),
+                hostingView.trailingAnchor.constraint(equalTo: playerContainerView.trailingAnchor),
+                hostingView.bottomAnchor.constraint(equalTo: playerContainerView.bottomAnchor)
+            ])
+        }
+        // Do not change playback state (no load/reload/autoplay changes)
     }
 }
