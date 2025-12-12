@@ -99,7 +99,7 @@ xcuserdata
 *.xcodeproj
 
 ### Custom Secrets ###
-Secret.plist
+TRIPLE/Secret.plist
 
 
 ### Xcode ###
