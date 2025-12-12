@@ -35,6 +35,7 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     private let ticketVM = TicketCollectionViewModel()
     private let eventVM = EventCollectionViewModel()
     
+    // MARK: - Delegate 보유
     private lazy var storyCollectionDelegate = StoryCollectionDelegate(viewModel: storyVM)
     private lazy var cityRecCollectionDelegate = CityRecCollectionDelegate(viewModel: cityRecVM)
     private lazy var benefitCollectionDelegate = BenefitCollectionDelegate(viewModel: benefitVM)
