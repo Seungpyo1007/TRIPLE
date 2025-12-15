@@ -4,5 +4,7 @@
 target 'TRIPLE' do
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'GooglePlacesSwift'
+  pod 'RiveRuntime'
 
 end

@@ -99,6 +99,7 @@
 				35FDAFED2ED43F5000D7E35B /* Frameworks */,
 				35FDAFEE2ED43F5000D7E35B /* Resources */,
 				2EDBC5F249AF3D4F626D96E4 /* [CP] Copy Pods Resources */,
+				0E49F799A1D2E3A732CC77B3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -163,6 +164,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E49F799A1D2E3A732CC77B3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TRIPLE/Pods-TRIPLE-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TRIPLE/Pods-TRIPLE-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TRIPLE/Pods-TRIPLE-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2EDBC5F249AF3D4F626D96E4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
