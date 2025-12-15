@@ -98,10 +98,6 @@ Packages
 xcuserdata
 *.xcodeproj
 
-### Custom Secrets ###
-TRIPLE/Secret.plist
-Secret.plist
-
 ### Xcode ###
 
 ## Xcode 8 and earlier
