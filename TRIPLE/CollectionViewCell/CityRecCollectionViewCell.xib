@@ -42,6 +42,9 @@
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="0yl-66-tI9" secondAttribute="trailing" id="YMw-E6-Umg"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="aug-JX-CK7" secondAttribute="trailing" constant="29" id="pPq-qf-pCm"/>
             </constraints>
+            <connections>
+                <outlet property="imageView" destination="0yl-66-tI9" id="E4e-1B-WFc"/>
+            </connections>
             <point key="canvasLocation" x="7.6335877862595414" y="107.74647887323944"/>
         </collectionViewCell>
     </objects>
