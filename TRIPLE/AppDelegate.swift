@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlaces
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            let dict = NSDictionary(contentsOfFile: path) as? [String: Any],
            let apiKey = dict["GoogleMaps-API-KEY"] as? String, !apiKey.isEmpty {
             GMSServices.provideAPIKey(apiKey)
+            GMSPlacesClient.provideAPIKey(apiKey)
         } else {
             assertionFailure("Missing or empty APIKEY in Secret.plist")
         }
