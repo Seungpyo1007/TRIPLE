@@ -6,20 +6,45 @@
 //
 
 import Foundation
-
-struct CityRecItem {
-    let id: UUID = UUID()
-    let title: String
-}
+import UIKit
 
 final class CityRecCollectionViewModel {
-    private(set) var items: [CityRecItem] = [] { didSet { onItemsChanged?(items) } }
-    var onItemsChanged: (([CityRecItem]) -> Void)?
+    private let model: CityRecModel
+    private let photoService: PlacePhotoProviding
 
-    var numberOfItems: Int { items.count }
-    func item(at index: Int) -> CityRecItem { items[index] }
+    var onItemsChanged: (([CityRecItem]) -> Void)? {
+        didSet { model.onItemsChanged = onItemsChanged }
+    }
 
-    func loadMock() {
-        self.items = (1...10).map { CityRecItem(title: "City \($0)") }
+    init(photoService: PlacePhotoProviding = GooglePlacesPhotoService(), verifiedPlaceIDs: [String] = []) {
+        self.photoService = photoService
+        self.model = CityRecModel(verifiedPlaceIDs: verifiedPlaceIDs)
+        self.model.onItemsChanged = { [weak self] items in
+            self?.onItemsChanged?(items)
+        }
+    }
+
+    var numberOfItems: Int { model.numberOfItems }
+
+    func item(at index: Int) -> CityRecItem { model.item(at: index) }
+
+    func loadMock() { model.loadMock() }
+
+    func loadPhotoForItem(at index: Int, targetSize: CGSize, completion: @escaping (UIImage?) -> Void) {
+        let item = model.item(at: index)
+        guard let placeID = item.placeID else {
+            completion(nil)
+            return
+        }
+        photoService.fetchFirstPhoto(for: placeID, maxSize: targetSize) { data in
+            var image: UIImage? = nil
+            if let data = data {
+                image = UIImage(data: data)
+            }
+            if image == nil {
+                print("[CityRecCollectionViewModel] Photo fetch failed or nil for placeID: \(placeID)")
+            }
+            completion(image)
+        }
     }
 }

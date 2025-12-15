@@ -32,6 +32,7 @@ final class CityRecCollectionDelegate: NSObject, UICollectionViewDataSource, UIC
         }
         let placeholder = viewModel.item(at: indexPath.item).title
         cell.configure(with: placeholder)
+        cell.configureImage(viewModel: viewModel, indexPath: indexPath, collectionView: collectionView)
         return cell
     }
 
