@@ -62,7 +62,7 @@ class StoryCollectionViewCell: UICollectionViewCell {
         autoplay: Bool = false,
         loop: Bool = false,
         startTimeSeconds: Double? = nil,
-        showControls: Bool = true,
+        showControls: Bool = false,
         allowsInlineMediaPlayback: Bool = true,
         customUserAgent: String? = nil
     ) {
