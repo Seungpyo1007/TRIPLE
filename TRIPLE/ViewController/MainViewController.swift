@@ -124,6 +124,19 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
             nav.pushViewController(vc, animated: true)
         }
     }
+    // 누르면 modal 방식으로 임시 이동
+    @IBAction func openScheduleMenu(_ sender: Any) {
+        let vc: UIViewController
+        if Bundle.main.path(forResource: "CountryViewController", ofType: "nib") != nil {
+            vc = CountryViewController(nibName: "CountryViewController", bundle: .main)
+        } else {
+            vc = CountryViewController()
+        }
+        if let nav = self.navigationController {
+            nav.pushViewController(vc, animated: true)
+        }
+    }
+    
     // 수동으로 버튼 누르면 만든 뷰 열기
     @IBAction func openSlideMenu(_ sender: Any) {
         self.sideMenuState(expanded: self.isExpanded ? false : true)
