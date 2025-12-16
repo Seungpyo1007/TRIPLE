@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0440B7DDF8CE93F5DA749A0B /* libPods-TRIPLE.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C53E113933061E0561A876EB /* libPods-TRIPLE.a */; };
 		356D5FCA2EEAA510002147A7 /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 356D5FC92EEAA510002147A7 /* YouTubePlayerKit */; };
+		E501F084A946155C0F44A118 /* libPods-TRIPLE.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A017F84383373A87720911E7 /* libPods-TRIPLE.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		35FDAFF02ED43F5000D7E35B /* TRIPLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRIPLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BCAEE7CC47374027524533DF /* Pods-TRIPLE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TRIPLE.release.xcconfig"; path = "Target Support Files/Pods-TRIPLE/Pods-TRIPLE.release.xcconfig"; sourceTree = "<group>"; };
-		C53E113933061E0561A876EB /* libPods-TRIPLE.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TRIPLE.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D77169FD3F0B1310E616EA4D /* Pods-TRIPLE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TRIPLE.debug.xcconfig"; path = "Target Support Files/Pods-TRIPLE/Pods-TRIPLE.debug.xcconfig"; sourceTree = "<group>"; };
+		84B6A89C590F274CEFC4A931 /* Pods-TRIPLE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TRIPLE.debug.xcconfig"; path = "Target Support Files/Pods-TRIPLE/Pods-TRIPLE.debug.xcconfig"; sourceTree = "<group>"; };
+		A017F84383373A87720911E7 /* libPods-TRIPLE.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TRIPLE.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF45E25E5B0049D052470088 /* Pods-TRIPLE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TRIPLE.release.xcconfig"; path = "Target Support Files/Pods-TRIPLE/Pods-TRIPLE.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -45,20 +45,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				356D5FCA2EEAA510002147A7 /* YouTubePlayerKit in Frameworks */,
-				0440B7DDF8CE93F5DA749A0B /* libPods-TRIPLE.a in Frameworks */,
+				E501F084A946155C0F44A118 /* libPods-TRIPLE.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1578EF8E05906C37500F8469 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A017F84383373A87720911E7 /* libPods-TRIPLE.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		35FDAFE72ED43F5000D7E35B = {
 			isa = PBXGroup;
 			children = (
 				35FDAFF22ED43F5000D7E35B /* TRIPLE */,
 				35FDAFF12ED43F5000D7E35B /* Products */,
 				A47202DFC1B97B8C1FA46A02 /* Pods */,
-				638615A3548DC8FEC54E5D63 /* Frameworks */,
+				1578EF8E05906C37500F8469 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,19 +78,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		638615A3548DC8FEC54E5D63 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C53E113933061E0561A876EB /* libPods-TRIPLE.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A47202DFC1B97B8C1FA46A02 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D77169FD3F0B1310E616EA4D /* Pods-TRIPLE.debug.xcconfig */,
-				BCAEE7CC47374027524533DF /* Pods-TRIPLE.release.xcconfig */,
+				84B6A89C590F274CEFC4A931 /* Pods-TRIPLE.debug.xcconfig */,
+				CF45E25E5B0049D052470088 /* Pods-TRIPLE.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -94,12 +94,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35FDB0032ED43F5000D7E35B /* Build configuration list for PBXNativeTarget "TRIPLE" */;
 			buildPhases = (
-				EDFA5DC8D39D7B7620B622E2 /* [CP] Check Pods Manifest.lock */,
+				139D907B926E4E6BC6C263FB /* [CP] Check Pods Manifest.lock */,
 				35FDAFEC2ED43F5000D7E35B /* Sources */,
 				35FDAFED2ED43F5000D7E35B /* Frameworks */,
 				35FDAFEE2ED43F5000D7E35B /* Resources */,
-				2EDBC5F249AF3D4F626D96E4 /* [CP] Copy Pods Resources */,
-				0E49F799A1D2E3A732CC77B3 /* [CP] Embed Pods Frameworks */,
+				2786FAC7848591F8CE2A09CA /* [CP] Copy Pods Resources */,
+				0AC002045573C448717E20C2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -164,7 +164,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0E49F799A1D2E3A732CC77B3 /* [CP] Embed Pods Frameworks */ = {
+		0AC002045573C448717E20C2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -172,41 +172,16 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TRIPLE/Pods-TRIPLE-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TRIPLE/Pods-TRIPLE-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TRIPLE/Pods-TRIPLE-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2EDBC5F249AF3D4F626D96E4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TRIPLE/Pods-TRIPLE-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TRIPLE/Pods-TRIPLE-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TRIPLE/Pods-TRIPLE-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EDFA5DC8D39D7B7620B622E2 /* [CP] Check Pods Manifest.lock */ = {
+		139D907B926E4E6BC6C263FB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -228,6 +203,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2786FAC7848591F8CE2A09CA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TRIPLE/Pods-TRIPLE-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TRIPLE/Pods-TRIPLE-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TRIPLE/Pods-TRIPLE-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -243,7 +235,7 @@
 /* Begin XCBuildConfiguration section */
 		35FDB0042ED43F5000D7E35B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D77169FD3F0B1310E616EA4D /* Pods-TRIPLE.debug.xcconfig */;
+			baseConfigurationReference = 84B6A89C590F274CEFC4A931 /* Pods-TRIPLE.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -278,7 +270,7 @@
 		};
 		35FDB0052ED43F5000D7E35B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BCAEE7CC47374027524533DF /* Pods-TRIPLE.release.xcconfig */;
+			baseConfigurationReference = CF45E25E5B0049D052470088 /* Pods-TRIPLE.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
