@@ -242,6 +242,9 @@
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XX.XX(X) ~ XX.XX(X) 성인 2명 (1박, 세금 포함가격)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNp-Ss-wBt">
                             <rect key="frame" x="71" y="470" width="250" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="MT0-lx-Yr3"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
