@@ -111,14 +111,13 @@ extension SearchViewController: UITableViewDataSource {
         let item = viewModel.results[indexPath.row]
         var content = cell.defaultContentConfiguration()
         content.text = item.name
-        content.secondaryText = nil // Remove rating to use image instead
+        content.secondaryText = nil
         content.image = UIImage(systemName: "photo")
-        content.imageProperties.maximumSize = CGSize(width: 44, height: 44)
+        content.imageProperties.maximumSize = CGSize(width: 25, height: 25)
         content.imageProperties.cornerRadius = 6
         cell.contentConfiguration = content
         cell.accessoryType = .disclosureIndicator
 
-        // Fetch first photo for this place and update the cell's image when loaded
         let placeID = item.id
         viewModel.fetchFirstPhoto(placeID: placeID, maxSize: CGSize(width: 200, height: 200)) { [weak tableView] image in
             DispatchQueue.main.async {
@@ -128,7 +127,7 @@ extension SearchViewController: UITableViewDataSource {
                 updated.text = item.name
                 updated.secondaryText = nil
                 updated.image = image ?? UIImage(systemName: "photo")
-                updated.imageProperties.maximumSize = CGSize(width: 44, height: 44)
+                updated.imageProperties.maximumSize = CGSize(width: 25, height: 25)
                 updated.imageProperties.cornerRadius = 6
                 visibleCell.contentConfiguration = updated
             }
