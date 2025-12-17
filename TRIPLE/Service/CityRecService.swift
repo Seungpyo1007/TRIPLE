@@ -26,27 +26,47 @@ final class GooglePlacesPhotoService: PlacePhotoProviding {
     }
 
     func fetchFirstPhoto(for placeID: String, maxSize: CGSize, completion: @escaping (Data?) -> Void) {
-        placesClient.lookUpPhotos(forPlaceID: placeID) { photos, error in
+        // 1. lookUpPhotos 대신 fetchPlace를 사용하여 최신 사진 메타데이터를 직접 가져옵니다.
+        let properties: [GMSPlaceProperty] = [.photos]
+        let fetchRequest = GMSFetchPlaceRequest(
+            placeID: placeID,
+            placeProperties: properties.map { $0.rawValue },
+            sessionToken: nil
+        )
+
+        placesClient.fetchPlace(with: fetchRequest) { [weak self] place, error in
             if let error = error {
-                print("[CityRec] Failed to lookup photos: \(error)")
+                print("[CityRec] Failed to fetch place for photos: \(error.localizedDescription)")
                 completion(nil)
                 return
             }
-            guard let photoMetadata = photos?.results.first else {
+
+            // 2. 검색된 장소 정보에서 첫 번째 사진 메타데이터 추출
+            guard let photoMetadata = place?.photos?.first else {
+                print("[CityRec] No photo metadata found for placeID: \(placeID)")
                 completion(nil)
                 return
             }
+
+            // 3. 획득한 메타데이터로 실제 사진 데이터 요청
             let fetchPhotoRequest = GMSFetchPhotoRequest(photoMetadata: photoMetadata, maxSize: maxSize)
-            self.placesClient.fetchPhoto(with: fetchPhotoRequest) { image, error in
+            
+            self?.placesClient.fetchPhoto(with: fetchPhotoRequest) { image, error in
                 if let error = error {
-                    print("[CityRec] Failed to fetch photo: \(error)")
+                    print("[CityRec] Failed to fetch photo data: \(error.localizedDescription)")
                     completion(nil)
                     return
                 }
-                if let image = image, let data = image.jpegData(compressionQuality: 0.9) {
-                    completion(data)
-                } else if let image = image, let data = image.pngData() {
-                    completion(data)
+
+                // 4. 이미지 데이터를 변환하여 반환
+                if let image = image {
+                    if let data = image.jpegData(compressionQuality: 0.9) {
+                        completion(data)
+                    } else if let data = image.pngData() {
+                        completion(data)
+                    } else {
+                        completion(nil)
+                    }
                 } else {
                     completion(nil)
                 }
@@ -55,7 +75,6 @@ final class GooglePlacesPhotoService: PlacePhotoProviding {
     }
 }
 #endif
-
 // Service boundary for providing city recommendation data
 protocol CityRecServicing {
     // Load a random mock list of cities (with optional verified place IDs)
@@ -73,59 +92,59 @@ enum CityPlaceIDs {
     // Known Google Places placeIDs per city name
     static let byCity: [String: String] = [
         // Vietnam
-        "Ho Chi Minh City": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s", // Saigon hotel example placeID provided
-        "Hanoi": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
-        "Da Nang": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
+        "Ho Chi Minh City": "ChIJ0T2NLikpdTERKxE8d61aX_E", // Saigon hotel example placeID provided
+        "Hanoi": "ChIJoRyG2ZurNTERqRfKcnt_iOc",
+        "Da Nang": "ChIJEyolkscZQjERBn5yhkvL8B0",
         
         // Japan
-        "Tokyo": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
-        "Osaka": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
-        "Kyoto": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
-        "Fukuoka": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
+        "Tokyo": "ChIJ51cu8IcbXWARiRtXIothAS4",
+        "Osaka": "ChIJ4eIGNFXmAGAR5y9q5G7BW8U",
+        "Kyoto": "ChIJ8cM8zdaoAWARPR27azYdlsA",
+        "Fukuoka": "ChIJKYSE6aHtQTURg4c5NplyCvY",
         
         // Korea
-        "Seoul": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
+        "Seoul": "ChIJzWXFYYuifDUR64Pq5LTtioU",
         
         // Taiwan
-        "Taipei": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
+        "Taipei": "ChIJi73bYWusQjQRgqQGXK260bw",
         
         // China SAR
-        "Hong Kong": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
+        "Hong Kong": "ChIJD5gyo-3iAzQRfMnq27qzivA",
         
         // Thailand
-        "Bangkok": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
+        "Bangkok": "ChIJ82ENKDJgHTERIEjiXbIAAQE",
         
         // Singapore
-        "Singapore": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
+        "Singapore": "ChIJdZOLiiMR2jERxPWrUs9peIg",
         
         // Malaysia
-        "Kuala Lumpur": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
+        "Kuala Lumpur": "ChIJ0-cIvSo2zDERmWzYQPUfLiM",
         
         // Philippines
-        "Manila": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
+        "Manila": "ChIJi8MeVwPKlzMRH8FpEHXV0Wk",
         
         // Indonesia
-        "Jakarta": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
+        "Jakarta": "ChIJnUvjRenzaS4RoobX2g-_cVM",
         
         // Australia & NZ
-        "Sydney": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
-        "Melbourne": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
-        "Auckland": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
+        "Sydney": "ChIJP3Sa8ziYEmsRUKgyFmh9AQM",
+        "Melbourne": "ChIJ90260rVG1moRkM2MIXVWBAQ",
+        "Auckland": "ChIJ--acWvtHDW0RF5miQ2HvAAU",
         
         // USA & Canada
-        "Los Angeles": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
-        "New York": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
+        "Los Angeles": "ChIJE9on3F3HwoAR9AhGJW_fL-I",
+        "New York": "ChIJOwg_06VPwokRYv534QaPC8g",
         "San Francisco": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
-        "Vancouver": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
-        "Toronto": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
+        "Vancouver": "ChIJs0-pQ_FzhlQRi_OBm-qWkbs",
+        "Toronto": "ChIJpTvG15DL1IkRd8S0KlBVNTI",
         
         // Europe
-        "London": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
-        "Paris": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
-        "Berlin": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
-        "Barcelona": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
-        "Rome": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
-        "Istanbul": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
+        "London": "ChIJdd4hrwug2EcRmSrV3Vo6llI",
+        "Paris": "ChIJdd4hrwug2EcRmSrV3Vo6llI",
+        "Berlin": "ChIJAVkDPzdOqEcRcDteW0YgIQQ",
+        "Barcelona": "ChIJk_s92NyipBIRUMnDG8Kq2Js",
+        "Rome": "ChIJu46S-ZZhLxMROG5lkwZ3D7k",
+        "Istanbul": "ChIJawhoAASnyhQR0LABvJj-zOE",
         
         // UAE
         "Dubai": "ChIJRcbZaklDXz4RYlEphFBu5r0"
