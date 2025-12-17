@@ -8,7 +8,11 @@
 import UIKit
 
 class HotelCollectionViewCell: UICollectionViewCell {
-
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    
     static let reuseIdentifier = "HotelCollectionViewCell"
 
     override func awakeFromNib() {
