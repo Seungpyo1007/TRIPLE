@@ -18,15 +18,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="100" height="126"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0yl-66-tI9">
-                        <rect key="frame" x="0.0" y="1.3333333333333321" width="100" height="62.333333333333343"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0yl-66-tI9">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="90"/>
                         <color key="tintColor" systemColor="labelColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="65" id="BE1-e1-Dc7"/>
+                            <constraint firstAttribute="height" constant="90" id="BE1-e1-Dc7"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aug-JX-CK7">
-                        <rect key="frame" x="29" y="85" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aug-JX-CK7" userLabel="CityLabel">
+                        <rect key="frame" x="29" y="100" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -36,20 +36,20 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="aug-JX-CK7" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="29" id="2dJ-NC-qn4"/>
-                <constraint firstItem="aug-JX-CK7" firstAttribute="top" secondItem="0yl-66-tI9" secondAttribute="bottom" constant="20" id="48l-OU-sdf"/>
+                <constraint firstItem="aug-JX-CK7" firstAttribute="top" secondItem="0yl-66-tI9" secondAttribute="bottom" constant="10" id="48l-OU-sdf"/>
                 <constraint firstAttribute="top" secondItem="0yl-66-tI9" secondAttribute="top" id="9Sv-I5-cXj"/>
                 <constraint firstItem="0yl-66-tI9" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="Low-hS-zVY"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="0yl-66-tI9" secondAttribute="trailing" id="YMw-E6-Umg"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="aug-JX-CK7" secondAttribute="trailing" constant="29" id="pPq-qf-pCm"/>
             </constraints>
             <connections>
+                <outlet property="cityLabel" destination="aug-JX-CK7" id="e47-Tb-1KW"/>
                 <outlet property="imageView" destination="0yl-66-tI9" id="E4e-1B-WFc"/>
             </connections>
             <point key="canvasLocation" x="7.6335877862595414" y="107.74647887323944"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="book" catalog="system" width="128" height="99"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

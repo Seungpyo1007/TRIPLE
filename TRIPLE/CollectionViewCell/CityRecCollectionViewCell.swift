@@ -12,6 +12,7 @@ class CityRecCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "CityRecCollectionViewCell"
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var cityLabel: UILabel!
     private var loadToken: UUID?
 
     override func awakeFromNib() {
@@ -26,12 +27,14 @@ class CityRecCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
+        cityLabel.text = nil
         loadToken = nil
         // TODO: Reset XIB outlets when added later
     }
 
     func configure(with placeholder: String) {
-        // This configure method now only handles text or placeholder binding
+        cityLabel.text = placeholder
+        cityLabel.isHidden = false
     }
     
     func configureImage(viewModel: CityRecCollectionViewModel, indexPath: IndexPath, collectionView: UICollectionView) {
