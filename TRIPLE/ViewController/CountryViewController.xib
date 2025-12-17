@@ -11,7 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CountryViewController" customModule="TRIPLE" customModuleProvider="target">
             <connections>
-                <outlet property="mainView" destination="Ige-BP-4YW" id="bPF-DZ-7db"/>
+                <outlet property="countryEngLabel" destination="Hz1-Ru-53j" id="ANK-Qt-RkR"/>
+                <outlet property="countryFirstCityLabel" destination="Kdb-li-uPw" id="xd4-Ei-NB8"/>
+                <outlet property="countryKorLabel" destination="SZU-Af-Gk2" id="EiM-zJ-Dq6"/>
+                <outlet property="countrySecondCityLabel" destination="PQa-0M-fMW" id="eWa-gz-cJE"/>
+                <outlet property="countryTownLabel" destination="0TT-bi-UMm" id="5Ql-xv-mqJ"/>
+                <outlet property="riveView" destination="Ige-BP-4YW" id="H4P-ps-TkT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ige-BP-4YW" customClass="RiveView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ige-BP-4YW" customClass="RiveView" customModule="RiveRuntime">
                     <rect key="frame" x="0.0" y="118" width="393" height="734"/>
                     <subviews>
                         <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qm5-k4-Eeg">
@@ -28,37 +33,45 @@
                             <color key="tintColor" systemColor="labelColor"/>
                             <items>
                                 <navigationItem id="Rwy-le-MZ2">
-                                    <barButtonItem key="leftBarButtonItem" title="Item" image="xmark" catalog="system" id="f7T-R2-gVa"/>
-                                    <barButtonItem key="rightBarButtonItem" title="Item" image="list.bullet" catalog="system" id="rJp-MX-83g"/>
+                                    <barButtonItem key="leftBarButtonItem" title="Item" image="xmark" catalog="system" id="f7T-R2-gVa">
+                                        <connections>
+                                            <action selector="closeButton:" destination="-1" id="Gmx-Wl-vc7"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem key="rightBarButtonItem" title="Item" image="list.bullet" catalog="system" id="rJp-MX-83g">
+                                        <connections>
+                                            <action selector="openSideMenu:" destination="-1" id="XJ4-LH-SL1"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </navigationItem>
                             </items>
                             <navigationBarAppearance key="standardAppearance"/>
                         </navigationBar>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="도쿄" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZU-Af-Gk2">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="도쿄" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZU-Af-Gk2" userLabel="CountryKorLabel">
                             <rect key="frame" x="0.0" y="225" width="393" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="하코네" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0TT-bi-UMm">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="하코네" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0TT-bi-UMm" userLabel="CountryTownLabel">
                             <rect key="frame" x="0.0" y="266" width="393" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="요코하마" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdb-li-uPw">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="요코하마" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdb-li-uPw" userLabel="CountryFirstCityLabel">
                             <rect key="frame" x="0.0" y="307" width="393" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가마쿠라" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQa-0M-fMW">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가마쿠라" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQa-0M-fMW" userLabel="CountrySecondCityLabel">
                             <rect key="frame" x="0.0" y="348" width="393" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOKYO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hz1-Ru-53j">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOKYO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hz1-Ru-53j" userLabel="CountryEngLabel">
                             <rect key="frame" x="0.0" y="160" width="393" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                             <nil key="textColor"/>
