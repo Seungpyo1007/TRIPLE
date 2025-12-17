@@ -8,6 +8,8 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import GooglePlacesSwift
+import RiveRuntime
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            let apiKey = dict["GoogleMaps-API-KEY"] as? String, !apiKey.isEmpty {
             GMSServices.provideAPIKey(apiKey)
             GMSPlacesClient.provideAPIKey(apiKey)
+            PlacesClient.provideAPIKey(apiKey)
         } else {
             assertionFailure("Missing or empty APIKEY in Secret.plist")
         }
