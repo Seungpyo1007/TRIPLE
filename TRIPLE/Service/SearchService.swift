@@ -77,28 +77,27 @@ final class SearchService: SearchServicing {
 
         #if canImport(GooglePlaces)
         let client = GMSPlacesClient.shared()
-        client.lookUpPhotos(forPlaceID: placeID) { [weak self] (photos, error) in
-            guard error == nil else {
-                print("[SearchService] lookUpPhotos error: \(error!.localizedDescription)")
+        
+        // 1. Place ID로 장소 상세 정보(사진 포함)를 다시 조회 (최신 방식 대응)
+        let properties: [GMSPlaceProperty] = [.photos]
+        let request = GMSFetchPlaceRequest(placeID: placeID, placeProperties: properties.map { $0.rawValue }, sessionToken: nil)
+        
+        client.fetchPlace(with: request) { [weak self] (place, error) in
+            guard let photoMetadata = place?.photos?.first, error == nil else {
+                print("[SearchService] fetchPlace/Photos error: \(error?.localizedDescription ?? "No photos")")
                 completion(nil)
                 return
             }
-            guard let meta = photos?.results.first else {
-                completion(nil)
-                return
-            }
-            let request = GMSFetchPhotoRequest(photoMetadata: meta, maxSize: maxSize)
-            client.fetchPhoto(with: request) { (image, error) in
+            
+            // 2. 획득한 메타데이터로 사진 요청
+            let photoRequest = GMSFetchPhotoRequest(photoMetadata: photoMetadata, maxSize: maxSize)
+            client.fetchPhoto(with: photoRequest) { (image, error) in
                 if let error = error {
                     print("[SearchService] fetchPhoto error: \(error.localizedDescription)")
                     completion(nil)
-                    return
-                }
-                if let image = image {
+                } else {
                     self?.imageCache[placeID] = image
                     completion(image)
-                } else {
-                    completion(nil)
                 }
             }
         }
