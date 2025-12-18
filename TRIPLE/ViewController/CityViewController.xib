@@ -9,13 +9,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CountryViewController" customModule="TRIPLE" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CityViewController" customModule="TRIPLE" customModuleProvider="target">
             <connections>
-                <outlet property="countryEngLabel" destination="Hz1-Ru-53j" id="ANK-Qt-RkR"/>
-                <outlet property="countryFirstCityLabel" destination="Kdb-li-uPw" id="xd4-Ei-NB8"/>
-                <outlet property="countryKorLabel" destination="SZU-Af-Gk2" id="EiM-zJ-Dq6"/>
-                <outlet property="countrySecondCityLabel" destination="PQa-0M-fMW" id="eWa-gz-cJE"/>
-                <outlet property="countryTownLabel" destination="0TT-bi-UMm" id="5Ql-xv-mqJ"/>
+                <outlet property="cityEngLabel" destination="Hz1-Ru-53j" id="ZrG-SA-oWp"/>
+                <outlet property="cityFirstCityLabel" destination="Kdb-li-uPw" id="1Ss-mR-7cE"/>
+                <outlet property="cityKorLabel" destination="SZU-Af-Gk2" id="d1P-Z0-afe"/>
+                <outlet property="citySecondCityLabel" destination="PQa-0M-fMW" id="bbm-7L-Uvv"/>
+                <outlet property="cityTownLabel" destination="0TT-bi-UMm" id="K2H-f5-hLS"/>
                 <outlet property="riveView" destination="Ige-BP-4YW" id="H4P-ps-TkT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -38,11 +38,18 @@
                                             <action selector="closeButton:" destination="-1" id="Gmx-Wl-vc7"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem key="rightBarButtonItem" title="Item" image="list.bullet" catalog="system" id="rJp-MX-83g">
-                                        <connections>
-                                            <action selector="openSideMenu:" destination="-1" id="XJ4-LH-SL1"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <rightBarButtonItems>
+                                        <barButtonItem title="Item" image="list.bullet" catalog="system" id="rJp-MX-83g">
+                                            <connections>
+                                                <action selector="openSideMenu:" destination="-1" id="XJ4-LH-SL1"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem title="Item" image="map" catalog="system" id="hIG-RR-jQq">
+                                            <connections>
+                                                <action selector="openMapsMenu:" destination="-1" id="LNJ-vE-Aeq"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </rightBarButtonItems>
                                 </navigationItem>
                             </items>
                             <navigationBarAppearance key="standardAppearance"/>
@@ -113,6 +120,7 @@
     </objects>
     <resources>
         <image name="list.bullet" catalog="system" width="128" height="87"/>
+        <image name="map" catalog="system" width="128" height="112"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
