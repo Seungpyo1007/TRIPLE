@@ -16,12 +16,10 @@ final class HotelCollectionDelegate: NSObject, UICollectionViewDataSource, UICol
         super.init()
     }
 
-    // MARK: - Public API
     func reload(with viewModel: HotelCollectionViewModel) {
         self.viewModel = viewModel
     }
 
-    // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfItems
     }
@@ -30,17 +28,16 @@ final class HotelCollectionDelegate: NSObject, UICollectionViewDataSource, UICol
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HotelCollectionViewCell.reuseIdentifier, for: indexPath) as? HotelCollectionViewCell else {
             fatalError("The dequeued cell is not an instance of HotelCollectionViewCell.")
         }
-        let placeholder = viewModel.item(at: indexPath.item).title
-        cell.configure(with: placeholder)
+        let hotel = viewModel.item(at: indexPath.item)
+        cell.configure(with: hotel, viewModel: viewModel)
+        // 이제 파라미터가 일치하므로 에러가 나지 않습니다.
+        cell.configureImage(viewModel: viewModel, indexPath: indexPath, collectionView: collectionView)
         return cell
     }
 
-    // MARK: - UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = collectionView.bounds.height
-        let verticalInset: CGFloat = 0
-        let adjustedHeight = max(0, height - verticalInset * 2)
-        let width = adjustedHeight * 0.75
-        return CGSize(width: width, height: adjustedHeight)
+        let width = height * 0.75
+        return CGSize(width: width, height: height)
     }
 }

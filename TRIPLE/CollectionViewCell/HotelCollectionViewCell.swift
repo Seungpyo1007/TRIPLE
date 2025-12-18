@@ -13,21 +13,51 @@ class HotelCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
+    private var loadToken: UUID?
     static let reuseIdentifier = "HotelCollectionViewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        contentView.backgroundColor = .secondarySystemBackground
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 8
         contentView.layer.cornerRadius = 12
-        contentView.layer.masksToBounds = true
+        contentView.backgroundColor = .secondarySystemBackground
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        // TODO: Reset XIB outlets when added later
+        imageView.image = nil
+        loadToken = nil
     }
 
-    func configure(with placeholder: String) {
-        // TODO: Bind XIB outlets with real model when available
+    func configure(with hotel: HotelItem, viewModel: HotelCollectionViewModel) {
+        titleLabel.text = hotel.title
+        infoLabel.text = viewModel.infoText(for: hotel)
+        priceLabel.text = viewModel.priceText(for: hotel)
+    }
+    
+    // 에러 해결을 위해 파라미터 3개로 맞춤
+    func configureImage(viewModel: HotelCollectionViewModel, indexPath: IndexPath, collectionView: UICollectionView) {
+        let token = UUID()
+        self.loadToken = token
+        
+        // 로딩 중 기본 이미지
+        self.imageView.image = nil
+        self.imageView.backgroundColor = .systemGray5
+        
+        viewModel.loadPhotoForItem(at: indexPath.item, targetSize: CGSize(width: 300, height: 300)) { [weak self] image in
+            DispatchQueue.main.async {
+                // 토큰이 일치해야만 이미지 세팅 (셀 재사용 방지)
+                guard let self = self, self.loadToken == token else { return }
+                
+                if let downloadedImage = image {
+                    self.imageView.image = downloadedImage
+                    self.imageView.backgroundColor = .clear
+                } else {
+                    self.imageView.image = UIImage(systemName: "building.2.fill")
+                }
+            }
+        }
     }
 }
