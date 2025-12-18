@@ -37,6 +37,16 @@ class CityRecCollectionViewCell: UICollectionViewCell {
         cityLabel.isHidden = false
     }
     
+    func configure(with city: City) {
+        cityLabel.text = city.name
+        cityLabel.isHidden = false
+        if let pid = city.placeID, !pid.isEmpty {
+            cityLabel.accessibilityHint = "placeID: \(pid)"
+        } else {
+            cityLabel.accessibilityHint = nil
+        }
+    }
+    
     func configureImage(viewModel: CityRecCollectionViewModel, indexPath: IndexPath, collectionView: UICollectionView) {
         let targetSize = CGSize(width: max(1, Int(bounds.width)), height: max(1, Int(bounds.height)))
         let token = UUID()

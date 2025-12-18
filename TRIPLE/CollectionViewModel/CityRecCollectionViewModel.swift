@@ -47,4 +47,9 @@ final class CityRecCollectionViewModel {
             completion(image)
         }
     }
+
+    func cityForItem(at index: Int) -> City {
+        let item = model.item(at: index)
+        return CityService().city(forName: item.title)
+    }
 }
