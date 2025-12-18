@@ -59,15 +59,41 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
         self.setSideMenu() // 사이드바 추가
         embedMainView()
         embedGoneView()
+        
+        setupHotelBinding()
 
         storyVM.loadMock()
         cityRecVM.loadMock()
         benefitVM.loadMock()
         travelVM.loadMock()
-        hotelVM.loadMock()
+        hotelVM.loadHotelsRealtime(city: "Tokyo", limit: 12)
         ticketVM.loadMock()
         eventVM.loadMock()
     }
+    
+    private func setupHotelBinding() {
+        // HotelCollectionViewModel의 데이터가 변경되면 호출될 클로저를 등록합니다.
+        hotelVM.onItemsChanged = { [weak self] items in
+        guard let self = self else { return }
+                
+        // UI 업데이트는 반드시 메인 스레드에서!
+        DispatchQueue.main.async {
+            print("DEBUG: 호텔 데이터 \(items.count)개 수신 완료")
+                    
+            // 1. Delegate 내부에 변경된 뷰모델 정보를 다시 주입 (필요시)
+            self.hotelCollectionDelegate.reload(with: self.hotelVM)
+                    
+            // 2. MainView 안에 있는 HotelCollectionView를 찾아서 reload 시킵니다.
+            // MainView 내부에 collectionView가 public이거나 접근 가능하다면 호출
+            if let mainViewInstance = self.mainView.subviews.first(where: { $0 is MainView }) as? MainView {
+            // MainView 내부에 hotelCollectionView가 있다면 아래처럼 호출하세요.
+            // (MainView의 구현에 따라 hotelCollectionView를 직접 reload 하거나,
+            // MainView에 reload 기능을 하는 함수를 만들어서 호출해야 합니다.)
+            mainViewInstance.hotelCollectionView?.reloadData()
+            }
+        }
+    }
+}
     
     // MARK: - UIView 초기세팅
     private func embedMainView() {
@@ -127,10 +153,10 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     // 누르면 modal 방식으로 임시 이동
     @IBAction func openScheduleMenu(_ sender: Any) {
         let vc: UIViewController
-        if Bundle.main.path(forResource: "CountryViewController", ofType: "nib") != nil {
-            vc = CountryViewController(nibName: "CountryViewController", bundle: .main)
+        if Bundle.main.path(forResource: "CityViewController", ofType: "nib") != nil {
+            vc = CityViewController(nibName: "CityViewController", bundle: .main)
         } else {
-            vc = CountryViewController()
+            vc = CityViewController()
         }
         if let nav = self.navigationController {
             nav.pushViewController(vc, animated: true)
@@ -222,4 +248,3 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
         self.view.layoutIfNeeded() // 화면에 바로 보이게 하기
     }
 }
-
