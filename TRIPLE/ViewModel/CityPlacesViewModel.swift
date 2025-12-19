@@ -7,8 +7,6 @@
 
 import Foundation
 import GooglePlaces
-import CoreLocation
-import UIKit
 
 final class CityPlacesViewModel {
     var onPlacesUpdate: (([GMSPlace], UIColor) -> Void)?
