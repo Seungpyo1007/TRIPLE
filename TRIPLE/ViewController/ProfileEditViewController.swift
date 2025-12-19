@@ -56,6 +56,12 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         viewModel.onProfileImageChanged = { [weak self] image in
             self?.profileImageView.image = image
         }
+        if let imageView = profileImageView {
+            imageView.layer.cornerRadius = imageView.bounds.width / 2
+            imageView.clipsToBounds = true
+            imageView.layer.borderColor = UIColor.systemGray4.cgColor
+            imageView.layer.borderWidth = 1
+        }
     }
     
     @objc private func textFieldDidChange(_ textField: UITextField) {
