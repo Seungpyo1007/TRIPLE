@@ -19,7 +19,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		35FDB0022ED43F5000D7E35B /* Exceptions for "TRIPLE" folder in "TRIPLE" target */ = {
+		3571A38B2EF5143700A4C6AF /* Exceptions for "TRIPLE" folder in "TRIPLE" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -29,10 +29,10 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		35FDAFF22ED43F5000D7E35B /* TRIPLE */ = {
+		3571A33F2EF5143700A4C6AF /* TRIPLE */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				35FDB0022ED43F5000D7E35B /* Exceptions for "TRIPLE" folder in "TRIPLE" target */,
+				3571A38B2EF5143700A4C6AF /* Exceptions for "TRIPLE" folder in "TRIPLE" target */,
 			);
 			path = TRIPLE;
 			sourceTree = "<group>";
@@ -63,7 +63,7 @@
 		35FDAFE72ED43F5000D7E35B = {
 			isa = PBXGroup;
 			children = (
-				35FDAFF22ED43F5000D7E35B /* TRIPLE */,
+				3571A33F2EF5143700A4C6AF /* TRIPLE */,
 				35FDAFF12ED43F5000D7E35B /* Products */,
 				A47202DFC1B97B8C1FA46A02 /* Pods */,
 				1578EF8E05906C37500F8469 /* Frameworks */,
@@ -106,7 +106,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				35FDAFF22ED43F5000D7E35B /* TRIPLE */,
+				3571A33F2EF5143700A4C6AF /* TRIPLE */,
 			);
 			name = TRIPLE;
 			packageProductDependencies = (
