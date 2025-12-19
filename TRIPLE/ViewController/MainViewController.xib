@@ -67,15 +67,15 @@
                         <color key="shadowColor" systemColor="systemGroupedBackgroundColor"/>
                     </navigationBarAppearance>
                 </navigationBar>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnA-iG-sEH">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnA-iG-sEH" userLabel="GoneView">
                     <rect key="frame" x="0.0" y="172" width="393" height="116"/>
                     <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5YT-bC-Fya">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5YT-bC-Fya" userLabel="MainView">
                     <rect key="frame" x="0.0" y="288" width="393" height="564"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrO-v7-HXy">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrO-v7-HXy" userLabel="TopView">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="118"/>
                     <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                 </view>
@@ -117,7 +117,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
