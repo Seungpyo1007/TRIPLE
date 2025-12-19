@@ -21,8 +21,6 @@ class HotelCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8
-        contentView.layer.cornerRadius = 12
-        contentView.backgroundColor = .secondarySystemBackground
     }
 
     override func prepareForReuse() {
@@ -37,7 +35,6 @@ class HotelCollectionViewCell: UICollectionViewCell {
         priceLabel.text = viewModel.priceText(for: hotel)
     }
     
-    // 에러 해결을 위해 파라미터 3개로 맞춤
     func configureImage(viewModel: HotelCollectionViewModel, indexPath: IndexPath, collectionView: UICollectionView) {
         let token = UUID()
         self.loadToken = token

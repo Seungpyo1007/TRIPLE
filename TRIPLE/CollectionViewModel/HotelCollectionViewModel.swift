@@ -1,3 +1,11 @@
+//
+//  HotelCollectionViewModel.swift
+//  TRIPLE
+//
+//  Created by 홍승표 on 12/11/25.
+//
+
+
 import Foundation
 import UIKit
 
@@ -17,15 +25,8 @@ final class HotelCollectionViewModel {
 
     var numberOfItems: Int { model.numberOfItems }
     func item(at index: Int) -> HotelItem { model.item(at: index) }
-
-    // 기존 Mock 로드 - 실시간 검색 권장!
-    func loadMock() {
-        print("[ViewModel] ⚠️ loadMock() - Use loadHotelsRealtime() for better results")
-        model.loadMockJapanHotels(limit: 12)
-    }
     
     func loadVerified(limit: Int? = nil) {
-        print("[ViewModel] ⚠️ loadVerified() - Use loadHotelsRealtime() for better results")
         model.loadVerified(limit: limit)
     }
 
@@ -39,7 +40,6 @@ final class HotelCollectionViewModel {
         let item = model.item(at: index)
         
         guard let placeID = item.placeID else {
-            print("[ViewModel] ⚠️ No PlaceID for hotel: \(item.title)")
             completion(nil)
             return
         }
@@ -47,14 +47,7 @@ final class HotelCollectionViewModel {
         // 크기 고정 200x200
         let fixedSize = CGSize(width: 200, height: 200)
         
-        print("[ViewModel] 📸 Loading photo for: \(item.title) (PlaceID: \(placeID))")
-        
         model.fetchPhoto(for: placeID, maxSize: fixedSize) { image in
-            if image != nil {
-                print("[ViewModel] ✅ Photo loaded for: \(item.title)")
-            } else {
-                print("[ViewModel] ❌ Photo failed for: \(item.title)")
-            }
             completion(image)
         }
     }

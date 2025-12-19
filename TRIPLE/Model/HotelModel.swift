@@ -45,14 +45,9 @@ final class HotelModel {
 
     // 실시간 검색으로 호텔 로드
     func loadHotelsRealtime(city: String = "Tokyo", limit: Int = 12) {
-        print("[Model] 🔍 Searching \(limit) hotels in \(city)...")
         
         service.searchHotelsRealtime(city: city, limit: limit) { [weak self] hotels in
             DispatchQueue.main.async {
-                print("[Model] ✅ Received \(hotels.count) hotels")
-                for hotel in hotels {
-                    print("   - \(hotel.title) | PlaceID: \(hotel.placeID ?? "NONE")")
-                }
                 self?.items = hotels
             }
         }

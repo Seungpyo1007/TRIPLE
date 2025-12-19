@@ -30,7 +30,6 @@ final class HotelCollectionDelegate: NSObject, UICollectionViewDataSource, UICol
         }
         let hotel = viewModel.item(at: indexPath.item)
         cell.configure(with: hotel, viewModel: viewModel)
-        // 이제 파라미터가 일치하므로 에러가 나지 않습니다.
         cell.configureImage(viewModel: viewModel, indexPath: indexPath, collectionView: collectionView)
         return cell
     }
