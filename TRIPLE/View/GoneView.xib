@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="735" height="113"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wej-Cg-SGc">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wej-Cg-SGc" userLabel="AirTicketView">
                     <rect key="frame" x="15" y="0.0" width="80" height="113"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="항공권" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2v-bF-39Y">
@@ -51,7 +51,7 @@
                         <constraint firstAttribute="trailing" secondItem="ojf-aY-esb" secondAttribute="trailing" constant="15" id="eCa-cR-3v6"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n42-uc-Y0q">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n42-uc-Y0q" userLabel="LodgingView">
                     <rect key="frame" x="95" y="0.0" width="80" height="113"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="숙소" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEV-2M-3AR">
@@ -86,7 +86,7 @@
                         <constraint firstAttribute="trailing" secondItem="lMi-gl-wg8" secondAttribute="trailing" constant="15" id="qBw-4M-w3u"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIl-rA-WbU">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIl-rA-WbU" userLabel="TicketView">
                     <rect key="frame" x="175" y="0.0" width="80" height="113"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="투어·티켓" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCs-xF-OCD">
@@ -121,7 +121,7 @@
                         <constraint firstItem="yCs-xF-OCD" firstAttribute="leading" secondItem="pIl-rA-WbU" secondAttribute="leading" constant="15" id="nOA-5D-ngT"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bKE-JK-KsP">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bKE-JK-KsP" userLabel="HotelView">
                     <rect key="frame" x="255" y="0.0" width="80" height="113"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="올해의 숙소" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDI-oV-Mtk">
@@ -156,7 +156,7 @@
                         <constraint firstItem="odj-kj-cpn" firstAttribute="leading" secondItem="bKE-JK-KsP" secondAttribute="leading" constant="15" id="yCj-eS-5js"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifE-18-NVG">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifE-18-NVG" userLabel="CarView">
                     <rect key="frame" x="335" y="0.0" width="80" height="113"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="렌터카·보험" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Xa-JT-YBF">
@@ -191,7 +191,7 @@
                         <constraint firstItem="1Xa-JT-YBF" firstAttribute="leading" secondItem="ifE-18-NVG" secondAttribute="leading" constant="10" id="VYV-Pz-gk2"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L9u-mY-eRJ">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L9u-mY-eRJ" userLabel="EuropeView">
                     <rect key="frame" x="415" y="0.0" width="80" height="113"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="유럽투어특가" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0x-sl-RHp">
@@ -226,7 +226,7 @@
                         <constraint firstAttribute="trailing" secondItem="X0x-sl-RHp" secondAttribute="trailing" constant="6" id="rpB-VG-jeW"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQE-G0-nih">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQE-G0-nih" userLabel="AiView">
                     <rect key="frame" x="495" y="0.0" width="80" height="113"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AI일정추천" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jML-Ya-7iV">
@@ -261,7 +261,7 @@
                         <constraint firstItem="jML-Ya-7iV" firstAttribute="top" secondItem="lbl-aR-1ia" secondAttribute="bottom" constant="6" id="wES-9g-2BS"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ojb-pY-JtK">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ojb-pY-JtK" userLabel="AirportView">
                     <rect key="frame" x="575" y="0.0" width="80" height="113"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="항공 시세" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kt3-D0-xyS">
@@ -296,7 +296,7 @@
                         <constraint firstItem="kt3-D0-xyS" firstAttribute="leading" secondItem="ojb-pY-JtK" secondAttribute="leading" constant="15" id="vdh-Qg-OJ1"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="885-eh-KNi">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="885-eh-KNi" userLabel="TalkView">
                     <rect key="frame" x="655" y="0.0" width="80" height="113"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="베낭톡" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0m-gi-zYD">
