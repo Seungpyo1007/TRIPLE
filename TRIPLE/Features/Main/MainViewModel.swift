@@ -12,3 +12,4 @@ import Foundation
 final class MainViewModel {
     // Intentionally left minimal after decoupling section view models.
 }
+
