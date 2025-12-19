@@ -59,7 +59,7 @@
                     </items>
                     <navigationBarAppearance key="standardAppearance"/>
                 </navigationBar>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YeQ-NU-eOi">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YeQ-NU-eOi" userLabel="SideMenuDetailView">
                     <rect key="frame" x="0.0" y="172" width="260" height="428"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>

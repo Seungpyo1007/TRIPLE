@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKE-Nu-85T">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKE-Nu-85T" userLabel="TopView">
                     <rect key="frame" x="0.0" y="172" width="393" height="216"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dcJ-Z8-O6h">
@@ -56,7 +56,7 @@
                         <constraint firstItem="pRt-QZ-XQ6" firstAttribute="leading" secondItem="vKE-Nu-85T" secondAttribute="leading" constant="30" id="ydv-PJ-bd0"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k9C-dy-UfJ">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k9C-dy-UfJ" userLabel="CenterView">
                     <rect key="frame" x="0.0" y="388" width="393" height="130"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5B-84-aj0">
@@ -73,7 +73,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한글/영어/숫자/밑줄/띄어쓰기를 사용할 수 있습니다." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyN-s1-ycz">
-                            <rect key="frame" x="30" y="63" width="267" height="16"/>
+                            <rect key="frame" x="30" y="63" width="333" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" systemColor="systemGrayColor"/>
                             <nil key="highlightedColor"/>
@@ -81,7 +81,7 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="yyN-s1-ycz" firstAttribute="leading" secondItem="k9C-dy-UfJ" secondAttribute="leading" constant="30" id="C70-Nd-7Dy"/>
-                        <constraint firstAttribute="trailing" secondItem="yyN-s1-ycz" secondAttribute="trailing" constant="96" id="IoY-fg-3G2"/>
+                        <constraint firstAttribute="trailing" secondItem="yyN-s1-ycz" secondAttribute="trailing" constant="30" id="IoY-fg-3G2"/>
                         <constraint firstItem="yyN-s1-ycz" firstAttribute="top" secondItem="c5B-84-aj0" secondAttribute="bottom" constant="8" symbolic="YES" id="RgX-0y-oAM"/>
                         <constraint firstItem="c5B-84-aj0" firstAttribute="top" secondItem="k9C-dy-UfJ" secondAttribute="top" constant="10" id="Yvf-bW-3vi"/>
                         <constraint firstItem="c5B-84-aj0" firstAttribute="leading" secondItem="k9C-dy-UfJ" secondAttribute="leading" constant="30" id="q8b-4P-xOi"/>
@@ -89,7 +89,7 @@
                         <constraint firstAttribute="bottom" secondItem="yyN-s1-ycz" secondAttribute="bottom" constant="51" id="z9L-ip-sAg"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHR-uv-P0H">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHR-uv-P0H" userLabel="BottomView">
                     <rect key="frame" x="0.0" y="518" width="393" height="266"/>
                 </view>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdB-cN-jxn">

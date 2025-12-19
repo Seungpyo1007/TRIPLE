@@ -50,7 +50,7 @@
                     </items>
                     <navigationBarAppearance key="standardAppearance"/>
                 </navigationBar>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJM-40-OLG">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJM-40-OLG" userLabel="SettingsView">
                     <rect key="frame" x="0.0" y="172" width="393" height="680"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>

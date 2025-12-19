@@ -58,7 +58,7 @@
                     </items>
                     <navigationBarAppearance key="standardAppearance"/>
                 </navigationBar>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qX0-r6-E4U">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qX0-r6-E4U" userLabel="MainView">
                     <rect key="frame" x="0.0" y="172" width="393" height="612"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인기 검색" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIT-QU-XEO">
@@ -193,8 +193,11 @@
                                 <color key="baseBackgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             </buttonConfiguration>
                         </button>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ent-pA-dDE">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ent-pA-dDE" userLabel="SubView">
                             <rect key="frame" x="0.0" y="212" width="393" height="400"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="400" id="N3x-In-gKF"/>
+                            </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -215,7 +218,6 @@
                         <constraint firstItem="8FZ-4h-qrP" firstAttribute="leading" secondItem="ceN-d1-bWA" secondAttribute="trailing" constant="5" id="aNk-VA-sRc"/>
                         <constraint firstItem="Q7E-0b-Yul" firstAttribute="top" secondItem="tIT-QU-XEO" secondAttribute="bottom" constant="15" id="aYn-fo-rbb"/>
                         <constraint firstAttribute="bottom" secondItem="Ent-pA-dDE" secondAttribute="bottom" id="cCy-pw-hfg"/>
-                        <constraint firstItem="Ent-pA-dDE" firstAttribute="top" secondItem="qX0-r6-E4U" secondAttribute="top" constant="212" id="ctZ-VD-3dT"/>
                         <constraint firstItem="3oT-qr-hVX" firstAttribute="leading" secondItem="B9G-cF-7aZ" secondAttribute="trailing" constant="5" id="eza-43-ded"/>
                         <constraint firstItem="Y29-2E-61s" firstAttribute="leading" secondItem="86r-a6-WCA" secondAttribute="trailing" constant="5" id="gHE-lF-l4u"/>
                         <constraint firstItem="an2-ZJ-lrA" firstAttribute="leading" secondItem="qX0-r6-E4U" secondAttribute="leading" constant="24" id="jqq-cz-lAW"/>
