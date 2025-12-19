@@ -9,14 +9,16 @@ import UIKit
 
 final class BenefitCollectionDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    // MARK: - 변수
     private var viewModel: BenefitCollectionViewModel
 
+    // MARK: - 초기화
     init(viewModel: BenefitCollectionViewModel) {
         self.viewModel = viewModel
         super.init()
     }
 
-    // MARK: - Public API
+    // MARK: - 셀 재사용
     func reload(with viewModel: BenefitCollectionViewModel) {
         self.viewModel = viewModel
     }

@@ -9,16 +9,14 @@ import UIKit
 
 final class CityRecCollectionDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    // MARK: - 변수
     private var viewModel: CityRecCollectionViewModel
     private weak var presentingViewController: UIViewController?
 
+    // MARK: - 초기화
     convenience init(viewModel: CityRecCollectionViewModel, presentingViewController: UIViewController) {
         self.init(viewModel: viewModel)
         self.presentingViewController = presentingViewController
-    }
-
-    func attachPresenter(_ vc: UIViewController) {
-        self.presentingViewController = vc
     }
 
     init(viewModel: CityRecCollectionViewModel) {
@@ -26,7 +24,11 @@ final class CityRecCollectionDelegate: NSObject, UICollectionViewDataSource, UIC
         super.init()
     }
 
-    // MARK: - Public API
+    // MARK: - 셀 재사용
+    func attachPresenter(_ vc: UIViewController) {
+        self.presentingViewController = vc
+    }
+
     func reload(with viewModel: CityRecCollectionViewModel) {
         self.viewModel = viewModel
     }
@@ -41,7 +43,6 @@ final class CityRecCollectionDelegate: NSObject, UICollectionViewDataSource, UIC
             fatalError("The dequeued cell is not an instance of CityRecCollectionViewCell.")
         }
         let placeholder = viewModel.item(at: indexPath.item).title
-        // Prefer configuring with City model for clarity
         let city = CityService().city(forName: placeholder)
         cell.configure(with: city)
         cell.configureImage(viewModel: viewModel, indexPath: indexPath, collectionView: collectionView)
@@ -56,6 +57,7 @@ final class CityRecCollectionDelegate: NSObject, UICollectionViewDataSource, UIC
         return CGSize(width: adjustedHeight, height: adjustedHeight)
     }
 
+    // MARK: - UICollectionViewDelegate (Selection)
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let city = viewModel.cityForItem(at: indexPath.item)
         let vm = CityViewModel(city: city)
@@ -75,6 +77,7 @@ final class CityRecCollectionDelegate: NSObject, UICollectionViewDataSource, UIC
     }
 }
 
+// MARK: - Extension
 extension UIView {
     func findViewController() -> UIViewController? {
         var responder: UIResponder? = self

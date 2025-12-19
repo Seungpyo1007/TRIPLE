@@ -22,7 +22,7 @@ public final class CityPlacesService: CityPlacesServicing {
     public func searchNearby(center: CLLocationCoordinate2D, radius: Double, category: PlaceCategory, completion: @escaping (Result<[GMSPlace], Error>) -> Void) {
         let restriction = GMSPlaceCircularLocationOption(center, radius)
         let properties = [GMSPlaceProperty.name, GMSPlaceProperty.coordinate, GMSPlaceProperty.rating].map { $0.rawValue }
-        var request = GMSPlaceSearchNearbyRequest(locationRestriction: restriction, placeProperties: properties)
+        let request = GMSPlaceSearchNearbyRequest(locationRestriction: restriction, placeProperties: properties)
         request.includedTypes = [category.rawValue]
 
         let callback: GMSPlaceSearchNearbyResultCallback = { results, error in
@@ -30,13 +30,9 @@ public final class CityPlacesService: CityPlacesServicing {
                 completion(.failure(error))
                 return
             }
-            guard let places = results as? [GMSPlace] else {
-                completion(.success([]))
-                return
-            }
+            let places = results ?? []
             completion(.success(places))
         }
         client.searchNearby(with: request, callback: callback)
     }
 }
-

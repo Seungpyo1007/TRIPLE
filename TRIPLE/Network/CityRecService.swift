@@ -10,14 +10,14 @@ import Foundation
 import GooglePlaces
 #endif
 
-// Photo provider boundary for city/place thumbnails
+// 도시/지역 썸네일 이미지 제공자 경계
 protocol PlacePhotoProviding {
-    // Returns image data (jpeg/png) for first photo of a placeID
+    // 장소 ID의 첫 번째 사진에 대한 이미지 데이터(jpeg/png)를 반환합니다.
     func fetchFirstPhoto(for placeID: String, maxSize: CGSize, completion: @escaping (Data?) -> Void)
 }
 
 #if canImport(GooglePlaces)
-/// Default Google Places-based photo provider
+/// Google Places 기반 사진 제공 기본 항목
 final class GooglePlacesPhotoService: PlacePhotoProviding {
     private let placesClient: GMSPlacesClient
 
@@ -75,24 +75,24 @@ final class GooglePlacesPhotoService: PlacePhotoProviding {
     }
 }
 #endif
-// Service boundary for providing city recommendation data
+// 도시 추천 데이터 제공을 위한 서비스 경계
 protocol CityRecServicing {
-    // Load a random mock list of cities (with optional verified place IDs)
+    // 무작위로 생성된 가상의 도시 목록(선택적으로 검증된 장소 ID 포함)을 불러옵니다.
     func loadMock(verifiedPlaceIDs: [String], count: Int) -> [CityRecItem]
 
-    // Load a verified list (optionally limited in length)
+    // 검증된 목록을 불러옵니다(길이 제한은 선택 사항).
     func loadVerified(limit: Int?) -> [CityRecItem]
 
-    // Lookup a known Google Place ID for a given city name
+    // 주어진 도시 이름에 대한 알려진 Google Place ID를 조회합니다.
     func placeID(for city: String) -> String?
 }
 
 // MARK: - Internal data source of known place IDs
 enum CityPlaceIDs {
-    // Known Google Places placeIDs per city name
+    // 도시 이름별로 알려진 Google Places placeID
     static let byCity: [String: String] = [
         // Vietnam
-        "Ho Chi Minh City": "ChIJ0T2NLikpdTERKxE8d61aX_E", // Saigon hotel example placeID provided
+        "Ho Chi Minh City": "ChIJ0T2NLikpdTERKxE8d61aX_E", // 사이공 호텔 예시 placeID 제공됨
         "Hanoi": "ChIJoRyG2ZurNTERqRfKcnt_iOc",
         "Da Nang": "ChIJEyolkscZQjERBn5yhkvL8B0",
         
@@ -151,7 +151,7 @@ enum CityPlaceIDs {
     ]
 
     static func placeID(for city: String) -> String? {
-        // Normalize common aliases
+        // 일반적인 별칭을 정규화합니다
         switch city {
         case "Saigon":
             return byCity["Ho Chi Minh City"]
@@ -161,7 +161,7 @@ enum CityPlaceIDs {
     }
 }
 
-// Default implementation of the service
+// 서비스의 기본 구현
 struct CityRecService: CityRecServicing {
     func loadMock(verifiedPlaceIDs: [String], count: Int) -> [CityRecItem] {
         let cityNames = [
@@ -171,7 +171,7 @@ struct CityRecService: CityRecServicing {
             "Sydney", "Melbourne", "Auckland", "Los Angeles", "New York",
             "San Francisco", "Vancouver", "Toronto", "London", "Paris",
             "Berlin", "Barcelona", "Rome", "Istanbul", "Dubai",
-            "Saigon" // alias for Ho Chi Minh City
+            "Saigon" // 호치민시의 별칭
         ]
         let shuffled = cityNames.shuffled()
         var items: [CityRecItem] = []

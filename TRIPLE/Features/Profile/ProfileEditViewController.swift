@@ -10,24 +10,12 @@ import PhotosUI
 
 class ProfileEditViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    private let viewModel = ProfileEditViewModel()
-    
-    // MARK: - @IBOutlet
+    // MARK: - @IBOutlets
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileTextField: UITextField!
     
-    // MARK: - @IBAction
-    @IBAction func backButton(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func saveButton(_ sender: Any) {
-        viewModel.save()
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    
-    // MARK: - 스와이프 변수
+    // MARK: - 상수 & 스와이프 변수
+    private let viewModel = ProfileEditViewModel()
     var swipeRecognizer: UISwipeGestureRecognizer!
     
     // MARK: - 생명주기
@@ -37,20 +25,20 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         swipeRecognizer.direction = .right
         self.view.addGestureRecognizer(swipeRecognizer)
         
-        // Tap to change profile image
+        // 누르면 프로필 이미지 변경
         profileImageView.isUserInteractionEnabled = true
         let imageTap = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
         profileImageView.addGestureRecognizer(imageTap)
         
-        // Bind view model to UI
+        // 뷰 모델을 UI에 바인딩
         viewModel.onProfileChanged = { [weak self] profile in
             self?.profileTextField.text = profile.name
             if let data = profile.imageData { self?.profileImageView.image = UIImage(data: data) }
         }
-        // Initialize UI with current profile
+        // 현재 프로필로 UI를 초기화합니다.
         profileTextField.text = viewModel.profile.name
         if let data = viewModel.profile.imageData { profileImageView.image = UIImage(data: data) }
-        // Listen to text changes
+        // 텍스트 변경 사항 듣기
         profileTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
         viewModel.onProfileImageChanged = { [weak self] image in
@@ -68,12 +56,24 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         viewModel.setName(textField.text ?? "")
     }
     
+    // MARK: - @IBAction
+    @IBAction func backButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func saveButton(_ sender: Any) {
+        viewModel.save()
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     // MARK: - Action
     @objc func swipeAction(_ sender: UISwipeGestureRecognizer) {
         if sender.direction == .right {
             self.navigationController?.popViewController(animated: true)
         }
     }
+    
+    
     
     @objc private func profileImageTapped() {
         let picker = UIImagePickerController()

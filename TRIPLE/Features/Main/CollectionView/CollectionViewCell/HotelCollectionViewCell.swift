@@ -8,14 +8,18 @@
 import UIKit
 
 class HotelCollectionViewCell: UICollectionViewCell {
+    
+    // MARK: - @IBOutlets
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
+    // MARK: - 변수 & 상수
     private var loadToken: UUID?
     static let reuseIdentifier = "HotelCollectionViewCell"
 
+    // MARK: - 생명주기
     override func awakeFromNib() {
         super.awakeFromNib()
         imageView.contentMode = .scaleAspectFill
@@ -29,6 +33,7 @@ class HotelCollectionViewCell: UICollectionViewCell {
         loadToken = nil
     }
 
+    // MARK: - 구성
     func configure(with hotel: HotelItem, viewModel: HotelCollectionViewModel) {
         titleLabel.text = hotel.title
         infoLabel.text = viewModel.infoText(for: hotel)

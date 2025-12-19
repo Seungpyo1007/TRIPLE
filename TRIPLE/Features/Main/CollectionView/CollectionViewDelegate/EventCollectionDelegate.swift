@@ -9,14 +9,16 @@ import UIKit
 
 final class EventCollectionDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    // MARK: - 변수
     private var viewModel: EventCollectionViewModel
 
+    // MARK: - 초기화
     init(viewModel: EventCollectionViewModel) {
         self.viewModel = viewModel
         super.init()
     }
 
-    // MARK: - Public API
+    // MARK: - 셀 재사용
     func reload(with viewModel: EventCollectionViewModel) {
         self.viewModel = viewModel
     }

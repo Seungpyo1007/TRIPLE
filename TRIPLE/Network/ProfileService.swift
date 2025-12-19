@@ -19,7 +19,7 @@ final class ProfileService {
            let profile = try? JSONDecoder().decode(UserProfile.self, from: data) {
             return profile
         }
-        // Default profile if none stored yet
+        // 저장된 프로필이 없는 경우 기본 프로필이 사용됩니다.
         return UserProfile(name: "")
     }
 

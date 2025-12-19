@@ -13,18 +13,18 @@ protocol SideMenuDetailViewDelegate: AnyObject {
 
 class SideMenuDetailView: UIView {
     
+    // MARK: - @IBOutlet
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileEditLabel: UILabel!
+    @IBOutlet weak var profileLabel: UILabel!
+    
     // MARK: - 변수 & 상수
     weak var delegate: SideMenuDetailViewDelegate?
     
     private var contentView: UIView?
     private let scrollView = UIScrollView()
     
-    // MARK: - @IBOutlet
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var profileEditLabel: UILabel!
-    @IBOutlet weak var profileLabel: UILabel!
-    
-    // MARK: - Configure UI
+    // MARK: - 구성
     func configure(name: String, image: UIImage?) {
         profileLabel?.text = name
         profileImageView?.image = image

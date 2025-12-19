@@ -7,9 +7,9 @@
 
 import Foundation
 
-// MARK: - Domain Model
+// MARK: - 도메인 모델
 
-/// Travel content category
+/// 여행 콘텐츠 카테고리
 enum StoryCategory: String, CaseIterable, Codable, Sendable {
     case nature
     case city
@@ -17,7 +17,6 @@ enum StoryCategory: String, CaseIterable, Codable, Sendable {
     case adventure
     case culture
 
-    /// Human readable title
     var title: String {
         switch self {
         case .nature: return "Nature"
@@ -29,13 +28,13 @@ enum StoryCategory: String, CaseIterable, Codable, Sendable {
     }
 }
 
-/// A story item that represents a YouTube video to play
+/// 재생할 유튜브 영상을 나타내는 스토리 항목입니다.
 struct Story: Identifiable, Hashable, Codable, Sendable {
     let id: UUID
     let category: StoryCategory
-    /// YouTube video id (11 chars typically)
+    /// 유튜브 동영상 ID (일반적으로 11자)
     let videoID: String
-    /// Optional title/label
+    /// 선택 사항 제목/레이블
     var title: String?
 
     init(id: UUID = UUID(), category: StoryCategory, videoID: String, title: String? = nil) {
@@ -46,36 +45,36 @@ struct Story: Identifiable, Hashable, Codable, Sendable {
     }
 }
 
-// MARK: - Static Catalog
+// MARK: - 정적 카탈로그
 
-/// A small curated catalog of travel-related YouTube video IDs by category.
-/// These are sample IDs; replace with your own as needed.
+/// 카테고리별로 정리된 여행 관련 유튜브 영상 ID 모음입니다.
+/// 다음은 예시 ID입니다. 필요에 따라 본인의 ID로 교체하십시오. " dQw4w9WgXcQ "
 struct StoryCatalog {
     static let videosByCategory: [StoryCategory: [String]] = [
         .nature: [
-            "dQw4w9WgXcQ", // Scenic nature
-            "dQw4w9WgXcQ",
-            "dQw4w9WgXcQ"
+            "",
+            "",
+            ""
         ],
         .city: [
-            "dQw4w9WgXcQ", // City timelapse
-            "dQw4w9WgXcQ",
-            "dQw4w9WgXcQ"
+            "",
+            "",
+            ""
         ],
         .food: [
-            "dQw4w9WgXcQ",
-            "dQw4w9WgXcQ",
-            "dQw4w9WgXcQ"
+            "",
+            "",
+            ""
         ],
         .adventure: [
-            "dQw4w9WgXcQ",
-            "dQw4w9WgXcQ",
-            "dQw4w9WgXcQ"
+            "",
+            "",
+            ""
         ],
         .culture: [
-            "dQw4w9WgXcQ",
-            "dQw4w9WgXcQ",
-            "dQw4w9WgXcQ"
+            "",
+            "",
+            ""
         ]
     ]
 }

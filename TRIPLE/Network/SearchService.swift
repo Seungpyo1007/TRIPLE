@@ -10,19 +10,19 @@ import Foundation
 import GooglePlaces
 #endif
 
-// MARK: - Service Protocol
+// MARK: - 서비스 프로토콜
 protocol SearchServicing {
     func searchPlaces(text: String, completion: @escaping (Result<[PlaceItem], Error>) -> Void)
     func fetchFirstPhoto(placeID: String, maxSize: CGSize, completion: @escaping (UIImage?) -> Void)
 }
 
-// MARK: - Errors
+// MARK: - 에러
 enum SearchServiceError: Error {
     case emptyQuery
     case unknown
 }
 
-// MARK: - Default Implementation
+// MARK: - 기본 구현
 final class SearchService: SearchServicing {
     private var imageCache: [String: UIImage] = [:]
 
@@ -62,7 +62,7 @@ final class SearchService: SearchServicing {
 
         GMSPlacesClient.shared().searchByText(with: request, callback: callback)
         #else
-        // Fallback: return empty after slight delay to simulate async
+        // 대체 방안: 비동기 처리를 시뮬레이션하기 위해 약간의 지연 후 빈 값을 반환합니다.
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.2) {
             completion(.success([]))
         }

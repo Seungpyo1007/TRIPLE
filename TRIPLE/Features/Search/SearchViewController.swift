@@ -8,9 +8,63 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+    
     // MARK: - @IBOutlets
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchTextView: UIView!
+    
+    // MARK: - 상수 & 스와이프 변수
+    private let viewModel = SearchViewModel()
+    private let tableView = UITableView(frame: .zero, style: .plain)
+    var swipeRecognizer: UISwipeGestureRecognizer!
+
+    // MARK: - 생명주기
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(_:)))
+        swipeRecognizer.direction = .right
+        self.view.addGestureRecognizer(swipeRecognizer)
+
+        // searchTextView 내부에 테이블 뷰를 설정합니다.
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        searchTextView.addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: searchTextView.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: searchTextView.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: searchTextView.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: searchTextView.bottomAnchor)
+        ])
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.keyboardDismissMode = .onDrag
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        
+        // 테이블이 숨겨지거나 비활성화된 상태에서 시작하세요.
+        tableView.isHidden = true
+        tableView.isUserInteractionEnabled = false
+
+        // 바인딩 뷰 모델
+        viewModel.onResultsChanged = { [weak self] results in
+            guard let self = self else { return }
+            // 디버그 모드에서 각 결과의 이름과 PlaceID를 출력합니다.
+            for (idx, item) in results.enumerated() {
+                print("[Search] Result #\(idx + 1): \(item.name), PlaceID: \(item.id)")
+            }
+            // 검색 결과가 있고 검색어가 비어 있지 않은 경우에만 표를 표시합니다.
+            let query = self.searchTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            let shouldShow = !query.isEmpty && !results.isEmpty
+            self.tableView.isHidden = !shouldShow
+            self.tableView.isUserInteractionEnabled = shouldShow
+            self.tableView.reloadData()
+        }
+
+        // 텍스트 필드 설정
+        searchTextField.delegate = self
+        searchTextField.returnKeyType = .search
+        
+        // 텍스트 변경 사항을 확인하여 테이블 보기를 활성화/비활성화하세요.
+        searchTextField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
+    }
     
     // MARK: - @IBActions
     @IBAction func backButton(_ sender: Any) {
@@ -25,61 +79,6 @@ class SearchViewController: UIViewController {
             tableView.isUserInteractionEnabled = false
         }
         viewModel.search(text: text)
-    }
-    
-    // MARK: - 스와이프 변수
-    var swipeRecognizer: UISwipeGestureRecognizer!
-
-    // MARK: - Private
-    private let viewModel = SearchViewModel()
-    private let tableView = UITableView(frame: .zero, style: .plain)
-
-    // MARK: - 생명주기
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(_:)))
-        swipeRecognizer.direction = .right
-        self.view.addGestureRecognizer(swipeRecognizer)
-
-        // Setup table view inside searchTextView
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        searchTextView.addSubview(tableView)
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: searchTextView.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: searchTextView.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: searchTextView.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: searchTextView.bottomAnchor)
-        ])
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.keyboardDismissMode = .onDrag
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        
-        // Start with table hidden/disabled
-        tableView.isHidden = true
-        tableView.isUserInteractionEnabled = false
-
-        // Bind view model
-        viewModel.onResultsChanged = { [weak self] results in
-            guard let self = self else { return }
-            // Debug print each result's name and PlaceID
-            for (idx, item) in results.enumerated() {
-                print("[Search] Result #\(idx + 1): \(item.name), PlaceID: \(item.id)")
-            }
-            // Show table only when we have results and the search text is non-empty
-            let query = self.searchTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-            let shouldShow = !query.isEmpty && !results.isEmpty
-            self.tableView.isHidden = !shouldShow
-            self.tableView.isUserInteractionEnabled = shouldShow
-            self.tableView.reloadData()
-        }
-
-        // Text field setup
-        searchTextField.delegate = self
-        searchTextField.returnKeyType = .search
-        
-        // Observe text changes to enable/disable table view
-        searchTextField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
     }
     
     // MARK: - Action
@@ -132,7 +131,6 @@ extension SearchViewController: UITableViewDataSource {
                 visibleCell.contentConfiguration = updated
             }
         }
-
         return cell
     }
 }
@@ -143,7 +141,7 @@ extension SearchViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let item = viewModel.results[indexPath.row]
         print("[Search] Selected Place: \(item.name), PlaceID: \(item.id)")
-        // Handle selection if needed (e.g., push detail)
+        // 필요한 경우 선택 항목을 처리합니다(예: 세부 정보 표시).
     }
 }
 

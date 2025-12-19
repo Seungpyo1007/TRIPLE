@@ -11,10 +11,14 @@ class CityRecCollectionViewCell: UICollectionViewCell {
 
     static let reuseIdentifier = "CityRecCollectionViewCell"
 
+    // MARK: - @IBOutlets
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
+    
+    // MARK: - 변수
     private var loadToken: UUID?
 
+    // MARK: - 생명주기
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -28,9 +32,9 @@ class CityRecCollectionViewCell: UICollectionViewCell {
         imageView.image = nil
         cityLabel.text = nil
         loadToken = nil
-        // TODO: Reset XIB outlets when added later
     }
 
+    // MARK: - 구성
     func configure(with placeholder: String) {
         cityLabel.text = placeholder
         cityLabel.isHidden = false
@@ -51,6 +55,7 @@ class CityRecCollectionViewCell: UICollectionViewCell {
         let token = UUID()
         self.loadToken = token
         self.imageView.image = nil
+        
         viewModel.loadPhotoForItem(at: indexPath.item, targetSize: targetSize) { [weak self] image in
             DispatchQueue.main.async {
                 guard let self = self, self.loadToken == token else { return }

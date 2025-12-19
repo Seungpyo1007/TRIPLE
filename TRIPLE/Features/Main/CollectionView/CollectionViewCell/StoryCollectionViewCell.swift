@@ -10,26 +10,41 @@ import YouTubePlayerKit
 
 class StoryCollectionViewCell: UICollectionViewCell {
 
+    // MARK: - 상수
     static let reuseIdentifier = "StoryCollectionViewCell"
 
-    // Track current configured video ID to avoid reloading on reuse
+    // MARK: - 프로퍼티 (속성) 변수 & 상수
+    
+    /// 현재 설정된 비디오 ID (재사용 시 불필요한 재로딩 방지용)
     private var currentVideoID: String?
 
-    // Container view to host the YouTubePlayerHostingView
+    /// YouTubePlayerHostingView를 담을 컨테이너 뷰
     private let playerContainerView = UIView()
-    // Hosting view is created once a player exists
+    
+    /// 플레이어가 생성된 후 할당되는 호스팅 뷰
     private var hostingView: YouTubePlayerHostingView?
 
-    // Keep a strong reference to the player so we can configure/update it
+    /// 플레이어 인스턴스에 대한 강한 참조 (설정 및 업데이트용)
     private var player: YouTubePlayer?
 
+    // MARK: - 생명주기
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupUI()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        // 화면 밖으로 나갔을 때도 재생 상태를 유지하기 위해 플레이어와 호스팅 뷰를 의도적으로 유지합니다.
+        // 이미 로드된 웹 콘텐츠를 보존하기 위해 별도의 초기화 로직을 두지 않습니다.
+    }
+    
+    // MARK: - Setup UI (기본 Cell UI Setup)
+    private func setupUI() {
         contentView.backgroundColor = .secondarySystemBackground
         contentView.layer.cornerRadius = 12
         contentView.layer.masksToBounds = true
 
-        // Embed container view
         playerContainerView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(playerContainerView)
         NSLayoutConstraint.activate([
@@ -38,25 +53,22 @@ class StoryCollectionViewCell: UICollectionViewCell {
             playerContainerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             playerContainerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
-        // Optimize layer for rounded corners
+        
+        // 둥근 모서리 최적화
         playerContainerView.clipsToBounds = true
     }
 
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        // Intentionally keep player and hostingView attached to preserve playback while offscreen.
-        // No-op to preserve already loaded web content.
-    }
-
-    /// Configure the cell to display a YouTube video
+    // MARK: - YoutubePlayerKit 설정
+    
+    /// 셀에 유튜브 비디오를 표시하도록 설정합니다.
     /// - Parameters:
-    ///   - videoID: The YouTube video identifier
-    ///   - autoplay: Whether the player should start automatically
-    ///   - loop: Whether the video should loop
-    ///   - startTimeSeconds: Optional start time in seconds
-    ///   - showControls: Whether to show YouTube controls
-    ///   - allowsInlineMediaPlayback: Allows inline playback on iOS
-    ///   - customUserAgent: Optional custom user agent
+    ///   - videoID: 유튜브 비디오 ID
+    ///   - autoplay: 자동 재생 여부
+    ///   - loop: 반복 재생 여부
+    ///   - startTimeSeconds: 시작 시간 (초 단위)
+    ///   - showControls: 유튜브 컨트롤러 표시 여부
+    ///   - allowsInlineMediaPlayback: iOS 내에서 인라인 재생 허용 여부
+    ///   - customUserAgent: 사용자 정의 유저 에이전트
     func configure(
         videoID: String,
         autoplay: Bool = false,
@@ -66,41 +78,45 @@ class StoryCollectionViewCell: UICollectionViewCell {
         allowsInlineMediaPlayback: Bool = true,
         customUserAgent: String? = nil
     ) {
-        // If the same video is already configured, skip reconfiguration to prevent reloads
+        // 동일한 비디오가 이미 설정되어 있고 호스팅 뷰가 존재한다면 재설정 생략 (리로드 방지)
         if currentVideoID == videoID, hostingView != nil {
             return
         }
         currentVideoID = videoID
 
-        // Build player parameters
+        // 플레이어 파라미터 구성
         let parameters = YouTubePlayer.Parameters(
             autoPlay: autoplay,
             loopEnabled: loop,
             startTime: startTimeSeconds.map { .init(value: $0, unit: .seconds) },
             showControls: showControls
         )
-        // Build web view configuration
+        
+        // 웹 뷰 설정 구성
         let configuration = YouTubePlayer.Configuration(
             allowsInlineMediaPlayback: allowsInlineMediaPlayback,
             customUserAgent: customUserAgent
         )
-        // Create the player with source, parameters and configuration
+        
+        // 소스, 파라미터, 설정을 사용하여 플레이어 생성
         let player = YouTubePlayer(
             source: .video(id: videoID),
             parameters: parameters,
             configuration: configuration
         )
-        // Assign and keep a reference
+        
+        // 참조 할당 및 유지
         self.player = player
 
-        // Remove previous hosting view if any
+        // 이전 호스팅 뷰가 있다면 제거
         hostingView?.removeFromSuperview()
 
-        // Create and attach a new hosting view with the player
+        // 새로운 플레이어로 호스팅 뷰 생성 및 부착
         let hostingView = YouTubePlayerHostingView(player: player)
         self.hostingView = hostingView
         hostingView.translatesAutoresizingMaskIntoConstraints = false
         playerContainerView.addSubview(hostingView)
+        
         NSLayoutConstraint.activate([
             hostingView.topAnchor.constraint(equalTo: playerContainerView.topAnchor),
             hostingView.leadingAnchor.constraint(equalTo: playerContainerView.leadingAnchor),
@@ -109,18 +125,21 @@ class StoryCollectionViewCell: UICollectionViewCell {
         ])
     }
 
-    /// Attach an existing YouTubePlayer without resetting playback
-    /// This keeps playback continuous while the cell is reused/shown again.
+    /// 재생을 초기화하지 않고 기존 YouTubePlayer를 연결합니다.
+    /// 셀이 재사용되거나 다시 나타날 때 연속적인 재생을 유지하기 위해 사용합니다.
     func configureWithExisting(player: YouTubePlayer) {
-        // Keep reference to provided player
+        // 제공된 플레이어 참조 유지
         self.player = player
-        // Remove previous hosting view if it was created for a different player
+        
+        // 이전 호스팅 뷰의 플레이어가 현재와 다르다면 새로 생성하여 교체
         if hostingView?.player !== player {
             hostingView?.removeFromSuperview()
+            
             let hostingView = YouTubePlayerHostingView(player: player)
             self.hostingView = hostingView
             hostingView.translatesAutoresizingMaskIntoConstraints = false
             playerContainerView.addSubview(hostingView)
+            
             NSLayoutConstraint.activate([
                 hostingView.topAnchor.constraint(equalTo: playerContainerView.topAnchor),
                 hostingView.leadingAnchor.constraint(equalTo: playerContainerView.leadingAnchor),
@@ -128,6 +147,5 @@ class StoryCollectionViewCell: UICollectionViewCell {
                 hostingView.bottomAnchor.constraint(equalTo: playerContainerView.bottomAnchor)
             ])
         }
-        // Do not change playback state (no load/reload/autoplay changes)
     }
 }

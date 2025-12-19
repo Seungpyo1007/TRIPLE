@@ -9,14 +9,16 @@ import UIKit
 
 final class TicketCollectionDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    // MARK: - 변수
     private var viewModel: TicketCollectionViewModel
 
+    // MARK: - 초기화
     init(viewModel: TicketCollectionViewModel) {
         self.viewModel = viewModel
         super.init()
     }
 
-    // MARK: - Public API
+    // MARK: - 셀 재사용
     func reload(with viewModel: TicketCollectionViewModel) {
         self.viewModel = viewModel
     }

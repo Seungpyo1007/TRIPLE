@@ -9,6 +9,14 @@ import UIKit
 
 class MainViewController: UIViewController, MainViewScrollDelegate {
     
+    // MARK: - @IBOutlets
+    // mainView를 위로 올리기 위한 상단 제약
+    @IBOutlet weak var mainViewTopConstraint: NSLayoutConstraint!
+    // View & NavigationBar
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var goneView: UIView!
+    @IBOutlet weak var mainView: UIView!
+    
     // MARK: - 변수 & 상수
     // SideMenuViewController 가져오기 변수
     private var sideMenuViewController: SideMenuViewController!
@@ -43,14 +51,6 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     private lazy var hotelCollectionDelegate = HotelCollectionDelegate(viewModel: hotelVM)
     private lazy var ticketCollectionDelegate = TicketCollectionDelegate(viewModel: ticketVM)
     private lazy var eventCollectionDelegate = EventCollectionDelegate(viewModel: eventVM)
-    
-    // MARK: - @IBOutlets
-    // mainView를 위로 올리기 위한 상단 제약
-    @IBOutlet weak var mainViewTopConstraint: NSLayoutConstraint!
-    // View & NavigationBar
-    @IBOutlet weak var navigationBar: UINavigationBar!
-    @IBOutlet weak var goneView: UIView!
-    @IBOutlet weak var mainView: UIView!
     
     // MARK: - 생명주기
     override public func viewDidLoad() {
