@@ -17,9 +17,8 @@ class CityRecCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        contentView.backgroundColor = .secondarySystemBackground
-        contentView.layer.cornerRadius = 12
-        contentView.layer.masksToBounds = true
+        
+        imageView.layer.cornerRadius = 8
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
     }
