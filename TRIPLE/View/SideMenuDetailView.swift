@@ -40,6 +40,17 @@ class SideMenuDetailView: UIView {
         super.init(coder: coder)
         commonInit()
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        // Make profile image view circular with border after layout
+        if let imageView = profileImageView {
+            imageView.layer.cornerRadius = imageView.bounds.width / 2
+            imageView.clipsToBounds = true
+            imageView.layer.borderColor = UIColor.systemGray4.cgColor
+            imageView.layer.borderWidth = 1
+        }
+    }
 
     // MARK: - UIView 초기 설정
     private func commonInit() {
@@ -85,6 +96,8 @@ class SideMenuDetailView: UIView {
         profileEditLabel?.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(profileEditTap))
         profileEditLabel?.addGestureRecognizer(tap)
+        
+        profileImageView?.contentMode = .scaleAspectFill
     }
     
     // MARK: - SideMenuDetailViewDelegate
@@ -92,3 +105,4 @@ class SideMenuDetailView: UIView {
         delegate?.sideMenuDetailViewDidTapProfileEditLabel(self)
     }
 }
+
