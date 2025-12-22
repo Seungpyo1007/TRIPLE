@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             GMSServices.provideAPIKey(apiKey)
             GMSPlacesClient.provideAPIKey(apiKey)
         } else {
-            assertionFailure("Missing or empty APIKEY in Secret.plist")
+            assertionFailure("Secret.plist에 GoogleMaps-API-KEY를 넣어주세요")
         }
         let window = UIWindow(frame: UIScreen.main.bounds)
         let navController = UINavigationController()
