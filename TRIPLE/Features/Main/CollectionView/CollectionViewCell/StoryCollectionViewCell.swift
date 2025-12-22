@@ -61,14 +61,6 @@ class StoryCollectionViewCell: UICollectionViewCell {
     // MARK: - YoutubePlayerKit 설정
     
     /// 셀에 유튜브 비디오를 표시하도록 설정합니다.
-    /// - Parameters:
-    ///   - videoID: 유튜브 비디오 ID
-    ///   - autoplay: 자동 재생 여부
-    ///   - loop: 반복 재생 여부
-    ///   - startTimeSeconds: 시작 시간 (초 단위)
-    ///   - showControls: 유튜브 컨트롤러 표시 여부
-    ///   - allowsInlineMediaPlayback: iOS 내에서 인라인 재생 허용 여부
-    ///   - customUserAgent: 사용자 정의 유저 에이전트
     func configure(
         videoID: String,
         autoplay: Bool = false,
