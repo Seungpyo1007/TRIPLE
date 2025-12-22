@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// 지금은 UserDefaults에 데이터를 저장합니다. 나중에 실제 백엔드로 바꿀 수 있습니다.
+/// 지금은 UserDefaults에 데이터를 저장
 final class ProfileService {
     static let shared = ProfileService()
     private init() {}
