@@ -28,7 +28,7 @@ enum StoryCategory: String, CaseIterable, Codable, Sendable {
     }
 }
 
-/// 재생할 유튜브 영상을 나타내는 스토리 항목입니다.
+/// 재생할 유튜브 영상을 나타내는 스토리 항목
 struct Story: Identifiable, Hashable, Codable, Sendable {
     let id: UUID
     let category: StoryCategory
@@ -45,10 +45,10 @@ struct Story: Identifiable, Hashable, Codable, Sendable {
     }
 }
 
-// MARK: - 정적 카탈로그
+// MARK: - 정적(고정값) 카탈로그
 
 /// 카테고리별로 정리된 여행 관련 유튜브 영상 ID 모음입니다.
-/// 다음은 예시 ID입니다. 필요에 따라 본인의 ID로 교체하십시오. " dQw4w9WgXcQ "
+/// " dQw4w9WgXcQ "
 struct StoryCatalog {
     static let videosByCategory: [StoryCategory: [String]] = [
         .nature: [
