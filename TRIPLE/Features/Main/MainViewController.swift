@@ -78,12 +78,10 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
                 
         // UI 업데이트는 반드시 메인 스레드에서!
         DispatchQueue.main.async {
-            print("DEBUG: 호텔 데이터 \(items.count)개 수신 완료")
-                    
-            // 1. Delegate 내부에 변경된 뷰모델 정보를 다시 주입 (필요시)
+            // Delegate 내부에 변경된 뷰모델 정보를 다시 주입 (필요시)
             self.hotelCollectionDelegate.reload(with: self.hotelVM)
                     
-            // 2. MainView 안에 있는 HotelCollectionView를 찾아서 reload 시킵니다.
+            // MainView 안에 있는 HotelCollectionView를 찾아서 reload 시킵니다.
             // MainView 내부에 collectionView가 public이거나 접근 가능하다면 호출
             if let mainViewInstance = self.mainView.subviews.first(where: { $0 is MainView }) as? MainView {
             // MainView 내부에 hotelCollectionView가 있다면 아래처럼 호출하세요.
@@ -152,15 +150,10 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     }
     // 누르면 modal 방식으로 임시 이동
     @IBAction func openScheduleMenu(_ sender: Any) {
-        let vc: UIViewController
-        if Bundle.main.path(forResource: "CityViewController", ofType: "nib") != nil {
-            vc = CityViewController(nibName: "CityViewController", bundle: .main)
-        } else {
-            vc = CityViewController()
-        }
-        if let nav = self.navigationController {
-            nav.pushViewController(vc, animated: true)
-        }
+        // TODO: - 여기다가 스케줄메뉴 구현
+        let alert = UIAlertController(title: "알림 메뉴", message: "기능이 아직 미완성입니다.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
     
     // 수동으로 버튼 누르면 만든 뷰 열기
