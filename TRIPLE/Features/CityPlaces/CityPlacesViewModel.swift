@@ -9,8 +9,11 @@ import Foundation
 import GooglePlaces
 
 final class CityPlacesViewModel {
-    // MARK: - Output (UI 업데이트를 위한 콜백)
+    
+    // MARK: - Output (ViewModel -> View)
+    /// 검색된 장소 목록과 해당 카테고리의 테마 색상을 View에 전달
     var onPlacesUpdate: (([GMSPlace], UIColor) -> Void)?
+    /// 검색 중 발생한 에러를 View에 전달
     var onError: ((Error) -> Void)?
 
     // MARK: - 상수 & 초기화
@@ -25,8 +28,10 @@ final class CityPlacesViewModel {
         service.searchNearby(center: center, radius: radius, category: category) { [weak self] result in
             switch result {
             case .success(let places):
+                // 성공 시 장소 리스트와 색상을 함께 업데이트
                 self?.onPlacesUpdate?(places, color)
             case .failure(let error):
+                // 실패 시 에러 알림
                 self?.onError?(error)
             }
         }

@@ -21,6 +21,6 @@ final class CityViewModel {
     /// 도시의 이름
     var cityNameText: String { city.name }
     
-    /// 구글 Place ID (없을 경우 빈 문자열 반환하여 뷰에서의 옵셔널 처리를 줄여줍니다)
+    /// 구글 Place ID (없을 경우 빈 문자열 반환)
     var placeIDText: String { city.placeID ?? "" }
 }
