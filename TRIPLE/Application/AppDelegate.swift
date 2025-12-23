@@ -8,7 +8,7 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
-import RiveRuntime
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
         // Load Google Maps API Key from Secret.plist
         if let path = Bundle.main.path(forResource: "Secret", ofType: "plist"),
            let dict = NSDictionary(contentsOfFile: path) as? [String: Any],
