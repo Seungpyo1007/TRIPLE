@@ -151,9 +151,18 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     // 누르면 modal 방식으로 임시 이동
     @IBAction func openScheduleMenu(_ sender: Any) {
         // TODO: - 여기다가 스케줄메뉴 구현
-        let alert = UIAlertController(title: "알림 메뉴", message: "기능이 아직 미완성입니다.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-        self.present(alert, animated: true)
+//        let alert = UIAlertController(title: "알림 메뉴", message: "기능이 아직 미완성입니다.", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+//        self.present(alert, animated: true)
+        let vc: UIViewController
+        if Bundle.main.path(forResource: "WeatherViewController", ofType: "nib") != nil {
+            vc = WeatherViewController(nibName: "WeatherViewController", bundle: .main)
+        } else {
+            vc = WeatherViewController()
+        }
+        if let nav = self.navigationController {
+            nav.pushViewController(vc, animated: true)
+        }
     }
     
     // 수동으로 버튼 누르면 만든 뷰 열기
