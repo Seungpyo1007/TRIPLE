@@ -9,14 +9,14 @@ import UIKit
 
 class SideMenuViewController: UIViewController, SideMenuDetailViewDelegate {
     
-    // MARK: - @IBOutlet
+    // MARK: - Outlets
     @IBOutlet weak var containerView: UIView!
     
-    // MARK: - 상수 & 변수
+    // MARK: - Properties
     private let viewModel = SideMenuViewModel()
     private weak var detailView: SideMenuDetailView?
     
-    // MARK: - 생명주기
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         embedSideMenuDetail()
@@ -28,7 +28,7 @@ class SideMenuViewController: UIViewController, SideMenuDetailViewDelegate {
         viewModel.reload()
     }
     
-    // MARK: - @IBAction
+    // MARK: - Actions
     @IBAction func openSettingsMenu(_ sender: Any) {
         let vc: UIViewController
         
@@ -44,26 +44,24 @@ class SideMenuViewController: UIViewController, SideMenuDetailViewDelegate {
     }
     
     @IBAction func closeSideMenu(_ sender: Any) {
-        // TODO: - 여기다가 닫기 구현
         let alert = UIAlertController(title: "닫기", message: "기능이 아직 미완성입니다.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
     
     @IBAction func openNotificationMenu(_ sender: Any) {
-        // TODO: - 여기다가 알림메뉴 구현
         let alert = UIAlertController(title: "알림 메뉴", message: "기능이 아직 미완성입니다.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
 
-    // MARK: - UIView 초기세팅
+    // MARK: - Embedding
     private func embedSideMenuDetail() {
-        let detailView = SideMenuDetailView() // SideMenuDetailView 가져오기
+        let detailView = SideMenuDetailView()
         detailView.delegate = self
         self.detailView = detailView
-        detailView.translatesAutoresizingMaskIntoConstraints = false // Auto Layout을 사용하기 위해 기본 설정을 비활성화
-        let targetContainer = containerView ?? view // containerView에 넣기
+        detailView.translatesAutoresizingMaskIntoConstraints = false
+        let targetContainer = containerView ?? view
         targetContainer?.addSubview(detailView)
 
         if let target = targetContainer {
@@ -77,25 +75,31 @@ class SideMenuViewController: UIViewController, SideMenuDetailViewDelegate {
         bindViewModel()
     }
     
+    // MARK: - Binding
     private func bindViewModel() {
         viewModel.onProfileChanged = { [weak self] profile in
-            self?.detailView?.configure(name: profile.name, image: self?.imageFromData(profile.imageData))
+            guard let self = self else { return }
+            
+            let currentImage = self.detailView?.profileImageView.image ?? UIImage(systemName: "person.circle.fill")
+            self.detailView?.configure(name: profile.name, image: currentImage)
+            
+            if let urlString = profile.profileImage, let url = URL(string: urlString) {
+                DispatchQueue.global().async {
+                    if let data = try? Data(contentsOf: url), let newImage = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self.detailView?.configure(name: profile.name, image: newImage)
+                        }
+                    }
+                }
+            } else {
+                self.detailView?.configure(name: profile.name, image: UIImage(systemName: "person.circle.fill"))
+            }
         }
-        viewModel.onProfileImageChanged = { [weak self] image in
-            guard let name = self?.viewModel.profile.name else { return }
-            self?.detailView?.configure(name: name, image: image)
-        }
-        // 현재 프로필로 초기화
-        let current = viewModel.profile
-        detailView?.configure(name: current.name, image: imageFromData(current.imageData))
+        
+        viewModel.reload()
     }
     
-    private func imageFromData(_ data: Data?) -> UIImage? {
-        guard let data = data else { return nil }
-        return UIImage(data: data)
-    }
-    
-    // MARK: - SideMenuDetailViewDelegate (ProfileEditLabel)
+    // MARK: - SideMenuDetailViewDelegate
     func sideMenuDetailViewDidTapProfileEditLabel(_ view: SideMenuDetailView) {
         let profileVC = ProfileEditViewController()
         if let nav = self.navigationController {
@@ -103,4 +107,3 @@ class SideMenuViewController: UIViewController, SideMenuDetailViewDelegate {
         }
     }
 }
-

@@ -9,13 +9,11 @@ import Foundation
 import UIKit
 import GooglePlaces
 
-// MARK: - [Protocol] 사진 데이터 제공 인터페이스
+// MARK: - Photo Provider
 protocol PlacePhotoProviding {
-    /// 특정 장소(placeID)의 첫 번째 사진을 Data 형식으로 가져옵니다.
     func fetchFirstPhoto(for placeID: String, maxSize: CGSize, completion: @escaping (Data?) -> Void)
 }
 
-// MARK: - [Service] Google Places 사진 서비스
 final class GooglePlacesPhotoService: PlacePhotoProviding {
     private let placesClient: GMSPlacesClient
 
@@ -24,7 +22,6 @@ final class GooglePlacesPhotoService: PlacePhotoProviding {
     }
 
     func fetchFirstPhoto(for placeID: String, maxSize: CGSize, completion: @escaping (Data?) -> Void) {
-        // 1. 사진 정보를 포함한 장소 상세 데이터 요청
         let properties: [GMSPlaceProperty] = [.photos]
         let fetchRequest = GMSFetchPlaceRequest(
             placeID: placeID,
@@ -39,14 +36,12 @@ final class GooglePlacesPhotoService: PlacePhotoProviding {
                 return
             }
 
-            // 2. 첫 번째 사진 메타데이터 추출
             guard let photoMetadata = place?.photos?.first else {
                 print("[CityRec] 사진 메타데이터 없음 (ID: \(placeID))")
                 completion(nil)
                 return
             }
 
-            // 3. 메타데이터를 사용하여 실제 이미지 요청
             let fetchPhotoRequest = GMSFetchPhotoRequest(photoMetadata: photoMetadata, maxSize: maxSize)
             
             self?.placesClient.fetchPhoto(with: fetchPhotoRequest) { image, error in
@@ -56,7 +51,6 @@ final class GooglePlacesPhotoService: PlacePhotoProviding {
                     return
                 }
 
-                // 4. UIImage를 Data(JPEG/PNG)로 변환하여 반환
                 if let data = image.jpegData(compressionQuality: 0.9) {
                     completion(data)
                 } else {
@@ -67,19 +61,15 @@ final class GooglePlacesPhotoService: PlacePhotoProviding {
     }
 }
 
-// MARK: - [Protocol] 도시 추천 서비스 인터페이스
+// MARK: - City Rec Service Protocol
 protocol CityRecServicing {
-    /// 가상의 도시 목록(Mock)을 불러옵니다.
     func loadMock(verifiedPlaceIDs: [String], count: Int) -> [CityRecItem]
-    /// 검증된(미리 정의된) 도시 목록을 불러옵니다.
     func loadVerified(limit: Int?) -> [CityRecItem]
-    /// 도시 이름에 해당하는 Place ID를 반환합니다.
     func placeID(for city: String) -> String?
 }
 
-// MARK: - [Data Source] 도시별 고유 Place ID 저장소
+// MARK: - Place ID Mapping
 enum CityPlaceIDs {
-    /// 주요 국가/도시별 Google Place ID 매핑 테이블
     static let byCity: [String: String] = [
         "Ho Chi Minh City": "ChIJ0T2NLikpdTERKxE8d61aX_E",
         "Hanoi": "ChIJoRyG2ZurNTERqRfKcnt_iOc",
@@ -113,7 +103,6 @@ enum CityPlaceIDs {
         "Dubai": "ChIJRcbZaklDXz4RYlEphFBu5r0"
     ]
 
-    /// 도시 이름 정규화 및 ID 조회
     static func placeID(for city: String) -> String? {
         switch city {
         case "Saigon": return byCity["Ho Chi Minh City"]
@@ -122,9 +111,8 @@ enum CityPlaceIDs {
     }
 }
 
-// MARK: - [Service Implementation] 도시 추천 서비스 구현체
+// MARK: - Service Implementation
 struct CityRecService: CityRecServicing {
-    
     func loadMock(verifiedPlaceIDs: [String], count: Int) -> [CityRecItem] {
         let cityNames = Array(CityPlaceIDs.byCity.keys) + ["Saigon"]
         let shuffled = cityNames.shuffled()
@@ -133,7 +121,6 @@ struct CityRecService: CityRecServicing {
         for i in 0..<max(0, count) {
             let title = i < shuffled.count ? shuffled[i] : "City \(i + 1)"
             let id = CityPlaceIDs.placeID(for: title)
-            // 검증된 ID 목록에 포함되어 있는지 확인하거나 기본 ID 할당
             let placeID = id ?? (verifiedPlaceIDs.contains { $0 == id } ? id : nil)
             items.append(CityRecItem(title: title, placeID: placeID))
         }

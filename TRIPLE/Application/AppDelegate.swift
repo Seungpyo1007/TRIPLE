@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         let navController = UINavigationController()
         navController.setNavigationBarHidden(true, animated: false) // Default NavigationBar 숨기기
-        let aVC = MainViewController(nibName: "MainViewController", bundle: nil)
+        let aVC = IntroViewController(nibName: "IntroViewController", bundle: nil)
         navController.viewControllers = [aVC]
         window.rootViewController = navController
         self.window = window

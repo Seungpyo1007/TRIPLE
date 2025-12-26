@@ -9,11 +9,11 @@ import UIKit
 
 final class CityRecCollectionDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    // MARK: - 변수
+    // MARK: - Dependencies
     private var viewModel: CityRecCollectionViewModel
     private weak var presentingViewController: UIViewController?
 
-    // MARK: - 초기화
+    // MARK: - Init
     convenience init(viewModel: CityRecCollectionViewModel, presentingViewController: UIViewController) {
         self.init(viewModel: viewModel)
         self.presentingViewController = presentingViewController
@@ -24,7 +24,7 @@ final class CityRecCollectionDelegate: NSObject, UICollectionViewDataSource, UIC
         super.init()
     }
 
-    // MARK: - 셀 재사용
+    // MARK: - Public API
     func attachPresenter(_ vc: UIViewController) {
         self.presentingViewController = vc
     }
@@ -57,7 +57,7 @@ final class CityRecCollectionDelegate: NSObject, UICollectionViewDataSource, UIC
         return CGSize(width: adjustedHeight, height: adjustedHeight)
     }
 
-    // MARK: - UICollectionViewDelegate (Selection)
+    // MARK: - UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let city = viewModel.cityForItem(at: indexPath.item)
         let vm = CityViewModel(city: city)
@@ -77,7 +77,7 @@ final class CityRecCollectionDelegate: NSObject, UICollectionViewDataSource, UIC
     }
 }
 
-// MARK: - Extension
+// MARK: - UIView helper
 extension UIView {
     func findViewController() -> UIViewController? {
         var responder: UIResponder? = self

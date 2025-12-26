@@ -6,52 +6,67 @@
 //
 
 import Foundation
-    
-func fetchWeather() {
-    // Secret.plist에서 API 키 로드
+
+// MARK: - Weather Networking Service
+
+/// Fetch current weather for a given city using OpenWeather API.
+/// - Parameters:
+///   - cityName: Human readable city name (e.g., "Tokyo").
+///   - completion: Called on background thread with decoded `WeatherResponse` or `nil` on failure.
+func fetchWeather(cityName: String, completion: @escaping (WeatherResponse?) -> Void) {
+    // MARK: - Read API Key from Secret.plist
     guard let path = Bundle.main.path(forResource: "Secret", ofType: "plist"),
           let dict = NSDictionary(contentsOfFile: path) as? [String: Any],
           let apiKey = dict["OpenWeather-API-KEY"] as? String,
-          !apiKey.isEmpty else {
-        assertionFailure("Secret.plist에 OpenWeather-API-KEY를 넣어주세요")
+          apiKey.isEmpty == false else {
+        print("[WeatherService] Missing OpenWeather API key.")
+        completion(nil)
         return
     }
 
-    // 요청 URL 생성 (서울, 섭씨)
-    let urlString = "https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=\(apiKey)&units=metric"
-    guard let url = URL(string: urlString) else {
-        print("잘못된 URL: \(urlString)")
+    // MARK: - Build URL
+    var components = URLComponents(string: "https://api.openweathermap.org/data/2.5/weather")
+    components?.queryItems = [
+        URLQueryItem(name: "q", value: cityName),
+        URLQueryItem(name: "appid", value: apiKey),
+        URLQueryItem(name: "units", value: "metric")
+    ]
+
+    guard let url = components?.url else {
+        print("[WeatherService] Failed to build URL for city: \(cityName)")
+        completion(nil)
         return
     }
 
+    // MARK: - Request
     URLSession.shared.dataTask(with: url) { data, response, error in
-        // 네트워크 에러 출력
+        // Basic transport error handling
         if let error = error {
-            print("네트워크 에러:", error.localizedDescription)
+            print("[WeatherService] Network error: \(error.localizedDescription)")
+            completion(nil)
             return
         }
 
-        // HTTP 상태 코드 검사
+        // Optional: Check HTTP status code
         if let http = response as? HTTPURLResponse, !(200...299).contains(http.statusCode) {
-            let body = String(data: data ?? Data(), encoding: .utf8) ?? ""
-            print("HTTP 상태코드: \(http.statusCode)\n응답 바디: \(body)")
+            print("[WeatherService] HTTP status: \(http.statusCode)")
+            completion(nil)
             return
         }
 
         guard let data = data else {
-            print("데이터가 비었습니다.")
+            print("[WeatherService] No data returned.")
+            completion(nil)
             return
         }
 
-        // 디코딩 시도
+        // MARK: - Decode
         do {
             let decodedResponse = try JSONDecoder().decode(WeatherResponse.self, from: data)
-            print("현재 서울 기온: \(decodedResponse.main.temp)°C")
+            completion(decodedResponse)
         } catch {
-            print("디코딩 실패:", error)
-            if let body = String(data: data, encoding: .utf8) {
-                print("원본 응답:", body)
-            }
+            print("[WeatherService] Decoding failed: \(error)")
+            completion(nil)
         }
     }.resume()
 }

@@ -6,90 +6,123 @@
 //
 
 import UIKit
-import PhotosUI
+import FirebaseAuth
 
 class ProfileEditViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    // MARK: - @IBOutlets
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileTextField: UITextField!
     
-    // MARK: - 상수 & 스와이프 변수
-    private let viewModel = ProfileEditViewModel()
-    var swipeRecognizer: UISwipeGestureRecognizer!
-    
-    // MARK: - 생명주기
+    private var viewModel: ProfileEditViewModel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(_:)))
-        swipeRecognizer.direction = .right
-        self.view.addGestureRecognizer(swipeRecognizer)
+        setupUI()
+        setupViewModel()
+        viewModel.fetchCurrentProfile()
+    }
+    
+    private func setupUI() {
+        profileImageView.image = UIImage(systemName: "person.circle.fill")
+        profileImageView.tintColor = .lightGray
         
-        // 누르면 프로필 이미지 변경
         profileImageView.isUserInteractionEnabled = true
-        let imageTap = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
-        profileImageView.addGestureRecognizer(imageTap)
-        
-        // 뷰 모델을 UI에 바인딩
-        viewModel.onProfileChanged = { [weak self] profile in
-            self?.profileTextField.text = profile.name
-            if let data = profile.imageData { self?.profileImageView.image = UIImage(data: data) }
-        }
-        // 현재 프로필로 UI를 초기화합니다.
-        profileTextField.text = viewModel.profile.name
-        if let data = viewModel.profile.imageData { profileImageView.image = UIImage(data: data) }
-        // 텍스트 변경 사항 듣기
+        profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(profileImageTapped)))
         profileTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
-        viewModel.onProfileImageChanged = { [weak self] image in
-            self?.profileImageView.image = image
+        profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
+        profileImageView.clipsToBounds = true
+    }
+
+    private func setupViewModel() {
+        guard let user = Auth.auth().currentUser else { return }
+        
+        let initialProfile = UserProfile(
+            uid: user.uid,
+            name: user.displayName ?? "",
+            profileImage: user.photoURL?.absoluteString
+        )
+        
+        viewModel = ProfileEditViewModel(profile: initialProfile)
+        
+        // 초기값 바인딩 (혹시 Auth 정보가 있다면 먼저 보여줌)
+        updateUI(with: initialProfile)
+        
+        bindViewModel()
+    }
+
+    private func bindViewModel() {
+        // 🔥 Firestore에서 최신 데이터가 로드되면 실행됨
+        viewModel.onProfileLoaded = { [weak self] profile in
+            DispatchQueue.main.async {
+                self?.updateUI(with: profile)
+            }
         }
-        if let imageView = profileImageView {
-            imageView.layer.cornerRadius = imageView.bounds.width / 2
-            imageView.clipsToBounds = true
-            imageView.layer.borderColor = UIColor.systemGray4.cgColor
-            imageView.layer.borderWidth = 1
+        
+        viewModel.onProfileImageChanged = { [weak self] image in
+            DispatchQueue.main.async {
+                self?.profileImageView.image = image
+            }
+        }
+        
+        viewModel.onSaveResult = { [weak self] success, errorMessage in
+            DispatchQueue.main.async {
+                if success {
+                    self?.navigationController?.popViewController(animated: true)
+                } else {
+                    let alert = UIAlertController(title: "오류", message: errorMessage, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "확인", style: .default))
+                    self?.present(alert, animated: true)
+                }
+            }
+        }
+        
+        viewModel.isLoading = { isLoading in
+            // 로딩 인디케이터 처리 가능
         }
     }
     
+    // 🔥 UI 업데이트 로직 분리 (재사용)
+    private func updateUI(with profile: UserProfile) {
+        profileTextField.text = profile.name
+        
+        if let urlString = profile.profileImage, let url = URL(string: urlString) {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.profileImageView.image = image
+                    }
+                }
+            }
+        } else {
+            // 이미지가 없으면 기본 아이콘
+            profileImageView.image = UIImage(systemName: "person.circle.fill")
+        }
+    }
+
     @objc private func textFieldDidChange(_ textField: UITextField) {
         viewModel.setName(textField.text ?? "")
     }
+
+    @IBAction func saveButton(_ sender: Any) {
+        viewModel.save()
+    }
     
-    // MARK: - @IBAction
     @IBAction func backButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
-    @IBAction func saveButton(_ sender: Any) {
-        viewModel.save()
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    // MARK: - Action
-    @objc func swipeAction(_ sender: UISwipeGestureRecognizer) {
-        if sender.direction == .right {
-            self.navigationController?.popViewController(animated: true)
-        }
-    }
-    
-    
-    
+
     @objc private func profileImageTapped() {
         let picker = UIImagePickerController()
+        picker.delegate = self
         picker.sourceType = .photoLibrary
         picker.allowsEditing = true
-        picker.delegate = self
         present(picker, animated: true)
     }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = (info[.editedImage] as? UIImage) ?? (info[.originalImage] as? UIImage)
-        viewModel.setImage(image)
-        dismiss(animated: true)
-    }
 
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as? UIImage ?? info[.originalImage] as? UIImage
+        viewModel.setImage(image)
         dismiss(animated: true)
     }
 }

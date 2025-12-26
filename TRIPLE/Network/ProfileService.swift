@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 /// 지금은 UserDefaults에 데이터를 저장
 final class ProfileService {
@@ -19,8 +20,8 @@ final class ProfileService {
            let profile = try? JSONDecoder().decode(UserProfile.self, from: data) {
             return profile
         }
-        // 저장된 프로필이 없는 경우 기본 프로필이 사용됩니다.
-        return UserProfile(name: "")
+        let uid = Auth.auth().currentUser?.uid ?? "unknown_user"
+        return UserProfile(uid: uid, name: "사용자 이름", profileImage: "")
     }
 
     func saveProfile(_ profile: UserProfile) {

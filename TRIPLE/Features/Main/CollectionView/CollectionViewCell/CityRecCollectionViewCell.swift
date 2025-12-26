@@ -11,17 +11,16 @@ class CityRecCollectionViewCell: UICollectionViewCell {
 
     static let reuseIdentifier = "CityRecCollectionViewCell"
 
-    // MARK: - @IBOutlets
+    // MARK: - Outlets
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
     
-    // MARK: - 변수
+    // MARK: - State
     private var loadToken: UUID?
 
-    // MARK: - 생명주기
+    // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         imageView.layer.cornerRadius = 8
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -34,7 +33,7 @@ class CityRecCollectionViewCell: UICollectionViewCell {
         loadToken = nil
     }
 
-    // MARK: - 구성
+    // MARK: - Configuration
     func configure(with placeholder: String) {
         cityLabel.text = placeholder
         cityLabel.isHidden = false

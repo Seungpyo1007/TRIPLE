@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherViewController" customModule="TRIPLE" customModuleProvider="target">
             <connections>
                 <outlet property="cityLabel" destination="iXR-ls-vwc" id="r7H-tq-fmJ"/>
+                <outlet property="riveView" destination="gRy-zP-KgL" id="VAc-7v-KNQ"/>
                 <outlet property="tempLabel" destination="Amy-Ec-a48" id="v4s-n3-Zeq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weatherLabel" destination="Whh-7N-TZq" id="8Pg-Hx-u3v"/>
@@ -22,32 +23,44 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRy-zP-KgL">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRy-zP-KgL" customClass="RiveView" customModule="RiveRuntime">
                     <rect key="frame" x="0.0" y="172" width="393" height="612"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Clouds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whh-7N-TZq">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="null" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whh-7N-TZq">
                             <rect key="frame" x="0.0" y="220" width="393" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25*C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amy-Ec-a48">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="null" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amy-Ec-a48">
                             <rect key="frame" x="0.0" y="145" width="393" height="75"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="50"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tokyo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXR-ls-vwc">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="null" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXR-ls-vwc">
                             <rect key="frame" x="0.0" y="95" width="393" height="50"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="Amy-Ec-a48" firstAttribute="height" secondItem="Whh-7N-TZq" secondAttribute="height" multiplier="2.5" id="7EN-Af-YPt"/>
+                        <constraint firstItem="Whh-7N-TZq" firstAttribute="leading" secondItem="gRy-zP-KgL" secondAttribute="leading" id="Fz3-kd-YXd"/>
+                        <constraint firstItem="iXR-ls-vwc" firstAttribute="top" secondItem="gRy-zP-KgL" secondAttribute="top" constant="95" id="HGo-8e-CKS"/>
+                        <constraint firstItem="iXR-ls-vwc" firstAttribute="leading" secondItem="gRy-zP-KgL" secondAttribute="leading" id="Iqe-Pu-Ffm"/>
+                        <constraint firstItem="iXR-ls-vwc" firstAttribute="width" secondItem="Amy-Ec-a48" secondAttribute="width" id="Jmi-8H-x9c"/>
+                        <constraint firstItem="Amy-Ec-a48" firstAttribute="top" secondItem="iXR-ls-vwc" secondAttribute="bottom" id="Tco-1O-zdO"/>
+                        <constraint firstAttribute="trailing" secondItem="Whh-7N-TZq" secondAttribute="trailing" id="bIc-4N-jnc"/>
+                        <constraint firstItem="Amy-Ec-a48" firstAttribute="width" secondItem="Whh-7N-TZq" secondAttribute="width" id="cLy-Y0-pIK"/>
+                        <constraint firstAttribute="trailing" secondItem="Amy-Ec-a48" secondAttribute="trailing" id="e6p-Yy-7BO"/>
+                        <constraint firstAttribute="trailing" secondItem="iXR-ls-vwc" secondAttribute="trailing" id="mvQ-1x-ZbX"/>
+                        <constraint firstItem="Whh-7N-TZq" firstAttribute="top" secondItem="Amy-Ec-a48" secondAttribute="bottom" id="s1m-En-D5W"/>
+                        <constraint firstItem="iXR-ls-vwc" firstAttribute="height" secondItem="Amy-Ec-a48" secondAttribute="height" multiplier="0.666667" id="xVu-2c-QII"/>
+                        <constraint firstItem="Amy-Ec-a48" firstAttribute="leading" secondItem="gRy-zP-KgL" secondAttribute="leading" id="zev-IY-s0o"/>
+                    </constraints>
                 </view>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jas-Ng-iWj">
                     <rect key="frame" x="0.0" y="118" width="393" height="54"/>

@@ -7,41 +7,35 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth // FirebaseAuth가 필요합니다
 
 final class SideMenuViewModel {
     
-    // MARK: - Output (ViewModel -> View)
+    // MARK: - Outputs (Bindings)
     /// 유저 프로필 정보가 변경되었을 때 호출
     var onProfileChanged: ((UserProfile) -> Void)?
-    /// 프로필 이미지가 가공되어 준비되었을 때 호출
-    var onProfileImageChanged: ((UIImage?) -> Void)?
     
-    // MARK: - Properties
+    // MARK: - State
     /// 현재 로드된 유저 프로필 데이터
-    private(set) var profile: UserProfile {
-        didSet {
-            onProfileChanged?(profile)
-            onProfileImageChanged?(imageFromData(profile.imageData))
-        }
+    private(set) var profile: UserProfile = UserProfile(uid: "", name: "", profileImage: nil) {
+        didSet { onProfileChanged?(profile) }
     }
     
-    // MARK: - 상수 & 초기화
-    private let service: ProfileService
-    
-    init(service: ProfileService = .shared) {
-        self.service = service
-        self.profile = service.loadProfile()
+    // MARK: - Init
+    init() {
+        self.reload()
     }
 
-    // MARK: - Input
-    /// 서비스를 통해 최신 프로필 데이터를 다시 불러옴
+    // MARK: - Public API
+    /// 최신 프로필 데이터를 불러옴
     func reload() {
-        profile = service.loadProfile()
-    }
-    
-    /// Data 포맷을 UIImage로 변환
-    private func imageFromData(_ data: Data?) -> UIImage? {
-        guard let data = data else { return nil }
-        return UIImage(data: data)
+        if let user = Auth.auth().currentUser {
+            let newProfile = UserProfile(
+                uid: user.uid,
+                name: user.displayName ?? "사용자",
+                profileImage: user.photoURL?.absoluteString
+            )
+            self.profile = newProfile
+        }
     }
 }

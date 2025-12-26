@@ -9,9 +9,11 @@ target 'TRIPLE' do
   pod 'GooglePlaces'
   pod 'GooglePlacesSwift'
   pod 'RiveRuntime'
+  pod 'GoogleSignIn'
   pod 'FirebaseAnalytics'
   pod 'FirebaseAuth'
   pod 'FirebaseFirestore'
+  pod 'FirebaseStorage'
 
 end
 
