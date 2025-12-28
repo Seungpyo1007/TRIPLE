@@ -7,24 +7,24 @@
 
 import Foundation
 
-// MARK: - Weather Models
+// MARK: - 날씨 모델
 
-/// Weather response model containing main temperature and weather conditions
+/// 날씨 API 응답 모델: 온도와 날씨 조건을 포함
 struct WeatherResponse: Codable {
-    /// Main temperature container
+    /// 온도 정보를 담는 컨테이너
     let main: Main
-    /// Array of weather conditions (first item is primary)
+    /// 날씨 조건 배열 (첫 번째 항목이 주요 조건)
     let weather: [Weather]
 }
 
-/// Main temperature data
+/// 온도 데이터
 struct Main: Codable {
-    /// Temperature in Celsius (when using units=metric)
+    /// 섭씨 온도 (units=metric 사용 시)
     let temp: Double
 }
 
-/// Weather condition description
+/// 날씨 조건 설명
 struct Weather: Codable {
-    /// Human-readable description (e.g., "clear sky")
+    /// 사람이 읽을 수 있는 설명 (예: "맑음")
     let description: String
 }

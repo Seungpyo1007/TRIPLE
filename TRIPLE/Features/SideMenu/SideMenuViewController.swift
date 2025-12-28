@@ -9,14 +9,14 @@ import UIKit
 
 class SideMenuViewController: UIViewController, SideMenuDetailViewDelegate {
     
-    // MARK: - Outlets
+    // MARK: - @IBOutlet
     @IBOutlet weak var containerView: UIView!
     
-    // MARK: - Properties
+    // MARK: - 속성
     private let viewModel = SideMenuViewModel()
     private weak var detailView: SideMenuDetailView?
     
-    // MARK: - Lifecycle
+    // MARK: - 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         embedSideMenuDetail()
@@ -28,7 +28,7 @@ class SideMenuViewController: UIViewController, SideMenuDetailViewDelegate {
         viewModel.reload()
     }
     
-    // MARK: - Actions
+    // MARK: - @IBActions
     @IBAction func openSettingsMenu(_ sender: Any) {
         let vc: UIViewController
         
@@ -55,7 +55,7 @@ class SideMenuViewController: UIViewController, SideMenuDetailViewDelegate {
         self.present(alert, animated: true)
     }
 
-    // MARK: - Embedding
+    // MARK: - 임베딩
     private func embedSideMenuDetail() {
         let detailView = SideMenuDetailView()
         detailView.delegate = self
@@ -75,7 +75,7 @@ class SideMenuViewController: UIViewController, SideMenuDetailViewDelegate {
         bindViewModel()
     }
     
-    // MARK: - Binding
+    // MARK: - 바인딩
     private func bindViewModel() {
         viewModel.onProfileChanged = { [weak self] profile in
             guard let self = self else { return }

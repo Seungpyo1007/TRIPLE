@@ -15,7 +15,7 @@ class HotelCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
-    // MARK: - 변수 & 상수
+    // MARK: - 속성
     private var loadToken: UUID?
     static let reuseIdentifier = "HotelCollectionViewCell"
 
@@ -26,7 +26,8 @@ class HotelCollectionViewCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8
     }
-
+    
+    /// 셀이 재사용되기 전에 상태 초기화
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil

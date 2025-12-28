@@ -9,16 +9,16 @@ import UIKit
 
 class LoginEmailViewController: UIViewController {
 
-    // MARK: - Outlets
+    // MARK: - @IBOutlets
     @IBOutlet weak var resetPasswordLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    // MARK: - Properties
+    // MARK: - 속성
     private let viewModel = LoginEmailViewModel()
 
-    // MARK: - Lifecycle
+    // MARK: - 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -26,14 +26,14 @@ class LoginEmailViewController: UIViewController {
         bindViewModel()
     }
     
-    // MARK: - UI Setup
+    // MARK: - UI 설정
     private func setupUI() {
         passwordTextField.isSecureTextEntry = true
         emailTextField.keyboardType = .emailAddress
         emailTextField.autocapitalizationType = .none
     }
 
-    // MARK: - Binding
+    // MARK: - 바인딩
     private func bindViewModel() {
         viewModel.isLoading = { [weak self] loading in
             DispatchQueue.main.async {
@@ -53,7 +53,7 @@ class LoginEmailViewController: UIViewController {
         }
     }
 
-    // MARK: - Actions
+    // MARK: - @IBActions
     @IBAction func backButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -64,7 +64,7 @@ class LoginEmailViewController: UIViewController {
         viewModel.login()
     }
     
-    // MARK: - Navigation
+    // MARK: - 화면 전환
     @objc private func didTapResetPasswordLabel() {
         let vc = EmailPasswordResetViewController(nibName: "EmailPasswordResetViewController", bundle: nil)
         navigationController?.pushViewController(vc, animated: true)
@@ -84,7 +84,8 @@ class LoginEmailViewController: UIViewController {
         }
     }
     
-    // MARK: - Helpers
+    // MARK: - 도우미 함수
+    /// - 비밀번호 재설정 라벨 탭 제스처와 배경 탭 시 키보드 닫기 제스처를 추가
     private func setupGestureRecognizers() {
         resetPasswordLabel.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapResetPasswordLabel))
@@ -94,10 +95,12 @@ class LoginEmailViewController: UIViewController {
         view.addGestureRecognizer(backgroundTap)
     }
     
+    /// 키보드를 닫는 메서드
     @objc private func dismissKeyboard() {
         view.endEditing(true)
     }
     
+    /// 에러 메시지를 표시하는 알림창
     private func showAlert(message: String) {
         let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default))

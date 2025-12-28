@@ -7,32 +7,46 @@
 
 import Foundation
 
-// MARK: - City Recommendation Display Models
+// MARK: - 도시 추천 표시 모델
+/// 도시 정보를 표시하기 위한 구조체
 struct CityDisplayInfo {
+    /// 도시 한글 이름
     let cityKoreanName: String
+    /// 도시 영문 이름
     let cityEnglishName: String
+    /// 유명한 동네 한글 이름
     let famousTownKorean: String?
+    /// 첫 번째 유명 도시 한글 이름
     let firstFamousCityKorean: String?
+    /// 두 번째 유명 도시 한글 이름
     let secondFamousCityKorean: String?
 }
 
+/// 도시 추천 아이템 구조체
 struct CityRecItem {
+    /// 고유 식별자
     let id: UUID = UUID()
+    /// 도시 제목
     let title: String
+    /// Google Places API의 Place ID
     let placeID: String?
 }
 
-// MARK: - City Recommendation Model (State + Lookup)
+// MARK: - 도시 추천 모델 (상태 관리 + 조회)
 final class CityRecModel {
-    // MARK: - Outputs
+    // MARK: - 출력
+    /// 도시 추천 아이템 목록 (변경 시 클로저 호출)
     private(set) var items: [CityRecItem] = [] { didSet { onItemsChanged?(items) } }
+    /// 아이템 목록이 변경될 때 호출되는 클로저
     var onItemsChanged: (([CityRecItem]) -> Void)?
 
-    // MARK: - Dependencies
+    // MARK: - 의존성
+    /// 도시 추천 서비스
     private let service: CityRecServicing
+    /// 검증된 Place ID 목록
     private let verifiedPlaceIDs: [String]
 
-    // MARK: - Static Display Mapping
+    // MARK: - 정적 표시 매핑
     private static let displayByCityName: [String: CityDisplayInfo] = [
         "Seoul": CityDisplayInfo(cityKoreanName: "서울", cityEnglishName: "Seoul", famousTownKorean: "북촌 한옥마을", firstFamousCityKorean: "부산", secondFamousCityKorean: "제주"),
         "Tokyo": CityDisplayInfo(cityKoreanName: "도쿄", cityEnglishName: "Tokyo", famousTownKorean: "아사쿠사", firstFamousCityKorean: "오사카", secondFamousCityKorean: "교토"),
@@ -66,31 +80,37 @@ final class CityRecModel {
         "Dubai": CityDisplayInfo(cityKoreanName: "두바이", cityEnglishName: "Dubai", famousTownKorean: "주메이라", firstFamousCityKorean: "아부다비", secondFamousCityKorean: "샤르자")
     ]
 
-    // MARK: - Init
+    // MARK: - 초기화
     init(service: CityRecServicing = CityRecService(), verifiedPlaceIDs: [String] = []) {
         self.service = service
         self.verifiedPlaceIDs = verifiedPlaceIDs
     }
 
-    // MARK: - Collection API
+    // MARK: - 컬렉션 API
+    /// 아이템 개수 반환
     var numberOfItems: Int { items.count }
+    /// 특정 인덱스의 아이템 반환
     func item(at index: Int) -> CityRecItem { items[index] }
 
-    // MARK: - Loading
+    // MARK: - 로딩
+    /// 목업 데이터를 로드합니다.
     func loadMock(count: Int = 10) {
         self.items = service.loadMock(verifiedPlaceIDs: verifiedPlaceIDs, count: count)
     }
 
+    /// 검증된 Place ID 목록을 로드합니다.
     func loadVerified(limit: Int? = nil) {
         self.items = service.loadVerified(limit: limit)
     }
     
-    // MARK: - Display Lookup
+    // MARK: - 표시 정보 조회
+    /// 도시 제목으로 표시 정보를 조회합니다.
     func displayInfo(for cityTitle: String) -> CityDisplayInfo? {
         let normalized = CityPlaceIDs.placeID(for: cityTitle) != nil ? (cityTitle == "Saigon" ? "Ho Chi Minh City" : cityTitle) : cityTitle
         return CityRecModel.displayByCityName[normalized]
     }
 
+    /// Place ID로 표시 정보를 조회합니다.
     func displayInfo(forPlaceID placeID: String) -> CityDisplayInfo? {
         if let pair = CityPlaceIDs.byCity.first(where: { $0.value == placeID }) {
             return CityRecModel.displayByCityName[pair.key]

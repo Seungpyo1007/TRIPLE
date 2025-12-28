@@ -12,7 +12,7 @@ class SettingsViewController: UIViewController {
     // MARK: - @IBOutlet
     @IBOutlet weak var containerView: UIView!
     
-    // MARK: - 프로퍼티
+    // MARK: - 속성
     private let viewModel = SettingsViewModel()
     private var swipeRecognizer: UISwipeGestureRecognizer!
     

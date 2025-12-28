@@ -9,6 +9,7 @@ import UIKit
 
 class EventCollectionViewCell: UICollectionViewCell {
 
+    // MARK: - 속성
     static let reuseIdentifier = "EventCollectionViewCell"
 
     // MARK: - 생명주기
@@ -19,6 +20,7 @@ class EventCollectionViewCell: UICollectionViewCell {
         contentView.layer.masksToBounds = true
     }
 
+    /// 셀이 재사용되기 전에 상태 초기화
     override func prepareForReuse() {
         super.prepareForReuse()
         // TODO: Reset XIB outlets when added later

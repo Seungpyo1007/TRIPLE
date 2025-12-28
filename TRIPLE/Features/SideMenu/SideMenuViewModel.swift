@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-import FirebaseAuth // FirebaseAuth가 필요합니다
+import FirebaseAuth
 
 final class SideMenuViewModel {
     
@@ -26,7 +26,7 @@ final class SideMenuViewModel {
         self.reload()
     }
 
-    // MARK: - Public API
+    // MARK: - API
     /// 최신 프로필 데이터를 불러옴
     func reload() {
         if let user = Auth.auth().currentUser {

@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController, MainViewScrollDelegate {
     
-    // MARK: - @IBOutlets (Layout & Containers)
+    // MARK: - @IBOutlets
     /// mainView를 위로 올리기 위한 상단 제약
     @IBOutlet weak var mainViewTopConstraint: NSLayoutConstraint!
     /// View & NavigationBar
@@ -17,7 +17,7 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     @IBOutlet weak var goneView: UIView!
     @IBOutlet weak var mainView: UIView!
     
-    // MARK: - Properties (Side Menu State)
+    // MARK: - 속성
     /// SideMenuViewController 가져오기 변수
     private var sideMenuViewController: SideMenuViewController!
     private var sideMenuShadowView: UIView!
@@ -55,7 +55,7 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
     private lazy var ticketCollectionDelegate = TicketCollectionDelegate(viewModel: ticketVM)
     private lazy var eventCollectionDelegate = EventCollectionDelegate(viewModel: eventVM)
     
-    // MARK: - Lifecycle
+    // MARK: - 생명주기
     override public func viewDidLoad() {
         super.viewDidLoad()
         self.initialMainTopConstant = self.mainViewTopConstraint?.constant ?? 0
@@ -74,13 +74,12 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
         eventVM.loadMock()
     }
     
-    // MARK: - Binding
+    // MARK: - 바인딩
     /// 호텔 리스트 변경 시 컬렉션 뷰를 갱신합니다.
     private func setupHotelBinding() {
         hotelVM.onItemsChanged = { [weak self] items in
             guard let self = self else { return }
             
-            // UI 업데이트는 반드시 메인 스레드에서!
             DispatchQueue.main.async {
                 // Delegate 내부에 변경된 뷰모델 정보를 다시 주입 (필요시)
                 self.hotelCollectionDelegate.reload(with: self.hotelVM)
@@ -93,7 +92,7 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
         }
     }
     
-    // MARK: - UI Embedding
+    // MARK: - UI 임베딩
     /// MainView를 container에 임베드하여 섹션별 델리게이트를 연결합니다.
     private func embedMainView() {
         let detailView = MainView()
@@ -136,7 +135,7 @@ class MainViewController: UIViewController, MainViewScrollDelegate {
         }
     }
     
-    // MARK: - Actions (Navigation)
+    // MARK: - @IBActions
     /// 누르면 push 방식으로 SearchViewController로 이동
     @IBAction func openSearchMenu(_ sender: Any) {
         let vc: UIViewController

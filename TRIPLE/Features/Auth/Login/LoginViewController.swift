@@ -9,16 +9,16 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    // MARK: - Properties
+    // MARK: - 속성
     private let viewModel = LoginViewModel()
 
-    // MARK: - Lifecycle
+    // MARK: - 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
     }
     
-    // MARK: - Binding
+    // MARK: - 바인딩
     private func bindViewModel() {
         viewModel.isLoading = { [weak self] loading in
             DispatchQueue.main.async {
@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
         }
     }
 
-    // MARK: - Actions
+    // MARK: - @IBActions
     @IBAction func googleButton(_ sender: Any) {
         viewModel.signInWithGoogle(presentingVC: self)
     }
@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    // MARK: - Navigation
+    // MARK: - 화면 전환
     private func goToMainViewController() {
         let mainVC = MainViewController(nibName: "MainViewController", bundle: nil)
         let nav = UINavigationController(rootViewController: mainVC)
@@ -64,7 +64,8 @@ class LoginViewController: UIViewController {
         }
     }
     
-    // MARK: - Helpers
+    // MARK: - 도우미 함수
+    /// 에러 메시지를 표시하는 알림창
     private func showAlert(message: String) {
         let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default))
