@@ -7,26 +7,26 @@
 
 import Foundation
 import UIKit
-import FirebaseAuth // FirebaseAuth가 필요합니다
+import FirebaseAuth
 
 final class SideMenuViewModel {
     
-    // MARK: - Outputs (Bindings)
+    // MARK: - 출력
     /// 유저 프로필 정보가 변경되었을 때 호출
     var onProfileChanged: ((UserProfile) -> Void)?
     
-    // MARK: - State
+    // MARK: - 상태
     /// 현재 로드된 유저 프로필 데이터
     private(set) var profile: UserProfile = UserProfile(uid: "", name: "", profileImage: nil) {
         didSet { onProfileChanged?(profile) }
     }
     
-    // MARK: - Init
+    // MARK: - 초기화
     init() {
         self.reload()
     }
 
-    // MARK: - Public API
+    // MARK: - API
     /// 최신 프로필 데이터를 불러옴
     func reload() {
         if let user = Auth.auth().currentUser {

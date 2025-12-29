@@ -10,11 +10,14 @@ import FirebaseAuth
 
 class ProfileEditViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    // MARK: - @IBOutlets
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileTextField: UITextField!
     
+    // MARK: - 속성
     private var viewModel: ProfileEditViewModel!
 
+    // MARK: - 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -22,6 +25,7 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         viewModel.fetchCurrentProfile()
     }
     
+    // MARK: - UI 설정
     private func setupUI() {
         profileImageView.image = UIImage(systemName: "person.circle.fill")
         profileImageView.tintColor = .lightGray
@@ -34,6 +38,8 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         profileImageView.clipsToBounds = true
     }
 
+    // MARK: - 뷰모델 설정
+    /// 뷰모델 초기화 및 초기 데이터 바인딩
     private func setupViewModel() {
         guard let user = Auth.auth().currentUser else { return }
         
@@ -51,8 +57,10 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         bindViewModel()
     }
 
+    // MARK: - 바인딩
+    /// 뷰모델의 출력을 뷰에 연결하는 바인딩 메서드
     private func bindViewModel() {
-        // 🔥 Firestore에서 최신 데이터가 로드되면 실행됨
+        // Firestore에서 최신 데이터가 로드되면 실행됨
         viewModel.onProfileLoaded = { [weak self] profile in
             DispatchQueue.main.async {
                 self?.updateUI(with: profile)
@@ -82,7 +90,8 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     
-    // 🔥 UI 업데이트 로직 분리 (재사용)
+    // MARK: - UI 업데이트
+    /// 프로필 정보로 UI를 업데이트하는 메서드 (재사용 가능)
     private func updateUI(with profile: UserProfile) {
         profileTextField.text = profile.name
         
@@ -100,18 +109,23 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
 
+    // MARK: - Actions & @IBActions
+    /// 텍스트 필드 값 변경 시 뷰모델에 반영
     @objc private func textFieldDidChange(_ textField: UITextField) {
         viewModel.setName(textField.text ?? "")
     }
 
+    /// 저장 버튼 클릭 시 프로필 저장
     @IBAction func saveButton(_ sender: Any) {
         viewModel.save()
     }
     
+    /// 뒤로가기 버튼 클릭 시 이전 화면으로 이동
     @IBAction func backButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
 
+    /// 프로필 이미지 탭 시 이미지 선택 화면 표시
     @objc private func profileImageTapped() {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -120,6 +134,8 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         present(picker, animated: true)
     }
 
+    // MARK: - UIImagePickerControllerDelegate
+    /// 이미지 선택 완료 시 호출되는 델리게이트 메서드
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.editedImage] as? UIImage ?? info[.originalImage] as? UIImage
         viewModel.setImage(image)

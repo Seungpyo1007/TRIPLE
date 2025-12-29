@@ -7,17 +7,13 @@
 
 import Foundation
 
-// MARK: - City Domain Service
-
-// MARK: - [Protocol] 도시 정보 서비스 인터페이스
-/// Provides City domain objects for given names.
+// MARK: - 프로토콜
 protocol CityServicing {
     /// 도시 이름을 입력받아 해당 도시의 상세 모델(City)을 반환합니다.
     func city(forName name: String) -> City
 }
 
-// MARK: - [Service] 도시 정보 제공 구현체
-/// Default implementation backed by static mapping tables.
+// MARK: - 서비스 구현
 struct CityService: CityServicing {
     /// 도시 이름을 기반으로 City 객체를 생성합니다.
     func city(forName name: String) -> City {

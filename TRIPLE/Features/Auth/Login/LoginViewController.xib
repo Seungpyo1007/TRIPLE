@@ -36,7 +36,7 @@
                     </items>
                     <navigationBarAppearance key="standardAppearance"/>
                 </navigationBar>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNE-gf-CBy">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNE-gf-CBy" userLabel="TopView">
                     <rect key="frame" x="0.0" y="172" width="393" height="100"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그인해 주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTD-R6-6vD">
@@ -64,7 +64,7 @@
                         <constraint firstAttribute="trailing" secondItem="vTD-R6-6vD" secondAttribute="trailing" id="zff-dS-9J3"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLv-g0-BWD">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLv-g0-BWD" userLabel="MainView">
                     <rect key="frame" x="0.0" y="272" width="393" height="512"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Pr-LZ-7pz">

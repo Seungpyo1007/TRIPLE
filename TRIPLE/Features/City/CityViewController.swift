@@ -10,7 +10,7 @@ import RiveRuntime
 
 class CityViewController: UIViewController {
     
-    // MARK: - Outlets
+    // MARK: - @IBOutlets
     @IBOutlet weak var riveView: RiveView!
     @IBOutlet weak var cityKorLabel: UILabel!
     @IBOutlet weak var cityEngLabel: UILabel!
@@ -18,11 +18,11 @@ class CityViewController: UIViewController {
     @IBOutlet weak var cityFirstCityLabel: UILabel!
     @IBOutlet weak var citySecondCityLabel: UILabel!
     
-    // MARK: - State & Dependencies
+    // MARK: - 속성
     var viewModel: CityViewModel?
     var riveVM = RiveViewModel(fileName: "Snow")
     
-    // MARK: - Lifecycle
+    // MARK: - 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         riveVM.setView(riveView)
@@ -30,7 +30,7 @@ class CityViewController: UIViewController {
         setupGesture()
     }
     
-    // MARK: - UI Setup
+    // MARK: - UI 설정
     private func setupCityDisplay() {
         guard let vm = viewModel else { return }
         
@@ -45,6 +45,7 @@ class CityViewController: UIViewController {
         }()
 
         if let info = info {
+            // 네비게이션 타이틀 및 라벨에 도시 정보 설정
             self.title = info.cityKoreanName
             cityKorLabel.text = info.cityKoreanName
             cityEngLabel.text = info.cityEnglishName
@@ -52,22 +53,25 @@ class CityViewController: UIViewController {
             cityFirstCityLabel.text = info.firstFamousCityKorean
             citySecondCityLabel.text = info.secondFamousCityKorean
             
+            // 텍스트가 비어있는 라벨은 숨김 처리
             [cityKorLabel, cityEngLabel, cityTownLabel, cityFirstCityLabel, citySecondCityLabel].forEach {
                 $0?.isHidden = ($0?.text?.isEmpty ?? true)
             }
         } else {
+            // 도시 상세 정보가 없는 경우: 기본 도시명만 표시하고 나머지는 숨김
             cityKorLabel.text = vm.cityNameText
             [cityEngLabel, cityTownLabel, cityFirstCityLabel, citySecondCityLabel].forEach { $0?.isHidden = true }
         }
     }
 
+    // MARK: - 제스처 설정
     private func setupGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapRiveView))
         riveView.isUserInteractionEnabled = true
         riveView.addGestureRecognizer(tap)
     }
     
-    // MARK: - Navigation
+    // MARK: - 화면 전환 (WeatherViewController로 이동)
     @objc private func didTapRiveView() {
         let cityName: String
         if let vm = viewModel {
@@ -85,7 +89,7 @@ class CityViewController: UIViewController {
         self.navigationController?.pushViewController(weatherVC, animated: true)
     }
     
-    // MARK: - Actions
+    // MARK: - @IBActions
     @IBAction func closeButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -111,14 +115,17 @@ class CityViewController: UIViewController {
     }
 }
 
-// MARK: - External Factory
+// MARK: - 외부 팩토리
 extension CityViewController {
+    /// CityRecCollectionDelegate에서 셀을 선택했을 때 이 메서드를 사용하여
+    /// CityViewController를 생성하고 화면 전환을 수행합니다.
     static func instantiate(with viewModel: CityViewModel) -> CityViewController {
         let nibName = "CityViewController"
         let vc = Bundle.main.path(forResource: nibName, ofType: "nib") != nil
             ? CityViewController(nibName: nibName, bundle: .main)
             : CityViewController()
         
+        // ViewModel 주입 및 공통 설정
         vc.viewModel = viewModel
         vc.modalPresentationStyle = .fullScreen
         return vc

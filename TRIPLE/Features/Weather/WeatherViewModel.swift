@@ -8,35 +8,35 @@
 import Foundation
 
 class WeatherViewModel {
-    // MARK: - Properties (State)
-    /// City to query
+    // MARK: - 속성
+    /// 날씨를 조회할 도시 이름
     var cityName: String = "Tokyo"
-    /// Formatted temperature string (e.g., "12°C")
+    /// 포맷된 온도 문자열 (예: "12°C")
     var temperature: String = "--°C"
-    /// Weather description (e.g., "clear sky")
+    /// 날씨 설명 (예: "맑음")
     var description: String = "--"
 
-    // MARK: - Bindings
-    /// Called on main thread when view model updates its display values
+    // MARK: - 출력
+    /// 뷰모델이 표시 값을 업데이트할 때 메인 스레드에서 호출되는 클로저
     var onUpdated: (() -> Void)?
 
-    // MARK: - Lifecycle
+    // MARK: - 초기화
     init(cityName: String = "Tokyo") {
         self.cityName = cityName
     }
 
-    // MARK: - Public API
-    /// Loads weather for current `cityName` and updates display properties.
+    // MARK: - API
+    /// 현재 도시 이름으로 날씨를 로드하고 표시 속성을 업데이트합니다.
     func loadWeather() {
         let targetCity = self.cityName
         fetchWeather(cityName: targetCity) { [weak self] response in
             guard let response = response else { return }
 
-            // Transform raw model into display values
+            // 원시 모델을 표시 값으로 변환
             self?.temperature = "\(Int(response.main.temp))°C"
             self?.description = response.weather.first?.description ?? ""
 
-            // Notify UI on main thread
+            // 메인 스레드에서 UI에 알림
             DispatchQueue.main.async {
                 self?.onUpdated?()
             }

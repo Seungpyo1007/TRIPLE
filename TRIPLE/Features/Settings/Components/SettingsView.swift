@@ -16,7 +16,7 @@ class SettingsView: UIView {
     
     @IBOutlet weak var logoutView: UIView!
     
-    // MARK: - 프로퍼티
+    // MARK: - 속성
     weak var delegate: SettingsViewDelegate?
     private var contentView: UIView?
     private let scrollView = UIScrollView()

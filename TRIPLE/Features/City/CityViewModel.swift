@@ -8,16 +8,15 @@
 import Foundation
 
 final class CityViewModel {
-    // MARK: - Properties
+    // MARK: - 속성
     private let city: City
 
-    // MARK: - Initialization
-    /// Initialize with a required `City` model
+    // MARK: - 초기화
     init(city: City) {
         self.city = city
     }
 
-    // MARK: - Computed Outputs
+    // MARK: - 출력
     /// 도시의 이름
     var cityNameText: String { city.name }
     /// 구글 Place ID (없을 경우 빈 문자열 반환)

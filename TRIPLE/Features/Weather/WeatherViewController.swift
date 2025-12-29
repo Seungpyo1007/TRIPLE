@@ -10,37 +10,37 @@ import RiveRuntime
 
 class WeatherViewController: UIViewController {
 
-    // MARK: - Outlets
+    // MARK: - @IBOutlets
     @IBOutlet weak var riveView: RiveView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
 
-    // MARK: - Properties
-    /// ViewModel instance (DI-friendly)
+    // MARK: - 속성
     var viewModel: WeatherViewModel
     var riveVM = RiveViewModel(fileName: "Snow")
 
-    // MARK: - Initializers
-    // Dependency Injection
+    // MARK: - 초기화
+    /// 의존성 주입을 통한 초기화 (뷰모델을 외부에서 주입)
     init(viewModel: WeatherViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
+    /// XIB 파일로부터 초기화 (뷰모델은 기본값으로 생성)
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.viewModel = WeatherViewModel()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
+    /// XIB에서 로드될 때 사용되는 초기화
     required init?(coder: NSCoder) {
-        // Fallback for storyboard/XIB
         self.viewModel = WeatherViewModel()
         super.init(coder: coder)
     }
 
-    // MARK: - Factory
-    /// Convenience factory to load from nib if available
+    // MARK: - 팩토리 함수
+    /// XIB 파일이 있으면 XIB로, 없으면 코드로 뷰 컨트롤러를 생성하는 팩토리 메서드
     static func instantiate(with viewModel: WeatherViewModel) -> WeatherViewController {
         let nibName = "WeatherViewController"
         let vc: WeatherViewController
@@ -54,7 +54,7 @@ class WeatherViewController: UIViewController {
         return vc
     }
 
-    // MARK: - Lifecycle
+    // MARK: - 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         riveVM.setView(riveView)
@@ -63,8 +63,8 @@ class WeatherViewController: UIViewController {
         viewModel.loadWeather()
     }
 
-    // MARK: - Binding
-    /// Connects ViewModel outputs to UI labels
+    // MARK: - 바인딩
+    /// 뷰모델의 출력을 UI 라벨에 연결하는 바인딩 메서드
     private func setupBindings() {
         viewModel.onUpdated = { [weak self] in
             guard let self = self else { return }
@@ -74,7 +74,7 @@ class WeatherViewController: UIViewController {
         }
     }
 
-    // MARK: - Actions
+    // MARK: - @IBActions
     @IBAction func backButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }

@@ -9,20 +9,20 @@ import UIKit
 import RiveRuntime
 
 class IntroViewController: UIViewController {
-    // MARK: - Outlets
+    // MARK: - @IBOutlet
     @IBOutlet weak var riveView: RiveView!
     
-    // MARK: - Properties
+    // MARK: - 속성
     var riveVM = RiveViewModel(fileName: "Globe")
     
-    // MARK: - Lifecycle
+    // MARK: - 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         riveVM.setView(riveView)
         self.navigationController?.navigationBar.tintColor = .white
     }
     
-    // MARK: - Actions
+    // MARK: - @IBAction
     @IBAction func loginButton(_ sender: Any) {
         let vc: UIViewController
         if Bundle.main.path(forResource: "LoginViewController", ofType: "nib") != nil {

@@ -11,18 +11,26 @@ import FirebaseAuth
 
 final class ProfileEditViewModel {
     
+    // MARK: - 출력
+    /// 뷰모델에서 뷰로 전달하는 출력 클로저들
     var onProfileLoaded: ((UserProfile) -> Void)?
     var onProfileImageChanged: ((UIImage?) -> Void)?
     var isLoading: ((Bool) -> Void)?
     var onSaveResult: ((Bool, String?) -> Void)?
     
+    // MARK: - 속성
+    /// 현재 편집 중인 프로필 정보 (외부에서 읽기만 가능)
     private(set) var profile: UserProfile
-    private var selectedUIImage: UIImage? // 업로드 전 임시 보관 (Data 아님)
+    /// 업로드 전 임시 보관하는 선택된 이미지 (Data 아님)
+    private var selectedUIImage: UIImage?
 
+    // MARK: - 초기화
     init(profile: UserProfile) {
         self.profile = profile
     }
     
+    // MARK: - API
+    /// Firestore에서 현재 프로필 정보를 가져와서 뷰에 전달
     func fetchCurrentProfile() {
         isLoading?(true)
         FirestoreService.shared.fetchProfile(uid: profile.uid) { [weak self] result in
@@ -63,15 +71,18 @@ final class ProfileEditViewModel {
         }
     }
 
+    /// 사용자가 입력한 이름을 프로필에 설정
     func setName(_ name: String) {
         profile.name = name
     }
 
+    /// 사용자가 선택한 이미지를 프로필에 설정
     func setImage(_ image: UIImage?) {
         self.selectedUIImage = image
         onProfileImageChanged?(image)
     }
 
+    /// 변경된 프로필 정보를 Firestore와 Firebase Auth에 저장
     func save() {
         isLoading?(true)
         
@@ -80,9 +91,7 @@ final class ProfileEditViewModel {
             StorageService.shared.uploadProfileImage(uid: profile.uid, image: image) { [weak self] result in
                 switch result {
                 case .success(let urlString):
-                    // 🔥 이제 String을 String 필드에 넣으니까 에러가 안 납니다.
                     self?.profile.profileImage = urlString
-                    // Auth 정보도 업데이트 (선택 사항)
                     self?.updateUserProfileChangeRequest(photoURL: URL(string: urlString))
                     self?.updateFirestore()
                 case .failure(let error):
@@ -99,6 +108,8 @@ final class ProfileEditViewModel {
         }
     }
     
+    // MARK: - 내부 메서드
+    /// Firebase Auth의 사용자 프로필 정보 업데이트
     private func updateUserProfileChangeRequest(name: String? = nil, photoURL: URL? = nil) {
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         if let name = name { changeRequest?.displayName = name }
@@ -106,6 +117,7 @@ final class ProfileEditViewModel {
         changeRequest?.commitChanges(completion: nil)
     }
 
+    /// Firestore에 프로필 정보 저장
     private func updateFirestore() {
         FirestoreService.shared.saveProfile(profile: self.profile) { [weak self] result in
             self?.isLoading?(false)

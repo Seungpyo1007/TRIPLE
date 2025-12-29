@@ -7,14 +7,12 @@
 
 import Foundation
 
-// MARK: - Weather Networking Service
+// MARK: - 날씨 네트워킹 서비스
 
-/// Fetch current weather for a given city using OpenWeather API.
-/// - Parameters:
-///   - cityName: Human readable city name (e.g., "Tokyo").
-///   - completion: Called on background thread with decoded `WeatherResponse` or `nil` on failure.
+/// OpenWeather API를 사용하여 주어진 도시의 현재 날씨를 가져옵니다.
 func fetchWeather(cityName: String, completion: @escaping (WeatherResponse?) -> Void) {
-    // MARK: - Read API Key from Secret.plist
+    // MARK: - API 키 읽기
+    // Secret.plist에서 OpenWeather API 키를 읽어옵니다.
     guard let path = Bundle.main.path(forResource: "Secret", ofType: "plist"),
           let dict = NSDictionary(contentsOfFile: path) as? [String: Any],
           let apiKey = dict["OpenWeather-API-KEY"] as? String,
@@ -24,7 +22,8 @@ func fetchWeather(cityName: String, completion: @escaping (WeatherResponse?) -> 
         return
     }
 
-    // MARK: - Build URL
+    // MARK: - URL 구성
+    // OpenWeather API 요청 URL을 구성합니다.
     var components = URLComponents(string: "https://api.openweathermap.org/data/2.5/weather")
     components?.queryItems = [
         URLQueryItem(name: "q", value: cityName),
@@ -38,16 +37,16 @@ func fetchWeather(cityName: String, completion: @escaping (WeatherResponse?) -> 
         return
     }
 
-    // MARK: - Request
+    // MARK: - 네트워크 요청
     URLSession.shared.dataTask(with: url) { data, response, error in
-        // Basic transport error handling
+        // 네트워크 에러 처리
         if let error = error {
             print("[WeatherService] Network error: \(error.localizedDescription)")
             completion(nil)
             return
         }
 
-        // Optional: Check HTTP status code
+        // HTTP 상태 코드 확인 (200-299 범위가 아니면 실패)
         if let http = response as? HTTPURLResponse, !(200...299).contains(http.statusCode) {
             print("[WeatherService] HTTP status: \(http.statusCode)")
             completion(nil)
@@ -60,7 +59,7 @@ func fetchWeather(cityName: String, completion: @escaping (WeatherResponse?) -> 
             return
         }
 
-        // MARK: - Decode
+        // MARK: - JSON 디코딩
         do {
             let decodedResponse = try JSONDecoder().decode(WeatherResponse.self, from: data)
             completion(decodedResponse)

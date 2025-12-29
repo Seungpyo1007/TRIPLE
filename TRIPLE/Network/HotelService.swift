@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import GooglePlaces
 
-// MARK: - [Protocol] 호텔 서비스 인터페이스
+// MARK: - 프로토콜
 protocol HotelServicing {
     /// 특정 도시의 호텔을 실시간으로 검색합니다.
     func searchHotelsRealtime(city: String, limit: Int, completion: @escaping ([HotelItem]) -> Void)
@@ -21,7 +21,7 @@ protocol HotelServicing {
     func loadVerified(limit: Int?) -> [HotelItem]
 }
 
-// MARK: - [Service] Google Places 기반 호텔 서비스
+// MARK: - 서비스 구현
 final class GooglePlacesHotelService: HotelServicing {
     static let shared = GooglePlacesHotelService()
     private let placesClient = GMSPlacesClient.shared()
@@ -31,7 +31,7 @@ final class GooglePlacesHotelService: HotelServicing {
 
     private init() {}
 
-    // MARK: 1. 실시간 호텔 검색
+    // MARK: - 실시간 호텔 검색
     func searchHotelsRealtime(city: String, limit: Int, completion: @escaping ([HotelItem]) -> Void) {
         let query = "\(city) 호텔" // 검색 쿼리
         let properties: [GMSPlaceProperty] = [.name, .placeID, .rating, .priceLevel]
@@ -62,7 +62,7 @@ final class GooglePlacesHotelService: HotelServicing {
         }
     }
 
-    // MARK: 2. 호텔 사진 로드
+    // MARK: - 호텔 사진 로드
     func fetchPhoto(for placeID: String, maxSize: CGSize, completion: @escaping (UIImage?) -> Void) {
         // 캐시 확인
         if let cached = photoCache[placeID] {
@@ -90,12 +90,12 @@ final class GooglePlacesHotelService: HotelServicing {
         }
     }
 
-    // MARK: 3. 임시/검증 데이터 (필수여서 있어야함 필요 시 구현)
+    // MARK: - 임시/검증 데이터 (필수여서 있어야함 필요 시 구현)
     func loadMockJapanHotels(limit: Int) -> [HotelItem] { return [] }
     func loadVerified(limit: Int?) -> [HotelItem] { return [] }
 }
 
-// MARK: - [Wrapper] 서비스 호출용 구조체
+// MARK: - 서비스 호출용 구조체
 /// 실제 앱 로직에서 접근하기 쉬운 래퍼 구조체입니다.
 struct HotelService: HotelServicing {
     func searchHotelsRealtime(city: String, limit: Int, completion: @escaping ([HotelItem]) -> Void) {
