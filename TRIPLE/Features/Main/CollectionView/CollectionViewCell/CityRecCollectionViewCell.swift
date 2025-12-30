@@ -1,0 +1,66 @@
+//
+//  CityRecCollectionViewCell.swift
+//  TRIPLE
+//
+//  Created by 홍승표 on 12/10/25.
+//
+
+import UIKit
+
+class CityRecCollectionViewCell: UICollectionViewCell {
+
+    static let reuseIdentifier = "CityRecCollectionViewCell"
+
+    // MARK: - @IBOutlets
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var cityLabel: UILabel!
+    
+    // MARK: - 변수
+    private var loadToken: UUID?
+
+    // MARK: - 생명주기
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        imageView.layer.cornerRadius = 8
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
+        cityLabel.text = nil
+        loadToken = nil
+    }
+
+    // MARK: - 구성
+    func configure(with placeholder: String) {
+        cityLabel.text = placeholder
+        cityLabel.isHidden = false
+    }
+    
+    func configure(with city: City) {
+        cityLabel.text = city.name
+        cityLabel.isHidden = false
+        if let pid = city.placeID, !pid.isEmpty {
+            cityLabel.accessibilityHint = "placeID: \(pid)"
+        } else {
+            cityLabel.accessibilityHint = nil
+        }
+    }
+    
+    func configureImage(viewModel: CityRecCollectionViewModel, indexPath: IndexPath, collectionView: UICollectionView) {
+        let targetSize = CGSize(width: max(1, Int(bounds.width)), height: max(1, Int(bounds.height)))
+        let token = UUID()
+        self.loadToken = token
+        self.imageView.image = nil
+        
+        viewModel.loadPhotoForItem(at: indexPath.item, targetSize: targetSize) { [weak self] image in
+            DispatchQueue.main.async {
+                guard let self = self, self.loadToken == token else { return }
+                self.imageView.image = image
+            }
+        }
+    }
+}
