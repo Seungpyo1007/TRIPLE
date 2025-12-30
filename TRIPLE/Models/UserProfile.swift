@@ -8,7 +8,7 @@
 import Foundation
 
 struct UserProfile: Codable {
+    var uid: String
     var name: String
-    var imageData: Data?
+    var profileImage: String?
 }
-
