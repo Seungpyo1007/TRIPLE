@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24128" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CityPlacesViewController" customModule="TRIPLE" customModuleProvider="target">
+            <connections>
+                <outlet property="cityTravelName" destination="saG-um-1uP" id="Nr0-lo-SOY"/>
+                <outlet property="lodgingButton" destination="cOz-F7-9Fn" id="qWj-eM-BBE"/>
+                <outlet property="mainView" destination="U5z-XG-48f" id="bnE-N2-qfO"/>
+                <outlet property="restaurantButton" destination="juT-EH-48b" id="6G4-Mm-qlh"/>
+                <outlet property="saveButton" destination="nUN-JP-b85" id="OUs-Pu-Zli"/>
+                <outlet property="tourButton" destination="IE9-Ed-gdI" id="Koo-kX-vFL"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xGw-9D-wPC">
+                    <rect key="frame" x="0.0" y="118" width="393" height="54"/>
+                    <items>
+                        <navigationItem id="Fso-6Y-wfx">
+                            <leftBarButtonItems>
+                                <barButtonItem title="Item" image="arrow.left" catalog="system" id="UG1-g2-86C">
+                                    <color key="tintColor" systemColor="labelColor"/>
+                                    <connections>
+                                        <action selector="backButton:" destination="-1" id="2gV-jH-02E"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem title="일본 여행" id="saG-um-1uP">
+                                    <color key="tintColor" systemColor="labelColor"/>
+                                </barButtonItem>
+                            </leftBarButtonItems>
+                        </navigationItem>
+                    </items>
+                    <navigationBarAppearance key="standardAppearance"/>
+                </navigationBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="50c-Zk-TqX" userLabel="ButtonView">
+                    <rect key="frame" x="0.0" y="172" width="393" height="46"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUN-JP-b85">
+                            <rect key="frame" x="20" y="0.0" width="75" height="46"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="내 저장"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IE9-Ed-gdI">
+                            <rect key="frame" x="105" y="0.0" width="75" height="46"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="관광"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juT-EH-48b">
+                            <rect key="frame" x="190" y="0.0" width="75" height="46"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="맛집"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOz-F7-9Fn">
+                            <rect key="frame" x="275" y="0.0" width="75" height="46"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="숙소"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="juT-EH-48b" secondAttribute="bottom" id="0g1-KY-M4a"/>
+                        <constraint firstItem="IE9-Ed-gdI" firstAttribute="width" secondItem="juT-EH-48b" secondAttribute="width" id="3Ve-jq-iRK"/>
+                        <constraint firstItem="IE9-Ed-gdI" firstAttribute="leading" secondItem="nUN-JP-b85" secondAttribute="trailing" constant="10" id="4h1-DT-2Y6"/>
+                        <constraint firstAttribute="bottom" secondItem="IE9-Ed-gdI" secondAttribute="bottom" id="5nm-f9-ZGh"/>
+                        <constraint firstAttribute="bottom" secondItem="cOz-F7-9Fn" secondAttribute="bottom" id="6Jj-ub-zNH"/>
+                        <constraint firstAttribute="bottom" secondItem="nUN-JP-b85" secondAttribute="bottom" id="Ao1-eP-Ngn"/>
+                        <constraint firstItem="juT-EH-48b" firstAttribute="leading" secondItem="IE9-Ed-gdI" secondAttribute="trailing" constant="10" id="Gyu-Y6-Ghm"/>
+                        <constraint firstItem="juT-EH-48b" firstAttribute="top" secondItem="50c-Zk-TqX" secondAttribute="top" id="H4f-cM-Gtv"/>
+                        <constraint firstItem="nUN-JP-b85" firstAttribute="width" secondItem="IE9-Ed-gdI" secondAttribute="width" id="KMo-Pz-UyU"/>
+                        <constraint firstItem="cOz-F7-9Fn" firstAttribute="leading" secondItem="juT-EH-48b" secondAttribute="trailing" constant="10" id="MmI-tt-USc"/>
+                        <constraint firstItem="cOz-F7-9Fn" firstAttribute="top" secondItem="50c-Zk-TqX" secondAttribute="top" id="QcG-20-3lX"/>
+                        <constraint firstItem="nUN-JP-b85" firstAttribute="top" secondItem="50c-Zk-TqX" secondAttribute="top" id="V6c-jB-Tmo"/>
+                        <constraint firstItem="juT-EH-48b" firstAttribute="width" secondItem="cOz-F7-9Fn" secondAttribute="width" id="fEe-a9-D15"/>
+                        <constraint firstItem="IE9-Ed-gdI" firstAttribute="top" secondItem="50c-Zk-TqX" secondAttribute="top" id="fwK-Lx-zA4"/>
+                        <constraint firstItem="nUN-JP-b85" firstAttribute="leading" secondItem="50c-Zk-TqX" secondAttribute="leading" constant="20" symbolic="YES" id="tQU-fO-4Dk"/>
+                        <constraint firstAttribute="trailing" secondItem="cOz-F7-9Fn" secondAttribute="trailing" constant="43" id="uKw-yV-cuV"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5z-XG-48f" userLabel="MainView">
+                    <rect key="frame" x="0.0" y="218" width="393" height="566"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="U5z-XG-48f" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="4Su-49-Pzc"/>
+                <constraint firstItem="xGw-9D-wPC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6tk-Cu-mne"/>
+                <constraint firstItem="50c-Zk-TqX" firstAttribute="top" secondItem="xGw-9D-wPC" secondAttribute="bottom" id="7gN-lm-WNx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="U5z-XG-48f" secondAttribute="trailing" id="DCb-Rm-9Fh"/>
+                <constraint firstItem="50c-Zk-TqX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="E2n-qf-SCl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="50c-Zk-TqX" secondAttribute="trailing" id="JJz-RH-dDh"/>
+                <constraint firstItem="U5z-XG-48f" firstAttribute="top" secondItem="50c-Zk-TqX" secondAttribute="bottom" id="JZU-TE-a7s"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="U5z-XG-48f" secondAttribute="bottom" id="V2v-Qo-WzI"/>
+                <constraint firstItem="U5z-XG-48f" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="teV-yL-ztd"/>
+                <constraint firstItem="xGw-9D-wPC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="vBi-qL-KaQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xGw-9D-wPC" secondAttribute="trailing" id="wwT-HS-eU7"/>
+            </constraints>
+            <point key="canvasLocation" x="-263.35877862595419" y="85.91549295774648"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow.left" catalog="system" width="128" height="95"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
