@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24128" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="TRIPLE" customModuleProvider="target">
+            <connections>
+                <outlet property="goneView" destination="cnA-iG-sEH" id="LER-fs-pJd"/>
+                <outlet property="mainView" destination="5YT-bC-Fya" id="3gs-LR-JPC"/>
+                <outlet property="mainViewTopConstraint" destination="Pp2-4A-Pda" id="0GG-yY-CPe"/>
+                <outlet property="navigationBar" destination="jt9-pn-jKf" id="1id-Li-LQD"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jt9-pn-jKf">
+                    <rect key="frame" x="0.0" y="118" width="393" height="54"/>
+                    <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                    <color key="tintColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                    <color key="barTintColor" systemColor="systemGroupedBackgroundColor"/>
+                    <textAttributes key="titleTextAttributes">
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    </textAttributes>
+                    <items>
+                        <navigationItem largeTitleDisplayMode="always" id="Pen-8y-Tts">
+                            <barButtonItem key="leftBarButtonItem" title="TRIPLE" width="100" id="WtB-Ua-bFi">
+                                <color key="tintColor" systemColor="labelColor"/>
+                            </barButtonItem>
+                            <rightBarButtonItems>
+                                <barButtonItem title="Item" landscapeImage="line.3.horizontal" catalog="system" largeContentSizeImage="line.3.horizontal" id="5XX-cL-Qeg">
+                                    <imageReference key="image" image="list.bullet" catalog="system" symbolScale="large"/>
+                                    <color key="tintColor" systemColor="labelColor"/>
+                                    <connections>
+                                        <action selector="openSlideMenu:" destination="-1" id="B83-ax-FeU"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem title="Item" landscapeImage="magnifyingglass" catalog="system" largeContentSizeImage="magnifyingglass" id="f8t-7T-Ban">
+                                    <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large" variableValue="5.5511151231257827e-17"/>
+                                    <color key="tintColor" systemColor="labelColor"/>
+                                    <connections>
+                                        <action selector="openSearchMenu:" destination="-1" id="LDr-hf-8tC"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem title="item" landscapeImage="calendar" catalog="system" largeContentSizeImage="calendar" id="LbD-Bw-Zx0">
+                                    <imageReference key="image" image="calendar" catalog="system" symbolScale="large"/>
+                                    <color key="tintColor" systemColor="labelColor"/>
+                                    <connections>
+                                        <action selector="openScheduleMenu:" destination="-1" id="VgY-YS-7o4"/>
+                                    </connections>
+                                </barButtonItem>
+                            </rightBarButtonItems>
+                        </navigationItem>
+                    </items>
+                    <navigationBarAppearance key="standardAppearance">
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <color key="shadowColor" systemColor="systemGroupedBackgroundColor"/>
+                    </navigationBarAppearance>
+                </navigationBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnA-iG-sEH" userLabel="GoneView">
+                    <rect key="frame" x="0.0" y="172" width="393" height="116"/>
+                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5YT-bC-Fya" userLabel="MainView">
+                    <rect key="frame" x="0.0" y="288" width="393" height="564"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrO-v7-HXy" userLabel="TopView">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="118"/>
+                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="5YT-bC-Fya" firstAttribute="top" secondItem="cnA-iG-sEH" secondAttribute="bottom" id="6qu-rJ-eoN"/>
+                <constraint firstItem="cnA-iG-sEH" firstAttribute="top" secondItem="jt9-pn-jKf" secondAttribute="bottom" id="6sy-Uh-1uO"/>
+                <constraint firstItem="cnA-iG-sEH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FUF-9g-ggk"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5YT-bC-Fya" secondAttribute="trailing" id="FZb-Bh-paA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="jt9-pn-jKf" secondAttribute="top" id="KhW-sh-yTi"/>
+                <constraint firstAttribute="bottom" secondItem="5YT-bC-Fya" secondAttribute="bottom" id="LIk-2d-lfK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yrO-v7-HXy" secondAttribute="trailing" id="MyK-2z-3dz"/>
+                <constraint firstItem="5YT-bC-Fya" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="170" id="Pp2-4A-Pda"/>
+                <constraint firstItem="jt9-pn-jKf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dNK-Ly-FHL"/>
+                <constraint firstItem="jt9-pn-jKf" firstAttribute="top" secondItem="yrO-v7-HXy" secondAttribute="bottom" id="dbg-yH-kLB"/>
+                <constraint firstItem="5YT-bC-Fya" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nr7-7W-WA8"/>
+                <constraint firstItem="yrO-v7-HXy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="vqD-se-bF8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jt9-pn-jKf" secondAttribute="trailing" id="wvP-kf-UwR"/>
+                <constraint firstAttribute="top" secondItem="yrO-v7-HXy" secondAttribute="top" id="wwe-Mz-yI4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cnA-iG-sEH" secondAttribute="trailing" id="zWg-oV-Dm8"/>
+            </constraints>
+            <point key="canvasLocation" x="23.664122137404579" y="107.74647887323944"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
+        <image name="list.bullet" catalog="system" width="128" height="87"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24128" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CityViewController" customModule="TRIPLE" customModuleProvider="target">
+            <connections>
+                <outlet property="cityEngLabel" destination="Hz1-Ru-53j" id="ZrG-SA-oWp"/>
+                <outlet property="cityFirstCityLabel" destination="Kdb-li-uPw" id="1Ss-mR-7cE"/>
+                <outlet property="cityKorLabel" destination="SZU-Af-Gk2" id="d1P-Z0-afe"/>
+                <outlet property="citySecondCityLabel" destination="PQa-0M-fMW" id="bbm-7L-Uvv"/>
+                <outlet property="cityTownLabel" destination="0TT-bi-UMm" id="K2H-f5-hLS"/>
+                <outlet property="riveView" destination="Ige-BP-4YW" id="H4P-ps-TkT"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ige-BP-4YW" customClass="RiveView" customModule="RiveRuntime">
+                    <rect key="frame" x="0.0" y="118" width="393" height="734"/>
+                    <subviews>
+                        <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qm5-k4-Eeg">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="54"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <items>
+                                <navigationItem id="Rwy-le-MZ2">
+                                    <barButtonItem key="leftBarButtonItem" title="Item" image="xmark" catalog="system" id="f7T-R2-gVa">
+                                        <connections>
+                                            <action selector="closeButton:" destination="-1" id="Gmx-Wl-vc7"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <rightBarButtonItems>
+                                        <barButtonItem title="Item" image="list.bullet" catalog="system" id="rJp-MX-83g">
+                                            <connections>
+                                                <action selector="openSideMenu:" destination="-1" id="XJ4-LH-SL1"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem title="Item" image="map" catalog="system" id="hIG-RR-jQq">
+                                            <connections>
+                                                <action selector="openMapsMenu:" destination="-1" id="LNJ-vE-Aeq"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </rightBarButtonItems>
+                                </navigationItem>
+                            </items>
+                            <navigationBarAppearance key="standardAppearance"/>
+                        </navigationBar>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="도쿄" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZU-Af-Gk2" userLabel="CountryKorLabel">
+                            <rect key="frame" x="0.0" y="225" width="393" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="하코네" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0TT-bi-UMm" userLabel="CountryTownLabel">
+                            <rect key="frame" x="0.0" y="266" width="393" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="요코하마" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdb-li-uPw" userLabel="CountryFirstCityLabel">
+                            <rect key="frame" x="0.0" y="307" width="393" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가마쿠라" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQa-0M-fMW" userLabel="CountrySecondCityLabel">
+                            <rect key="frame" x="0.0" y="348" width="393" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOKYO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hz1-Ru-53j" userLabel="CountryEngLabel">
+                            <rect key="frame" x="0.0" y="160" width="393" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="0TT-bi-UMm" secondAttribute="trailing" id="0MA-Fz-W9m"/>
+                        <constraint firstItem="Kdb-li-uPw" firstAttribute="top" secondItem="0TT-bi-UMm" secondAttribute="bottom" constant="20" id="3Uy-wM-KRb"/>
+                        <constraint firstItem="PQa-0M-fMW" firstAttribute="top" secondItem="Kdb-li-uPw" secondAttribute="bottom" constant="20" id="5j8-9g-Iwe"/>
+                        <constraint firstItem="SZU-Af-Gk2" firstAttribute="top" secondItem="Hz1-Ru-53j" secondAttribute="bottom" constant="35" id="9HF-GP-DCu"/>
+                        <constraint firstAttribute="trailing" secondItem="Hz1-Ru-53j" secondAttribute="trailing" id="F8O-UX-7m1"/>
+                        <constraint firstItem="SZU-Af-Gk2" firstAttribute="leading" secondItem="Ige-BP-4YW" secondAttribute="leading" id="GQR-40-NV0"/>
+                        <constraint firstAttribute="trailing" secondItem="qm5-k4-Eeg" secondAttribute="trailing" id="OeM-PY-Ccq"/>
+                        <constraint firstAttribute="trailing" secondItem="SZU-Af-Gk2" secondAttribute="trailing" id="SHV-Xo-Ey8"/>
+                        <constraint firstItem="0TT-bi-UMm" firstAttribute="leading" secondItem="Ige-BP-4YW" secondAttribute="leading" id="Vcz-kZ-vfA"/>
+                        <constraint firstItem="Hz1-Ru-53j" firstAttribute="leading" secondItem="Ige-BP-4YW" secondAttribute="leading" id="XPn-lr-rob"/>
+                        <constraint firstItem="0TT-bi-UMm" firstAttribute="top" secondItem="SZU-Af-Gk2" secondAttribute="bottom" constant="20" id="Z6f-Yc-c8k"/>
+                        <constraint firstItem="Hz1-Ru-53j" firstAttribute="top" secondItem="Ige-BP-4YW" secondAttribute="top" constant="160" id="bZv-sz-fOA"/>
+                        <constraint firstItem="PQa-0M-fMW" firstAttribute="leading" secondItem="Ige-BP-4YW" secondAttribute="leading" id="i18-59-UuJ"/>
+                        <constraint firstItem="qm5-k4-Eeg" firstAttribute="leading" secondItem="Ige-BP-4YW" secondAttribute="leading" id="jCs-p7-Lea"/>
+                        <constraint firstItem="Kdb-li-uPw" firstAttribute="leading" secondItem="Ige-BP-4YW" secondAttribute="leading" id="mqe-3W-rE3"/>
+                        <constraint firstAttribute="trailing" secondItem="PQa-0M-fMW" secondAttribute="trailing" id="o9C-oX-ZPM"/>
+                        <constraint firstItem="qm5-k4-Eeg" firstAttribute="top" secondItem="Ige-BP-4YW" secondAttribute="top" id="tkm-en-GDB"/>
+                        <constraint firstAttribute="trailing" secondItem="Kdb-li-uPw" secondAttribute="trailing" id="uiX-0E-9QN"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="Ige-BP-4YW" secondAttribute="top" id="9OI-3S-PCx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ige-BP-4YW" secondAttribute="trailing" id="HHH-IF-i4s"/>
+                <constraint firstItem="Ige-BP-4YW" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="iLH-jC-uUo"/>
+                <constraint firstItem="Ige-BP-4YW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rgd-eO-e2g"/>
+            </constraints>
+            <point key="canvasLocation" x="142.74809160305344" y="154.92957746478874"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="list.bullet" catalog="system" width="128" height="87"/>
+        <image name="map" catalog="system" width="128" height="112"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

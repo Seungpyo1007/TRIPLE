@@ -1,0 +1,31 @@
+PODS:
+  - GoogleMaps (9.4.0):
+    - GoogleMaps/Maps (= 9.4.0)
+  - GoogleMaps/Maps (9.4.0)
+  - GooglePlaces (9.4.1)
+  - GooglePlacesSwift (0.5.1):
+    - GooglePlaces (= 9.4.1)
+  - RiveRuntime (6.12.3)
+
+DEPENDENCIES:
+  - GoogleMaps
+  - GooglePlaces
+  - GooglePlacesSwift
+  - RiveRuntime
+
+SPEC REPOS:
+  trunk:
+    - GoogleMaps
+    - GooglePlaces
+    - GooglePlacesSwift
+    - RiveRuntime
+
+SPEC CHECKSUMS:
+  GoogleMaps: 0608099d4870cac8754bdba9b6953db543432438
+  GooglePlaces: 8afca6c4e946472e91298589d1640d614b51749a
+  GooglePlacesSwift: 6acdddf119efc003414165c8603ec7b5b81f425c
+  RiveRuntime: ecde073222c6279c6f7f439132ac7f0a461b344b
+
+PODFILE CHECKSUM: 4ac4bea33fc46986520d2f6cbd175ca89dc9e47e
+
+COCOAPODS: 1.16.2
