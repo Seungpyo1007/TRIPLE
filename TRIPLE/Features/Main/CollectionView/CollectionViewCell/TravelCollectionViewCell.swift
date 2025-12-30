@@ -1,5 +1,5 @@
 //
-//  BenefitCollectionViewCell.swift
+//  TravelCollectionViewCell.swift
 //  TRIPLE
 //
 //  Created by 홍승표 on 12/10/25.
