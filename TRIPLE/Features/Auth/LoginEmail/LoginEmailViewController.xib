@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24128" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginEmailViewController" customModule="TRIPLE" customModuleProvider="target">
+            <connections>
+                <outlet property="emailTextField" destination="LSL-Ub-oUk" id="mYA-jA-oTE"/>
+                <outlet property="loginButton" destination="XxH-pb-ma1" id="ecZ-FJ-5tP"/>
+                <outlet property="passwordTextField" destination="0le-RY-Esi" id="H5P-oq-3DC"/>
+                <outlet property="resetPasswordLabel" destination="Whv-2g-m3X" id="rmD-dn-rxJ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ows-yb-sfh">
+                    <rect key="frame" x="0.0" y="118" width="393" height="54"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <items>
+                        <navigationItem id="tlf-gZ-zgI">
+                            <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.left" catalog="system" id="8jy-tL-wot">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="backButton:" destination="-1" id="0Vw-mS-X1D"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                    <navigationBarAppearance key="standardAppearance"/>
+                </navigationBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htU-KY-IG4" userLabel="MainView">
+                    <rect key="frame" x="0.0" y="172" width="393" height="360"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N3d-0a-U6T">
+                            <rect key="frame" x="30" y="161" width="333" height="1"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="XZn-rr-5YC"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일로 로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gB-Ik-nmi">
+                            <rect key="frame" x="30" y="30" width="333" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="siN-Or-Uwd"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XxH-pb-ma1">
+                            <rect key="frame" x="30" y="264" width="333" height="50"/>
+                            <color key="backgroundColor" white="0.19614190919999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="hFW-EI-5PA"/>
+                            </constraints>
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="로그인" cornerStyle="medium">
+                                <color key="baseForegroundColor" systemColor="labelColor"/>
+                                <color key="baseBackgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="loginButton:" destination="-1" eventType="touchUpInside" id="ixo-gF-a6z"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일 주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1g-Mz-hCb">
+                            <rect key="frame" x="30" y="104" width="333" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVv-dE-Kux">
+                            <rect key="frame" x="30" y="182" width="333" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="18" id="MpZ-Bs-NuL"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="abc@gmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LSL-Ub-oUk">
+                            <rect key="frame" x="30" y="127" width="333" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="TIC-9x-TFP"/>
+                            </constraints>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="영문, 숫자, 특수문자" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0le-RY-Esi">
+                            <rect key="frame" x="30" y="205" width="333" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="Wbg-nZ-DrO"/>
+                            </constraints>
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호를 잊으셨나요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whv-2g-m3X">
+                            <rect key="frame" x="0.0" y="329" width="393" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0y6-v6-vSp">
+                            <rect key="frame" x="30" y="239" width="333" height="1"/>
+                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="yGf-CY-K8G"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.19614190919999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="0y6-v6-vSp" secondAttribute="trailing" constant="30" id="6V6-YP-0nv"/>
+                        <constraint firstItem="gVv-dE-Kux" firstAttribute="leading" secondItem="htU-KY-IG4" secondAttribute="leading" constant="30" id="9oA-CK-4Sw"/>
+                        <constraint firstItem="6gB-Ik-nmi" firstAttribute="leading" secondItem="htU-KY-IG4" secondAttribute="leading" constant="30" id="AGo-6h-GSW"/>
+                        <constraint firstItem="N3d-0a-U6T" firstAttribute="leading" secondItem="htU-KY-IG4" secondAttribute="leading" constant="30" id="Dri-hZ-qJC"/>
+                        <constraint firstAttribute="bottom" secondItem="Whv-2g-m3X" secondAttribute="bottom" constant="13" id="JQz-ad-5U4"/>
+                        <constraint firstAttribute="trailing" secondItem="0le-RY-Esi" secondAttribute="trailing" constant="30" id="Jlh-vw-eq4"/>
+                        <constraint firstItem="Whv-2g-m3X" firstAttribute="top" secondItem="XxH-pb-ma1" secondAttribute="bottom" constant="15" id="OWv-ih-10M"/>
+                        <constraint firstItem="U1g-Mz-hCb" firstAttribute="top" secondItem="6gB-Ik-nmi" secondAttribute="bottom" constant="50" id="Qg4-s2-dWh"/>
+                        <constraint firstAttribute="trailing" secondItem="6gB-Ik-nmi" secondAttribute="trailing" constant="30" id="TyQ-h0-aq7"/>
+                        <constraint firstItem="0le-RY-Esi" firstAttribute="leading" secondItem="htU-KY-IG4" secondAttribute="leading" constant="30" id="UHH-Md-jzL"/>
+                        <constraint firstItem="gVv-dE-Kux" firstAttribute="top" secondItem="N3d-0a-U6T" secondAttribute="bottom" constant="20" id="VSX-OR-0qg"/>
+                        <constraint firstAttribute="trailing" secondItem="Whv-2g-m3X" secondAttribute="trailing" id="VlT-ug-jea"/>
+                        <constraint firstItem="XxH-pb-ma1" firstAttribute="top" secondItem="0y6-v6-vSp" secondAttribute="bottom" constant="24" id="bXo-kB-NKU"/>
+                        <constraint firstItem="0le-RY-Esi" firstAttribute="top" secondItem="gVv-dE-Kux" secondAttribute="bottom" constant="5" id="cOM-Jw-kQB"/>
+                        <constraint firstItem="LSL-Ub-oUk" firstAttribute="leading" secondItem="htU-KY-IG4" secondAttribute="leading" constant="30" id="cgF-83-Qf2"/>
+                        <constraint firstItem="N3d-0a-U6T" firstAttribute="top" secondItem="LSL-Ub-oUk" secondAttribute="bottom" id="e4u-yr-3sb"/>
+                        <constraint firstItem="XxH-pb-ma1" firstAttribute="leading" secondItem="htU-KY-IG4" secondAttribute="leading" constant="30" id="h2H-Cu-grC"/>
+                        <constraint firstAttribute="trailing" secondItem="XxH-pb-ma1" secondAttribute="trailing" constant="30" id="ivo-sJ-kWP"/>
+                        <constraint firstItem="0y6-v6-vSp" firstAttribute="leading" secondItem="htU-KY-IG4" secondAttribute="leading" constant="30" id="jY8-jK-005"/>
+                        <constraint firstAttribute="trailing" secondItem="N3d-0a-U6T" secondAttribute="trailing" constant="30" id="lFb-rb-A0m"/>
+                        <constraint firstItem="LSL-Ub-oUk" firstAttribute="top" secondItem="U1g-Mz-hCb" secondAttribute="bottom" constant="5" id="lWb-i2-HL2"/>
+                        <constraint firstAttribute="trailing" secondItem="U1g-Mz-hCb" secondAttribute="trailing" constant="30" id="p9S-Yz-cgh"/>
+                        <constraint firstAttribute="trailing" secondItem="gVv-dE-Kux" secondAttribute="trailing" constant="30" id="qbI-BD-7pa"/>
+                        <constraint firstItem="Whv-2g-m3X" firstAttribute="leading" secondItem="htU-KY-IG4" secondAttribute="leading" id="rcX-FU-eoH"/>
+                        <constraint firstItem="U1g-Mz-hCb" firstAttribute="leading" secondItem="htU-KY-IG4" secondAttribute="leading" constant="30" id="u4S-4H-FV2"/>
+                        <constraint firstItem="0y6-v6-vSp" firstAttribute="top" secondItem="0le-RY-Esi" secondAttribute="bottom" id="umx-Ch-SrW"/>
+                        <constraint firstAttribute="trailing" secondItem="LSL-Ub-oUk" secondAttribute="trailing" constant="30" id="yGT-Ip-2w5"/>
+                        <constraint firstItem="6gB-Ik-nmi" firstAttribute="top" secondItem="htU-KY-IG4" secondAttribute="top" constant="30" id="yGr-0A-arS"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.19614190919999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="htU-KY-IG4" firstAttribute="top" secondItem="Ows-yb-sfh" secondAttribute="bottom" id="0ga-Ds-Ddn"/>
+                <constraint firstItem="Ows-yb-sfh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="FgL-01-fPU"/>
+                <constraint firstItem="Ows-yb-sfh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Hgd-tW-vTW"/>
+                <constraint firstItem="htU-KY-IG4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="V9B-fB-9Oh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ows-yb-sfh" secondAttribute="trailing" id="g0B-Ju-CmA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="htU-KY-IG4" secondAttribute="trailing" id="hq4-Wx-8Ud"/>
+            </constraints>
+            <point key="canvasLocation" x="-100" y="107.74647887323944"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow.left" catalog="system" width="128" height="95"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

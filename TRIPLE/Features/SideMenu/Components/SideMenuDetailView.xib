@@ -24,8 +24,11 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FmN-m3-WY9" userLabel="HeaderView">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="180"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="청계천꿈나라" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usy-at-5nK">
-                            <rect key="frame" x="20" y="26" width="130" height="30"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usy-at-5nK">
+                            <rect key="frame" x="20" y="26" width="277.66666666666669" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Rce-Iv-GiA"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -36,8 +39,8 @@
                             <color key="textColor" systemColor="systemGrayColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="J6t-yx-P8o">
-                            <rect key="frame" x="297.66666666666669" y="10.666666666666664" width="70" height="68.666666666666686"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J6t-yx-P8o">
+                            <rect key="frame" x="297.66666666666669" y="10" width="70" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="70" id="QSQ-la-bKz"/>
                                 <constraint firstAttribute="height" constant="70" id="nQj-a4-Aku"/>
@@ -50,7 +53,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="90.666666666666671" height="80"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="e7b-LA-49P">
-                                            <rect key="frame" x="25.333333333333336" y="26.000000000000004" width="40.000000000000007" height="28.333333333333339"/>
+                                            <rect key="frame" x="25.333333333333336" y="26.000000000000007" width="40.000000000000007" height="28.33333333333335"/>
                                             <color key="tintColor" systemColor="labelColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="8Yu-ff-g5u"/>
@@ -110,7 +113,7 @@
                                     <rect key="frame" x="181.66666666666666" y="0.0" width="90.666666666666657" height="80"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yeU-Zh-IuB">
-                                            <rect key="frame" x="25.333333333333343" y="24.666666666666668" width="40" height="29.666666666666647"/>
+                                            <rect key="frame" x="25.333333333333343" y="24.666666666666668" width="40" height="29.666666666666661"/>
                                             <color key="tintColor" systemColor="labelColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="hc7-K3-Yfs"/>
@@ -198,6 +201,7 @@
                         <constraint firstItem="rZc-yj-VQ9" firstAttribute="leading" secondItem="FmN-m3-WY9" secondAttribute="leading" constant="20" symbolic="YES" id="Ifd-ND-DCS"/>
                         <constraint firstItem="Usy-at-5nK" firstAttribute="leading" secondItem="FmN-m3-WY9" secondAttribute="leading" constant="20" symbolic="YES" id="J69-8r-mKb"/>
                         <constraint firstAttribute="bottom" secondItem="hOd-xW-3Dn" secondAttribute="bottom" constant="20" id="Kpp-db-5Er"/>
+                        <constraint firstItem="J6t-yx-P8o" firstAttribute="leading" secondItem="Usy-at-5nK" secondAttribute="trailing" id="UqN-fH-54D"/>
                         <constraint firstItem="J6t-yx-P8o" firstAttribute="centerX" secondItem="56W-Sg-pyy" secondAttribute="centerX" id="f5k-fn-3mE"/>
                         <constraint firstItem="56W-Sg-pyy" firstAttribute="top" secondItem="J6t-yx-P8o" secondAttribute="bottom" id="fsc-Tl-YK1"/>
                         <constraint firstItem="hOd-xW-3Dn" firstAttribute="top" secondItem="FmN-m3-WY9" secondAttribute="top" constant="80" id="mCt-eA-74q"/>
@@ -634,7 +638,6 @@
     <resources>
         <image name="book.closed" catalog="system" width="115" height="128"/>
         <image name="chevron.forward" catalog="system" width="97" height="128"/>
-        <image name="circle" catalog="system" width="128" height="123"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="location" catalog="system" width="128" height="119"/>
         <image name="star" catalog="system" width="128" height="116"/>

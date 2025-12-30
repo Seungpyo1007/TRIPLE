@@ -33,13 +33,12 @@ class StoryCollectionViewCell: UICollectionViewCell {
         setupUI()
     }
     
+    /// 셀이 재사용되기 전에 상태 초기화
     override func prepareForReuse() {
         super.prepareForReuse()
-        // 화면 밖으로 나갔을 때도 재생 상태를 유지하기 위해 플레이어와 호스팅 뷰를 의도적으로 유지합니다.
-        // 이미 로드된 웹 콘텐츠를 보존하기 위해 별도의 초기화 로직을 두지 않습니다.
     }
     
-    // MARK: - Setup UI (기본 Cell UI Setup)
+    // MARK: - Setup UI
     private func setupUI() {
         contentView.backgroundColor = .secondarySystemBackground
         contentView.layer.cornerRadius = 12
@@ -118,7 +117,7 @@ class StoryCollectionViewCell: UICollectionViewCell {
     }
 
     /// 재생을 초기화하지 않고 기존 YouTubePlayer를 연결합니다.
-    /// 셀이 재사용되거나 다시 나타날 때 연속적인 재생을 유지하기 위해 사용합니다.
+    /// 셀이 재사용되거나 다시 나타날 때 연속적인 재생을 유지하기 위해 사용
     func configureWithExisting(player: YouTubePlayer) {
         // 제공된 플레이어 참조 유지
         self.player = player

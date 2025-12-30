@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - 도메인 모델
+// MARK: - 모델
 
 /// 여행 콘텐츠 카테고리
 enum StoryCategory: String, CaseIterable, Codable, Sendable {
@@ -28,7 +28,6 @@ enum StoryCategory: String, CaseIterable, Codable, Sendable {
     }
 }
 
-/// 재생할 유튜브 영상을 나타내는 스토리 항목
 struct Story: Identifiable, Hashable, Codable, Sendable {
     let id: UUID
     let category: StoryCategory

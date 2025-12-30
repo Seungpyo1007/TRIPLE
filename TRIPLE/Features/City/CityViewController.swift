@@ -1,5 +1,5 @@
 //
-//  CountryViewController.swift
+//  CityViewController.swift
 //  TRIPLE
 //
 //  Created by 홍승표 on 12/16/25.
@@ -18,7 +18,7 @@ class CityViewController: UIViewController {
     @IBOutlet weak var cityFirstCityLabel: UILabel!
     @IBOutlet weak var citySecondCityLabel: UILabel!
     
-    // MARK: - 변수 Data & State (의존성 및 상태 관리)
+    // MARK: - 속성
     var viewModel: CityViewModel?
     var riveVM = RiveViewModel(fileName: "Snow")
     
@@ -26,26 +26,26 @@ class CityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         riveVM.setView(riveView)
-        // ViewModel 데이터에 따른 UI 렌더링 로직 수행
         setupCityDisplay()
+        setupGesture()
     }
     
-    // MARK: - UI Setup
+    // MARK: - UI 설정
     private func setupCityDisplay() {
         guard let vm = viewModel else { return }
         
-        // 1. 기본 타이틀 설정
+        // 기본 타이틀 설정
         self.title = vm.cityNameText
 
-        // 2. 모델을 통해 도시 상세 정보(한국어명, 유명 마을 등) 조회
+        // 상세 표기 정보 조회
         let model = CityRecModel()
         let info: CityDisplayInfo? = {
             if !vm.placeIDText.isEmpty { return model.displayInfo(forPlaceID: vm.placeIDText) }
             else { return model.displayInfo(for: vm.cityNameText) }
         }()
 
-        // 3. 조회된 정보가 있을 경우 UI 업데이트 (없으면 Fallback 처리)
         if let info = info {
+            // 네비게이션 타이틀 및 라벨에 도시 정보 설정
             self.title = info.cityKoreanName
             cityKorLabel.text = info.cityKoreanName
             cityEngLabel.text = info.cityEnglishName
@@ -53,15 +53,40 @@ class CityViewController: UIViewController {
             cityFirstCityLabel.text = info.firstFamousCityKorean
             citySecondCityLabel.text = info.secondFamousCityKorean
             
-            // 데이터 존재 여부에 따른 Hidden 처리 (생략 가능하지만 코드 가독성을 위해 유지)
+            // 텍스트가 비어있는 라벨은 숨김 처리
             [cityKorLabel, cityEngLabel, cityTownLabel, cityFirstCityLabel, citySecondCityLabel].forEach {
                 $0?.isHidden = ($0?.text?.isEmpty ?? true)
             }
         } else {
-            // 정보가 없는 경우 기본 이름만 표시
+            // 도시 상세 정보가 없는 경우: 기본 도시명만 표시하고 나머지는 숨김
             cityKorLabel.text = vm.cityNameText
             [cityEngLabel, cityTownLabel, cityFirstCityLabel, citySecondCityLabel].forEach { $0?.isHidden = true }
         }
+    }
+
+    // MARK: - 제스처 설정
+    private func setupGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapRiveView))
+        riveView.isUserInteractionEnabled = true
+        riveView.addGestureRecognizer(tap)
+    }
+    
+    // MARK: - 화면 전환 (WeatherViewController로 이동)
+    @objc private func didTapRiveView() {
+        let cityName: String
+        if let vm = viewModel {
+            if let info = CityRecModel().displayInfo(forPlaceID: vm.placeIDText).flatMap({ $0 }) ?? CityRecModel().displayInfo(for: vm.cityNameText) {
+                cityName = info.cityEnglishName
+            } else {
+                cityName = vm.cityNameText
+            }
+        } else {
+            cityName = cityKorLabel.text?.isEmpty == false ? (cityEngLabel.text?.isEmpty == false ? (cityEngLabel.text ?? "") : (cityKorLabel.text ?? "")) : "Tokyo"
+        }
+        
+        let weatherVM = WeatherViewModel(cityName: cityName)
+        let weatherVC = WeatherViewController.instantiate(with: weatherVM)
+        self.navigationController?.pushViewController(weatherVC, animated: true)
     }
     
     // MARK: - @IBActions
@@ -70,14 +95,12 @@ class CityViewController: UIViewController {
     }
     
     @IBAction func openSideMenu(_ sender: Any) {
-        // TODO: - 여기다가 SideMenuViewController 넣어야함
         let alert = UIAlertController(title: "사이드 메뉴", message: "기능이 아직 미완성입니다.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
     
     @IBAction func openMapsMenu(_ sender: Any) {
-        // 지도 화면 초기화 및 데이터 전달
         let vc: CityPlacesViewController = Bundle.main.path(forResource: "CityPlacesViewController", ofType: "nib") != nil
             ? CityPlacesViewController(nibName: "CityPlacesViewController", bundle: .main)
             : CityPlacesViewController()
@@ -92,15 +115,17 @@ class CityViewController: UIViewController {
     }
 }
 
-// MARK: - Extension (외부 호출용 생성자)
+// MARK: - 외부 팩토리
 extension CityViewController {
-    /// 외부(Main 등)에서 CityViewController를 안전하고 간편하게 생성하기 위한 헬퍼 함수
+    /// CityRecCollectionDelegate에서 셀을 선택했을 때 이 메서드를 사용하여
+    /// CityViewController를 생성하고 화면 전환을 수행합니다.
     static func instantiate(with viewModel: CityViewModel) -> CityViewController {
         let nibName = "CityViewController"
         let vc = Bundle.main.path(forResource: nibName, ofType: "nib") != nil
             ? CityViewController(nibName: nibName, bundle: .main)
             : CityViewController()
         
+        // ViewModel 주입 및 공통 설정
         vc.viewModel = viewModel
         vc.modalPresentationStyle = .fullScreen
         return vc

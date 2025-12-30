@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		356D5FCA2EEAA510002147A7 /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 356D5FC92EEAA510002147A7 /* YouTubePlayerKit */; };
-		E501F084A946155C0F44A118 /* libPods-TRIPLE.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A017F84383373A87720911E7 /* libPods-TRIPLE.a */; };
+		A6F47BDEF27F343C2EE601A5 /* Pods_TRIPLE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7D408FA0993D7CFCB9D51A /* Pods_TRIPLE.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		35FDAFF02ED43F5000D7E35B /* TRIPLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRIPLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F7D408FA0993D7CFCB9D51A /* Pods_TRIPLE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TRIPLE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B6A89C590F274CEFC4A931 /* Pods-TRIPLE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TRIPLE.debug.xcconfig"; path = "Target Support Files/Pods-TRIPLE/Pods-TRIPLE.debug.xcconfig"; sourceTree = "<group>"; };
-		A017F84383373A87720911E7 /* libPods-TRIPLE.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TRIPLE.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF45E25E5B0049D052470088 /* Pods-TRIPLE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TRIPLE.release.xcconfig"; path = "Target Support Files/Pods-TRIPLE/Pods-TRIPLE.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,7 +45,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				356D5FCA2EEAA510002147A7 /* YouTubePlayerKit in Frameworks */,
-				E501F084A946155C0F44A118 /* libPods-TRIPLE.a in Frameworks */,
+				A6F47BDEF27F343C2EE601A5 /* Pods_TRIPLE.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,7 +55,7 @@
 		1578EF8E05906C37500F8469 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A017F84383373A87720911E7 /* libPods-TRIPLE.a */,
+				7F7D408FA0993D7CFCB9D51A /* Pods_TRIPLE.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -166,6 +166,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		0AC002045573C448717E20C2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -209,6 +210,7 @@
 		};
 		2786FAC7848591F8CE2A09CA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -369,6 +371,10 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-no_warn_duplicate_libraries",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -427,6 +433,10 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-no_warn_duplicate_libraries",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;

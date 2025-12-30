@@ -19,7 +19,7 @@ class CityPlacesViewController: UIViewController {
     @IBOutlet weak var restaurantButton: UIButton!
     @IBOutlet weak var lodgingButton: UIButton!
     
-    // MARK: - 변수 & 상수
+    // MARK: - 속성
     // 외부 주입 데이터
     var initialCityName: String?
     var initialPlaceID: String?
@@ -41,9 +41,9 @@ class CityPlacesViewController: UIViewController {
         bindViewModel()
     }
     
-    // MARK: - 3. UI Setup
+    // MARK: - UI 설정
     
-    /// 내비게이션 바 타이틀 설정
+    /// 내비게이션 바 타이틀 설정 (도시 이름 표시)
     private func setupNavigation() {
         if let name = initialCityName, !name.isEmpty {
             cityTravelName.title = "\(name) 여행"
@@ -80,7 +80,7 @@ class CityPlacesViewController: UIViewController {
         lodgingButton.addTarget(self, action: #selector(didTapLodging), for: .touchUpInside)
     }
 
-    /// 뷰모델 바인딩 (데이터 업데이트 감지)
+    /// 뷰모델 바인딩
     private func bindViewModel() {
         viewModel.onPlacesUpdate = { [weak self] places, color in
             self?.addMarkers(for: places, color: color)
@@ -90,7 +90,7 @@ class CityPlacesViewController: UIViewController {
         }
     }
     
-    // MARK: - 4. Logic & Actions
+    // MARK: - Logic & Actions
     
     /// 전달받은 PlaceID가 있다면 해당 위치로 카메라 이동
     private func centerToInitialCityIfAvailable() {
@@ -117,12 +117,19 @@ class CityPlacesViewController: UIViewController {
         guard let mapView = self.mapView else { return }
         clearCategoryMarkers()
         
+        // 검색된 각 장소에 대해 마커 생성 및 지도에 추가
         for place in places {
+            // 마커를 장소의 좌표 위치에 생성
             let marker = GMSMarker(position: place.coordinate)
+            // 마커 제목에 장소 이름 설정
             marker.title = place.name
+            // 평점이 있는 경우 마커 설명에 평점 표시
             if place.rating != 0 { marker.snippet = "Rating: \(place.rating)" }
+            // 카테고리별 색상으로 마커 아이콘 설정
             marker.icon = GMSMarker.markerImage(with: color)
+            // 마커를 지도에 표시
             marker.map = mapView
+            // 현재 카테고리 마커 배열에 추가 (나중에 제거하기 위해)
             currentCategoryMarkers.append(marker)
         }
         
@@ -133,7 +140,7 @@ class CityPlacesViewController: UIViewController {
         }
     }
     
-    // MARK: - @objc Actions (버튼 클릭 이벤트)
+    // MARK: - @objc Actions & @IBAction
     
     @IBAction func backButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
