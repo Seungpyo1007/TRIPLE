@@ -10,7 +10,7 @@ import UIKit
 
 final class SearchViewModel {
     
-    // MARK: - Output (ViewModel -> View)
+    // MARK: - 출력 (ViewModel -> View)
     /// 검색 결과 리스트가 변경되었을 때 View에 알리는 콜백
     var onResultsChanged: (([PlaceItem]) -> Void)?
     

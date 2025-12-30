@@ -7,13 +7,21 @@
 
 import UIKit
 
+// MARK: - Delegate 정의
+protocol SettingsViewDelegate: AnyObject {
+    func didTapLogout()
+}
+
 class SettingsView: UIView {
     
-    // MARK: - 변수 & 상수
+    @IBOutlet weak var logoutView: UIView!
+    
+    // MARK: - 속성
+    weak var delegate: SettingsViewDelegate?
     private var contentView: UIView?
     private let scrollView = UIScrollView()
 
-    // MARK: - 생명주기 (초기화)
+    // MARK: - 초기화
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -24,10 +32,15 @@ class SettingsView: UIView {
         commonInit()
     }
 
-    // MARK: - UIView 초기 설정
+    // MARK: - 초기 설정
     private func commonInit() {
-        scrollView.translatesAutoresizingMaskIntoConstraints = false // Auto Layout을 사용하기 위해 기본 설정을 비활성화
-        
+        setupScrollView()
+        loadNib()
+        setupLogoutGesture()
+    }
+    
+    private func setupScrollView() {
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(scrollView)
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: topAnchor),
@@ -35,31 +48,36 @@ class SettingsView: UIView {
             scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
+    }
 
-        let nib = UINib(nibName: "SettingsView", bundle: Bundle(for: type(of: self)))
-        guard let loaded = nib.instantiate(withOwner: self, options: nil).first as? UIView else {
-            assertionFailure("실패")
-            return
-        }
+    private func loadNib() {
+        // XIB 파일 로드
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: "SettingsView", bundle: bundle)
+        guard let loaded = nib.instantiate(withOwner: self, options: nil).first as? UIView else { return }
 
-        // 로드된 뷰에서 실제 콘텐츠 뷰(actualContent)를 추출하여 contentView 변수에 저장합니다. (뷰 중첩 방지 코드)
-        let actualContent: UIView
-        if let nested = loaded as? SettingsView, let first = nested.subviews.first {
-            actualContent = first
-        } else {
-            actualContent = loaded
-        }
-
-        contentView = actualContent
-        actualContent.translatesAutoresizingMaskIntoConstraints = false // Auto Layout을 사용하기 위해 기본 설정을 비활성화
-        scrollView.addSubview(actualContent) // 스크롤뷰에 actualContent뷰 추가
+        // 뷰 중첩 방지 및 스크롤뷰 주입
+        contentView = loaded
+        loaded.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(loaded)
 
         NSLayoutConstraint.activate([
-            actualContent.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 0),
-            actualContent.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: 0),
-            actualContent.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: 0),
-            actualContent.heightAnchor.constraint(equalToConstant: 1860)
+            loaded.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+            loaded.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
+            loaded.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
+            loaded.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
+            loaded.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor),
+            loaded.heightAnchor.constraint(equalToConstant: 1860) // 기존 높이 유지
         ])
     }
+    
+    private func setupLogoutGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleLogoutTap))
+        logoutView?.isUserInteractionEnabled = true
+        logoutView?.addGestureRecognizer(tap)
+    }
+    
+    @objc private func handleLogoutTap() {
+        delegate?.didTapLogout()
+    }
 }
-

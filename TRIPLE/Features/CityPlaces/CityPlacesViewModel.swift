@@ -16,9 +16,10 @@ final class CityPlacesViewModel {
     /// 검색 중 발생한 에러를 View에 전달
     var onError: ((Error) -> Void)?
 
-    // MARK: - 상수 & 초기화
+    // MARK: - 속성
     private let service: CityPlacesServicing
 
+    // MARK: - 초기화
     init(service: CityPlacesServicing = CityPlacesService()) {
         self.service = service
     }

@@ -6,4 +6,18 @@
 //
 
 import Foundation
-// TODO: - 구현 필요 SettingsViewModel
+import FirebaseAuth
+
+final class SettingsViewModel {
+    
+    // MARK: - 로그아웃 처리
+    func logout(completion: @escaping (Bool) -> Void) {
+        do {
+            try Auth.auth().signOut()
+            completion(true)
+        } catch {
+            print("Logout Error: \(error.localizedDescription)")
+            completion(false)
+        }
+    }
+}
